@@ -4,6 +4,10 @@ Maven &amp; gradle tips &amp; tricks
 
 # Gradle
 
+```
+gradle clean build -X
+
+```
 
 # Maven 3.x
 
