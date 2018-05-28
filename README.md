@@ -1,5 +1,5 @@
-# buildTools
-Maven &amp; gradle tips &amp; tricks
+# Build tools
+Maven &amp; and Gradle tips &amp; and tricks
 
 
 # Gradle
