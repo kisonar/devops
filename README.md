@@ -5,7 +5,10 @@ Maven &amp; and Gradle tips &amp; and tricks
 # Gradle
 
 ```
-gradle clean build -X
+gradle clean build 
+gradle clean build -X test (exclude) 
+gradle clean build test --continue
+gradle clean build --build-cache
 
 ```
 
