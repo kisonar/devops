@@ -18,7 +18,7 @@ gradle clean build --build-cache
 
 set MAVEN_OPTS=-Xmx2000m -XX:MaxPermSize=2000m
 
-mvn clean install
+mvn clean install (-o install)
 
 mvn versions:set -DnewVersion=2.0-SNAPSHOTKogut
 mvn [-T 4 - liczba watkow obslugujacych build'a, 2C - 2 watki na Core ] 
@@ -44,6 +44,7 @@ dependency:analyze-duplicate => szuka duplikatow
 dependency:resolve-plugins
 dependency:tree -> buduje samo drzewo zaleznosci
 dependency:tree -DoutputType=graphml -DoutputFile=dependency.graphml [-Dincludes=com.mossad.nac.debt]
+dependency:go-offline
 -fae
 -P profile-1,profile-2
 
