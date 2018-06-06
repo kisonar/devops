@@ -50,10 +50,8 @@ gradle clean build --build-cache
 
 set MAVEN_OPTS=-Xmx2000m -XX:MaxPermSize=2000m
 
-mvn clean install (-o install)
-
+mvn clean install (-o install) [-T 4 - liczba watkow obslugujacych build'a, 2C - 2 watki na Core ] 
 mvn versions:set -DnewVersion=2.0-SNAPSHOTKogut
-mvn [-T 4 - liczba watkow obslugujacych build'a, 2C - 2 watki na Core ] 
 
 junit: -Dsurefire.skipAfterFailureCount=1 -DskipTests
 
@@ -67,6 +65,8 @@ javadoc:javadoc
 
 versions:display-dependency-updates 
 versions:display-plugin-updates
+
+mvn clean install versions:display-dependency-updates versions:display-plugin-updates
 
 enforcer:enforce
 
