@@ -1,6 +1,38 @@
 # Build tools
-Maven &amp; and Gradle tips &amp; and tricks
+Maven and Gradle tips and tricks
 
+#Git
+
+```
+git commit -am "twoj message"
+git commit --amend -s
+git push origin HEAD:refs/for/master
+git reset --hard origin/master
+git clean -fd
+git branch -d the_local_branch
+git branch -D the_local_branch (force mode)
+git branch testing
+git checkout -b testing (dzieki b od razu przeskakujesz)
+git push origin testing -> zaklada remote na gitlabie
+git pull origin testuing
+git branch -r
+git status
+git add nazwa_pliku
+git commit --amend
+
+Gerrit
+
+ide na master
+git pull
+przechodze na branch'a local
+git rebase master
+ide na master
+git merge branchName --squash
+git commit -am "opis jakis" -sq
+git commit --amend 
+git push origin HEAD:refs/for/master
+
+```
 
 # Gradle
 
