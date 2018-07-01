@@ -19,6 +19,7 @@ git branch -r
 git status
 git add nazwa_pliku
 git commit --amend
+git fetch -p
 
 Gerrit
 
