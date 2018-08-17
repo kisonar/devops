@@ -20,7 +20,7 @@ git status
 git add nazwa_pliku
 git commit --amend
 
-Gerrit
+##Gerrit
 
 ide na master
 git pull
@@ -34,7 +34,8 @@ git push origin HEAD:refs/for/master
 
 ```
 
-# Gradle
+#Build tools
+## Gradle
 
 ```
 gradle clean build 
@@ -44,7 +45,7 @@ gradle clean build --build-cache
 
 ```
 
-# Maven 3.x
+## Maven 3.x
 
 ```
 
