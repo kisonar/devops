@@ -1,8 +1,6 @@
-# Build tools
-Maven and Gradle tips and tricks
+#Git tips and tricks
 
-#Git
-
+##Git
 ```
 git commit -am "twoj message"
 git commit --amend -s
@@ -20,9 +18,10 @@ git status
 git add nazwa_pliku
 git commit --amend
 git fetch -p
+```
 
 ##Gerrit
-
+```
 ide na master
 git pull
 przechodze na branch'a local
@@ -36,7 +35,8 @@ git push origin HEAD:refs/for/master
 ```
 
 #Build tools
-## Gradle
+
+## Gradle 4.x
 
 ```
 gradle clean build 
@@ -47,9 +47,7 @@ gradle clean build --build-cache
 ```
 
 ## Maven 3.x
-
 ```
-
 set MAVEN_OPTS=-Xmx2000m -XX:MaxPermSize=2000m
 
 mvn clean install (-o install) [-T 4 - liczba watkow obslugujacych build'a, 2C - 2 watki na Core ] 
