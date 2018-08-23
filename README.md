@@ -1,13 +1,8 @@
-<<<<<<< HEAD
 
 #Git tips and tricks
 
 ##Git
-=======
-#Git tips and tricks
->>>>>>> a21b04f920130768195ac8890224a2da408534d6
 
-##Git
 ```
 git commit -am "twoj message"
 git commit --amend -s
@@ -28,10 +23,7 @@ git fetch -p
 ```
 
 ##Gerrit
-<<<<<<< HEAD
 
-=======
->>>>>>> a21b04f920130768195ac8890224a2da408534d6
 ```
 ide na master
 git pull
@@ -58,6 +50,7 @@ gradle clean build --build-cache
 ```
 
 ## Maven 3.x
+
 ```
 set MAVEN_OPTS=-Xmx2000m -XX:MaxPermSize=2000m
 
