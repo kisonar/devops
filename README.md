@@ -1,6 +1,3 @@
-
-#Git tips and tricks
-
 ##Git
 
 ```
@@ -23,7 +20,6 @@ git fetch -p
 ```
 
 ##Gerrit
-
 ```
 ide na master
 git pull
@@ -37,10 +33,7 @@ git push origin HEAD:refs/for/master
 
 ```
 
-#Build tools
-
 ## Gradle 4.x
-
 ```
 gradle clean build 
 gradle clean build -X test (exclude) 
@@ -50,7 +43,6 @@ gradle clean build --build-cache
 ```
 
 ## Maven 3.x
-
 ```
 set MAVEN_OPTS=-Xmx2000m -XX:MaxPermSize=2000m
 
