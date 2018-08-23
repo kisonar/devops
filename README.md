@@ -1,4 +1,6 @@
-##Git
+# Source code tools
+
+## Git
 
 ```
 git commit -am "twoj message"
@@ -19,7 +21,7 @@ git commit --amend
 git fetch -p
 ```
 
-##Gerrit
+## Gerrit
 ```
 ide na master
 git pull
@@ -32,6 +34,8 @@ git commit --amend
 git push origin HEAD:refs/for/master
 
 ```
+
+# Build tools
 
 ## Gradle 4.x
 ```
