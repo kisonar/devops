@@ -1,6 +1,6 @@
 # Source code tools
 
-## Git
+## Git generl
 
 ```
 git commit -am "twoj message"
@@ -19,6 +19,7 @@ git status
 git add nazwa_pliku
 git commit --amend
 git fetch -p
+GIT_SSH_COMMAND="ssh -v" git pull
 ```
 
 ## Gerrit
