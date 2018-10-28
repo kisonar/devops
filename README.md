@@ -1,6 +1,6 @@
 # Source code tools
 
-## Git generl
+## Git general
 
 ```
 git commit -am "twoj message"
