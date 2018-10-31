@@ -1,4 +1,4 @@
-# Source code tools
+# Source code, build & devops tools by kisonar@wp.pl
 
 ## Git general
 
@@ -36,8 +36,56 @@ git push origin HEAD:refs/for/master
 
 ```
 
-# Build tools
+# devops
 
+## docker 
+
+```
+docker images
+docker ps
+docker logs -f CONTAINER_ID
+docker system prune
+
+docker ps -q -a | xargs docker stop
+docker ps -q -a | xargs docker rm
+
+docker ps -a | grep -v "decisco" | awk '{print $1}' | xargs docker stop
+docker ps -a | grep -v "decisco" | awk '{print $1}' | xargs docker rm
+docker ps -a | grep -v "decisco" | awk '{print $1}' | xargs docker rmi -f
+
+docker shutdown -t now
+docker-machine ip
+docker-machine env 
+docker-machine ssh default
+docker-machine regenerate-certs default
+docker-machine restart default
+
+```
+
+## docker-compose
+
+```
+
+sudo yum install epel-release
+sudo yum install -y python-pip
+sudo pip --proxy= http://host:port/ install docker-compose
+sudo usermod -a -G docker $USER
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+sudo systemctl enable docker
+~/.docker/config.json
+/etc/systemd/system/docker.service.d/override.conf
+
+Problemy z certyfikatami
+
+yum check-update ca-certificates; (($?==100))
+yum update ca-certificates
+yum reinstall ca-certificates
+update-ca-trust extract
+
+```
+
+# Build tools
 ## Gradle 4.x
 ```
 gradle clean build 
