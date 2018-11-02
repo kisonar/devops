@@ -1,4 +1,4 @@
-# Source code, build & devops tools by kisonar@wp.pl
+# Source code, build & devops tools tips & tricks
 
 ## Git general
 
@@ -13,7 +13,7 @@ git branch -D the_local_branch (force mode)
 git branch testing
 git checkout -b testing (dzieki b od razu przeskakujesz)
 git push origin testing -> zaklada remote na gitlabie
-git pull origin testuing
+git pull origin testing
 git branch -r
 git status
 git add nazwa_pliku
@@ -76,7 +76,7 @@ sudo systemctl enable docker
 ~/.docker/config.json
 /etc/systemd/system/docker.service.d/override.conf
 
-Problemy z certyfikatami
+Problems with certificates
 
 yum check-update ca-certificates; (($?==100))
 yum update ca-certificates
@@ -99,7 +99,7 @@ gradle clean build --build-cache
 ```
 set MAVEN_OPTS=-Xmx2000m -XX:MaxPermSize=2000m
 
-mvn clean install (-o install) [-T 4 - liczba watkow obslugujacych build'a, 2C - 2 watki na Core ] 
+mvn clean install [-T 4 - threads per build'a, 2C - 2 threads per Core ] 
 mvn versions:set -DnewVersion=2.0-SNAPSHOTKogut
 
 junit: -Dsurefire.skipAfterFailureCount=1 -DskipTests
@@ -119,11 +119,11 @@ mvn clean install versions:display-dependency-updates versions:display-plugin-up
 
 enforcer:enforce
 
-dependency:analyze-report => nic nie robi
+dependency:analyze-report => does nothing
 dependency:analyze-dep-mgt => o ten robi analize
-dependency:analyze-duplicate => szuka duplikatow
+dependency:analyze-duplicate => searches duplicates
 dependency:resolve-plugins
-dependency:tree -> buduje samo drzewo zaleznosci
+dependency:tree -> builds dependecy tree => good view to read
 dependency:tree -DoutputType=graphml -DoutputFile=dependency.graphml [-Dincludes=com.mossad.nac.debt]
 dependency:go-offline
 -fae
@@ -134,12 +134,12 @@ dependency:go-offline
 -am, --also-make, If project list is specified, also build projects required by the list
 -amd, --also-make-dependents, If project list is specified, also build projects that depend on projects on the list 
 
-Zaleznosci miedzy modulami
+Drawing dependencies between modules:
 
 com.github.janssk1:maven-dependencygraph-plugin:1.0:graph  -DoutputType=graphml -DoutputFile=dependency.graphml 
 
 1)
-mvn clean install -Dmaven.test.skip=true com.googlecode.maven-overview-plugin:maven-overview-plugin:RELEASE:overview => tworzy obraz zawily
+mvn clean install -Dmaven.test.skip=true com.googlecode.maven-overview-plugin:maven-overview-plugin:RELEASE:overview => complec view
 mvn clean install -Dmaven.test.skip=true com.googlecode.maven-overview-plugin:maven-overview-plugin:RELEASE:overview -Dinludes=Dincludes=my.com.you.they -Dscopes=compile
 
 2)
