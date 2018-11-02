@@ -3,7 +3,7 @@
 ## Git general
 
 ```
-git commit -am "twoj message"
+git commit -am "your message"
 git commit --amend -s
 git push origin HEAD:refs/for/master
 git reset --hard origin/master
@@ -11,18 +11,18 @@ git clean -fd
 git branch -d the_local_branch
 git branch -D the_local_branch (force mode)
 git branch testing
-git checkout -b testing (dzieki b od razu przeskakujesz)
-git push origin testing -> zaklada remote na gitlabie
+git checkout -b testing (moves you to testing branch)
+git push origin testing -> makes remote at gitlab
 git pull origin testing
 git branch -r
 git status
-git add nazwa_pliku
+git add file_name
 git commit --amend
 git fetch -p
 GIT_SSH_COMMAND="ssh -v" git pull
 ```
 
-## Gerrit
+## Gerrit 
 ```
 ide na master
 git pull
