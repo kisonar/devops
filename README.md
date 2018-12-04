@@ -86,7 +86,7 @@ update-ca-trust extract
 ```
 
 # Build tools
-## Gradle 4.x
+## Gradle 5.x
 ```
 gradle clean build 
 gradle clean build -X test (exclude) 
@@ -99,7 +99,7 @@ gradle clean build --build-cache
 ```
 set MAVEN_OPTS=-Xmx2000m -XX:MaxPermSize=2000m
 
-mvn clean install [-T 4 - threads per build'a, 2C - 2 threads per Core ] 
+mvn clean install [-T 4 - threads per build'a, 2C - 2 threads per Core ] [-o]
 mvn versions:set -DnewVersion=2.0-SNAPSHOTKogut
 
 junit: -Dsurefire.skipAfterFailureCount=1 -DskipTests
@@ -120,7 +120,7 @@ mvn clean install versions:display-dependency-updates versions:display-plugin-up
 enforcer:enforce
 
 dependency:analyze-report => does nothing
-dependency:analyze-dep-mgt => o ten robi analize
+dependency:analyze-dep-mgt => executes analysis
 dependency:analyze-duplicate => searches duplicates
 dependency:resolve-plugins
 dependency:tree -> builds dependecy tree => good view to read
