@@ -102,7 +102,7 @@ http://andresalmiray.com/maven-scopes-vs-gradle-configurations/
 ```
 set MAVEN_OPTS=-Xmx2000m -XX:MaxPermSize=2000m
 
-mvn clean install [-T 4 - threads per build'a, 2C - 2 threads per Core ] 
+mvn clean install [-T 4 - threads per build'a, 2C - 2 threads per Core ] [-o]
 mvn versions:set -DnewVersion=2.0-SNAPSHOTKogut
 
 junit: -Dsurefire.skipAfterFailureCount=1 -DskipTests
