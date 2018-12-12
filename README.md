@@ -86,16 +86,19 @@ update-ca-trust extract
 ```
 
 # Build tools
-## Gradle 4.x
+## Gradle 5.x
 ```
 gradle clean build 
 gradle clean build -X test (exclude) 
 gradle clean build test --continue
 gradle clean build --build-cache
 
+scopes
+http://andresalmiray.com/maven-scopes-vs-gradle-configurations/
+
 ```
 
-## Maven 3.x
+## Maven 3.6.x
 ```
 set MAVEN_OPTS=-Xmx2000m -XX:MaxPermSize=2000m
 
@@ -106,7 +109,6 @@ junit: -Dsurefire.skipAfterFailureCount=1 -DskipTests
 
 surefire-report:report 
 cobertura:cobertura 
-site 
 checkstyle:checkstyle 
 pmd:pmd pmd:cpd 
 findbugs:findbugs 
@@ -120,10 +122,10 @@ mvn clean install versions:display-dependency-updates versions:display-plugin-up
 enforcer:enforce
 
 dependency:analyze-report => does nothing
-dependency:analyze-dep-mgt => o ten robi analize
+dependency:analyze-dep-mgt => executes analysis
 dependency:analyze-duplicate => searches duplicates
 dependency:resolve-plugins
-dependency:tree -> builds dependecy tree => good view to read
+dependency:tree -> builds dependecy tree => good view to read as tree
 dependency:tree -DoutputType=graphml -DoutputFile=dependency.graphml [-Dincludes=com.mossad.nac.debt]
 dependency:go-offline
 -fae
@@ -133,6 +135,8 @@ dependency:go-offline
 -pl, --projects, Build specified reactor projects instead of all projects
 -am, --also-make, If project list is specified, also build projects required by the list
 -amd, --also-make-dependents, If project list is specified, also build projects that depend on projects on the list 
+
+-------------------------------------------------------------------------------
 
 Drawing dependencies between modules:
 
