@@ -41,7 +41,7 @@ git push origin HEAD:refs/for/master
 ## bash
 
 ```
-grep -rnw   
+grep -rnw '/path/to/somewhere/' -e 'pattern' 
 ```
 
 ## docker 
