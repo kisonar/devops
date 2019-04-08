@@ -20,6 +20,9 @@ git add file_name
 git commit --amend
 git fetch -p
 GIT_SSH_COMMAND="ssh -v" git pull
+
+git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D -> clenup
+
 ```
 
 ## Gerrit 
