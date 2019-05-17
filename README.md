@@ -1,24 +1,27 @@
 # Source code, build & devops tools tips & tricks
 
+# Git
+
 ## Git general
 
 ```
-git commit -am "your message"
-git commit --amend -s
-git push origin HEAD:refs/for/master
-git reset --hard origin/master
-git clean -fd
-git branch -d the_local_branch
-git branch -D the_local_branch (force mode)
-git branch testing
-git checkout -b testing (moves you to testing branch)
+git checkout -b testing (moves you to local branch testing)
 git push origin testing -> makes remote at gitlab
-git pull origin testing
-git branch -r
 git status
 git add file_name
-git commit --amend
+git commit -am "your message"
+git commit --amend -s
+git pull origin testing
 git fetch -p
+
+git reset --hard origin/master
+git clean -fd
+
+git branch -d the_local_branch
+git branch -D the_local_branch (force mode)
+
+git branch -r
+
 GIT_SSH_COMMAND="ssh -v" git pull
 
 git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D -> clenup
