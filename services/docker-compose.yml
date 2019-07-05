@@ -9,11 +9,8 @@ services:
       - ./jenskins:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
     user: root
-    deploy:
-      mode: replicated
-      replicas: 1
    
-#http://SERVER_DOMAIN:8081
+#http://localhost:8081
 
   artifactory:
     container_name: artifactory
@@ -23,10 +20,21 @@ services:
     volumes:
       - ./artifactory:/var/opt/jfrog/artifactory
     user: root  
-    deploy:
-      mode: replicated
-      replicas: 0
     depends_on:
       - jenkins
       
-#http://SERVER_DOMAIN:8082/artifactory
+#http://localhost:8082/artifactory
+
+
+  nexus:
+    image: sonatype/nexus3
+    container_name: nexus
+    ports:
+      - "8083:8081"
+    user: root  
+    volumes:
+      - ./nexus:/nexus-data
+    depends_on:
+     - jenkins
+     - artifactory
+# http://localhost:8083      
