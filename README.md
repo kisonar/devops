@@ -44,14 +44,14 @@ git push origin HEAD:refs/for/master
 
 # devops
 
-## bash
+## bash for Linux
 
 ```
 grep -rnw '/path/to/somewhere/' -e 'pattern' 
 fdisk <path-to-drive>
 
 sudo dnf install docker
-
+sudo dnf update
 
 ```
 
