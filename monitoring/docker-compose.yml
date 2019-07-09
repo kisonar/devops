@@ -1,20 +1,31 @@
 version: '3.6'
 services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.7.2
+    container_name: elasticsearch
+    networks:
+      docker-elk:
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      - discovery.type=single-node
+#loclahost:9200 -> health check agains ElasticSearch
 
   kibana:
-    image: docker.elastic.co/kibana/kibana:5.4.3
+    image: docker.elastic.co/kibana/kibana:6.3.2
     container_name: kibana
+    environment:
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
     ports:
-      - 5601:5601
+      - "5601:5601"
+    networks:
+      - docker-elk
     depends_on:
       - elasticsearch
-    volumes:
-      - ./kibana.yml:/usr/share/kibana/config/kibana.yml
 
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:5.4.3
-    container_name: elasticsearch
-    ports:
-      - 9200:9200
-      - 9300:9300
+#loclahost:5601 -> Kibana UI
 
+networks:
+  docker-elk:
+    driver: bridge
