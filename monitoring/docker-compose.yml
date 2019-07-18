@@ -21,3 +21,11 @@ services:
       - elasticsearch
 
 #loclahost:5601 -> Kibana UI
+
+  nxlog:
+    image: nxlog/nxlog-ce
+    container_name: nxlog
+    ports:
+      - "12201:12201"
+    volumes:
+      - ./nxlog/nxlog.conf:/etc/nxlog.con
