@@ -8,6 +8,7 @@ services:
       - "9300:9300"
     environment:
       - discovery.type=single-node
+    restart: on-failure
 #loclahost:9200 -> health check agains ElasticSearch
 
   kibana:
@@ -17,7 +18,16 @@ services:
       - ELASTICSEARCH_URL=http://elasticsearch:9200
     ports:
       - "5601:5601"
+    restart: on-failure
     depends_on:
       - elasticsearch
-
 #loclahost:5601 -> Kibana UI
+
+  nxlog:
+    image: nxlog/nxlog-ce
+    container_name: nxlog
+    ports:
+      - "12201:12201"
+    volumes:
+      - ./nxlog/nxlog.conf:/etc/nxlog.conf
+    restart: on-failure
