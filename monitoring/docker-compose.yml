@@ -28,4 +28,4 @@ services:
     ports:
       - "12201:12201"
     volumes:
-      - ./nxlog/nxlog.conf:/etc/nxlog.con
+      - ./nxlog/nxlog.conf:/etc/nxlog.conf
