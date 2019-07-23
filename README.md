@@ -51,7 +51,9 @@ grep -rnw '/path/to/somewhere/' -e 'pattern'
 fdisk <path-to-drive>
 
 sudo dnf install docker
-sudo dnf update
+sudo dnf update/upgrade
+
+cat /etc/sudoers
 
 MBR/GPT clenup
 dd if=/dev/zero of=/dev/sdc bs=512 count=1
