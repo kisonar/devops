@@ -56,15 +56,21 @@ sudo dnf update
 MBR/GPT clenup
 dd if=/dev/zero of=/dev/sdc bs=512 count=1
 
+private/public keys
+- transformation
+1) set permission to 400
+2) puttygen <file-name>.ppk -o <file-name>.pem -O private-openssh
+
 ```
 
 ## docker 
 
 ```
+#docker usage
 docker images
 docker ps
 docker logs -f CONTAINER_ID
-docker system prune
+docker system prune -a
 
 docker ps -q -a | xargs docker stop
 docker ps -q -a | xargs docker rm
@@ -73,6 +79,7 @@ docker ps -a | grep -v "decisco" | awk '{print $1}' | xargs docker stop
 docker ps -a | grep -v "decisco" | awk '{print $1}' | xargs docker rm
 docker ps -a | grep -v "decisco" | awk '{print $1}' | xargs docker rmi -f
 
+# docker management
 docker shutdown -t now
 docker-machine ip
 docker-machine env 
