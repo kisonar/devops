@@ -100,3 +100,6 @@ sty 18, 2019 10:37:48 PM com.mossad.keylogger.logging.LogRecorder writeContent
 INFO: RightRightRightRightRightRightRightRight
 sty 18, 2019 10:37:58 PM com.mossad.keylogger.logging.LogRecorder writeContent
 INFO: RightRightRightRightRight
+aaa
+aaaaa
+bbbbbbbb
