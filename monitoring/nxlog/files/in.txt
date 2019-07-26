@@ -1,105 +1,14 @@
 sty 18, 2019 10:10:18 PM com.mossad.keylogger.logging.LogRecorder writeContent
 INFO: ONERightEnter
-sty 18, 2019 10:10:28 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: BMIGUpEnterTab
-sty 18, 2019 10:10:38 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: IMPUSIOWA23Enter
-sty 18, 2019 10:12:38 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: CtrlCCtrlVB
-sty 18, 2019 10:12:48 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: BMEnter
-sty 18, 2019 10:12:58 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: DownEnter
-sty 18, 2019 10:15:58 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: CtrlCCtrlVDownEnter
-sty 18, 2019 10:18:08 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: SANDownDown
-sty 18, 2019 10:18:18 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: Enter35158681 shift_pressed I shift_released M
-sty 18, 2019 10:18:28 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: S3
-sty 18, 2019 10:18:48 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: P
-sty 18, 2019 10:18:58 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: KPDownDownEnter
-sty 18, 2019 10:19:18 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: WRDownDownDownEnterTabTabKRADown
-sty 18, 2019 10:19:28 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: DownEnter
 sty 18, 2019 10:20:08 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: KBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceKRAK
+INFO: KBackspaceBackspaceBackspaceKRAK
 sty 18, 2019 10:20:18 PM com.mossad.keylogger.logging.LogRecorder writeContent
 INFO: CtrlAltOW GCtrlAltLOWBackspace
-sty 18, 2019 10:20:28 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO:  shift_pressed W shift_released RBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspace shift_pressed W shift_released ROCCtrlAltLAWDownEnter
-sty 18, 2019 10:21:18 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: BackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspace shift_pressed W shift_released ROCCtrlAltLAWBackspaceBackspace shift_pressed AW shift_released  
-sty 18, 2019 10:21:28 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: DownEnterBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspace
 sty 18, 2019 10:21:38 PM com.mossad.keylogger.logging.LogRecorder writeContent
 INFO:  shift_pressed K shift_released RAKCtrlAltOWDownEnter
-sty 18, 2019 10:23:28 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: DownEnter
-sty 18, 2019 10:23:38 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: DownEnterTabMDownEnter
-sty 18, 2019 10:23:48 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: TabBMDownEnterTabBMIDownEnterTab8824
-sty 18, 2019 10:23:58 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: 22527
-sty 18, 2019 10:24:38 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: 35158681
-sty 18, 2019 10:24:48 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: MIE3
-sty 18, 2019 10:25:08 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: 12
-sty 18, 2019 10:25:18 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: 485528
-sty 18, 2019 10:25:48 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: ONERightEnter
-sty 18, 2019 10:25:58 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: BMIDownEnterTabIMPUSIOWA23Enter
-sty 18, 2019 10:26:48 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: BackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceKRAKDownDownEnterWROC
-sty 18, 2019 10:26:58 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: DownDownEnterTab
-sty 18, 2019 10:27:48 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: UpUpEnter
-sty 18, 2019 10:27:58 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: DownEnterTabMDownEnterTabBMDownEnterTabBM
-sty 18, 2019 10:28:08 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: DownEnterTab882422527
-sty 18, 2019 10:28:38 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: 35158681BackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceBackspaceTab
-sty 18, 2019 10:28:48 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: Backspace35158681 shift_pressed I shift_released 
-sty 18, 2019 10:28:58 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: MP30
-sty 18, 2019 10:29:08 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: 178
-sty 18, 2019 10:29:18 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: 27628
-sty 18, 2019 10:29:58 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: OTORightEnterNADOLICE
-sty 18, 2019 10:30:08 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: DownDownEnter
-sty 18, 2019 10:31:28 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: NADOLIEnter
-sty 18, 2019 10:33:08 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: KRAKCtrlAltOWEnter
-sty 18, 2019 10:33:28 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: 4
-sty 18, 2019 10:33:38 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: 200
-sty 18, 2019 10:33:48 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: 82018Enter
-sty 18, 2019 10:37:28 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: RightRight
 sty 18, 2019 10:37:38 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: RightRightRightRightRightRightRightRightRightRight
+INFO: Cos
 sty 18, 2019 10:37:48 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: RightRightRightRightRightRightRightRight
-sty 18, 2019 10:37:58 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: RightRightRightRightRight
-aaa
-aaaaa
-bbbbbbbb
+INFO: Tal nie tak
+
+
