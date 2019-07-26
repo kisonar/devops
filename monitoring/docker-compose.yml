@@ -41,7 +41,7 @@ services:
       #- 12201:12201/udp
 
   nxlog:
-    image: nxlog/nxlog-ce
+    image: nxlog/nxlog-ce:2.10.2150
     container_name: nxlog
     ports:
       - "12202:12202"
