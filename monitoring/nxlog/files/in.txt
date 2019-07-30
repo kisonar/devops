@@ -1,8 +1,0 @@
-sty 18, 2019 10:10:18 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: ONERightEnter
-sty 18, 2019 10:37:38 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: Cos
-sty 18, 2019 10:37:48 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: Tal nie tak
-sty 18, 2019 10:37:48 PM com.mossad.keylogger.logging.LogRecorder writeContent
-INFO: Tal nie tak

@@ -77,7 +77,8 @@ services:
       - "12202:12202"
     volumes:
       - ./nxlog/config/nxlog.conf:/etc/nxlog.conf
-      - ./nxlog/files:/var/log
+      - ./nxlog/files/input:/var/log
+      - ./nxlog/files/output/out.txt:/var/opt/out.txt
     restart: on-failure
 
   #loclahost:9200 -> health check against ElasticSearch
