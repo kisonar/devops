@@ -6,6 +6,8 @@
 
 # IntelliJIdea files
 *.iml
+/.idea/
+
 
 # BlueJ files
 *.ctxt
