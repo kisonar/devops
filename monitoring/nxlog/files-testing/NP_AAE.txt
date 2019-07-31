@@ -1,4 +1,3 @@
-Operator|Date|Status|Count
 Networks-Poland|20181020|SUCCESS|41
 Networks-Poland|20181021|SUCCESS|15
 Networks-Poland|20181022|SUCCESS|898
