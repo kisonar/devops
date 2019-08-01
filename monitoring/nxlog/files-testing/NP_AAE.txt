@@ -1,7 +1,17 @@
-Networks-Poland
-Networks Poland
-Napis
-tasa-1234
+Networks-Finland|20181023|wbts_enabled_prosper|1
+NetworksA|20181023|wbts_enabled_prosper|1
+A|B|C|D
+mother|A|C|brother
+Operator|Date|Status|Count
+Networks-Polska|20181023
+A|B
+A|B|C
+A|B|C|E|F
+mother|father|sister
+mother|father|sister|brother
+mother|father|sister|brother|dog|cat
+mother|father|sister|brother|dog|cat|alien
+333-22-444
 12
 23-45
 $%^&$
@@ -10,12 +20,3 @@ tasa-%
 %123
 #asdd
 mother|father|x*&^%
-Operator|Date|Status|Count
-Networks-Finland|20181023|wbts_enabled_prosper|1
-Networks-Polska|20181023
-A|B
-A|B|C
-A|B|C|D
-A|B|C|E|F
-mother|father|sister|brother
-mother|father|sister|brother|dog|cat
