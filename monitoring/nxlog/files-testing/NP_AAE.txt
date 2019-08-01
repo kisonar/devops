@@ -9,14 +9,13 @@ tasa%$#
 tasa-%
 %123
 #asdd
-mama|tata|x*&^%
+mother|father|x*&^%
 Operator|Date|Status|Count
 Networks-Finland|20181023|wbts_enabled_prosper|1
 Networks-Polska|20181023
-mama|tata|siostra|corka
 A|B
 A|B|C
 A|B|C|D
 A|B|C|E|F
-mama|tata
-
+mother|father|sister|brother
+mother|father|sister|brother|dog|cat
