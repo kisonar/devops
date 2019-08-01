@@ -1,4 +1,10 @@
+Networks-Finland|20181023|SUCCESS|999
 Networks-Finland|20181023|wbts_enabled_prosper|1
+==============================================================
+mother|20181023|sister|2
+Mother|20181023|Sister|2
+mother|20181023|sister|2
+MOTHER|20181023|SISTER|2
 NetworksA|20181023|wbts_enabled_prosper|1
 NetworksA|20181023|wbts_enabled_prosper|text
 NetworksA|Wroclaw|wbts_enabled_prosper|1

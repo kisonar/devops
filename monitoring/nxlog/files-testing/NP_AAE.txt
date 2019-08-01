@@ -1,5 +1,4 @@
 Networks|20181023|text|14
-
 mother|father|sister|brother
 mother|father|sister|2
 mother|father|sister|2234
