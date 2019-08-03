@@ -5,6 +5,10 @@ Networks-Finland|20181023|wbts_enabled_prosper|1
 Networks-Finland|20181023|wbts_enabled|1
 ==============================================================
 #Badones
+N-Finland|20181023|wbts_enabled|1
+n-Finland|20181023|wbts_enabled|1
+$-Finland|20181023|wbts_enabled|1
+#-Finland|20181023|wbts_enabled|1
 Networks-Finland|20181023|wbts_enabled_prosper_|1
 Networks-Finland|20181023|wbts_enabledprosper|1
 Networks-Finland|20181023|wbts_enabled_prosper_aaaaaaa|1
