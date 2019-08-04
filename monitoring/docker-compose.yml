@@ -66,11 +66,11 @@ services:
       # Syslog TCP
       - "1514:1514"
       # Syslog UDP
-      #- 1514:1514/udp
+      - "1514:1514/udp"
       # GELF TCP
       - "12201:12201"
       # GELF UDP
-      #- 12201:12201/udp
+      - "12201:12201/udp"
 
   #loclahost:9200 -> health check against ElasticSearch
   elasticsearch:
