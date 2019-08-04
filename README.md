@@ -93,6 +93,16 @@ docker-machine restart default
 
 ```
 
+```
+Installation destinantion change:
+systemctl stop docker
+mv /var/lib/docker /data/
+ln -s /data/docker /var/lib/docker
+systemctl daemon-reload
+systemctl start docker
+
+```
+
 ## docker-compose
 
 ```
