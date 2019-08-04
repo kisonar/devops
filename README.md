@@ -200,3 +200,13 @@ All in one example:
 mvn clean install surefire-report:report cobertura:cobertura site checkstyle:checkstyle pmd:pmd pmd:cpd findbugs:findbugs javadoc:javadoc versions:display-dependency-updates versions:display-plugin-updates dependency:analyze-report dependency:analyze-dep-mgt dependency:analyze-duplicate dependency:resolve-plugins dependency:tree -DoutputType=graphml -DoutputFile=dependency.graphml
 
 ```
+#SFTP
+```
+sftp someone@somewhere
+lpwd / pwd
+lls / ls
+put some-file
+mput *.txt
+get some-file
+mget *.txt
+```
