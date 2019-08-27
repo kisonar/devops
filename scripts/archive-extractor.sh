@@ -5,30 +5,28 @@ FILES_ZIP=${BASE_PATH}/*.zip
 
 extraction_function(){
 
-echo $1
-for file in $1
+echo "Variable $1 is"
+
+for file in $FILES_ZIP
   do
     echo "Processing file $file"
-    fileName=${file##*/}
-    echo "File name: $fileName"
-    filePureName=${fileName%.*}
-    echo "pureFileName : $filePureName"
-    fileExtension=${fileName##*.}
-    echo "fileExtension : $fileExtension"
+    #fileName=${file##*/}
+    #echo "File name: $fileName"
+    #filePureName=${fileName%.*}EXTENSION_ZIP
+    #echo "pureFileName : $filePureName"
+    #fileExtension=${fileName##*.}
+    #echo "fileExtension : $fileExtension"
 
-    #if [[ -w $file ]]; then
+    if [[ -w $file ]]; then
       echo "Extracting archive $fileName ..."
       unzip -o -d ./input-files $file
       echo "Extraction completed"
       mv $file ${ARCHIVE_PATH}/$fileName
       echo "Moved $file to ${ARCHIVE_PATH}/$fileName"
-    #else
-    #  echo "File $file is not zip nor tar. Skipping..."
-    #fi
+    else
+      echo "File $file is not zip nor tar. Skipping..."
+    fi
   done
 }
 
-
-
-
-extraction_function $FILES_ZIP
+extraction_function
