@@ -5,6 +5,7 @@ FILES_ZIP=${BASE_PATH}/*.zip
 
 extraction_function(){
 
+echo $1
 for file in $1
   do
     echo "Processing file $file"
@@ -15,16 +16,19 @@ for file in $1
     fileExtension=${fileName##*.}
     echo "fileExtension : $fileExtension"
 
-    if [[ -w $file ]]; then
+    #if [[ -w $file ]]; then
       echo "Extracting archive $fileName ..."
       unzip -o -d ./input-files $file
       echo "Extraction completed"
       mv $file ${ARCHIVE_PATH}/$fileName
       echo "Moved $file to ${ARCHIVE_PATH}/$fileName"
-    else
-      echo "File $file is not zip nor tar. Skipping..."
-    fi
+    #else
+    #  echo "File $file is not zip nor tar. Skipping..."
+    #fi
   done
 }
+
+
+
 
 extraction_function $FILES_ZIP
