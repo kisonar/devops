@@ -65,6 +65,20 @@ private/public keys
 1) set permission to 400
 2) puttygen <file-name>.ppk -o <file-name>.pem -O private-openssh
 
+archives
+
+pack
+tar -cvf file.tar file1 file2 *.files
+tar -czvf file.tar.gz file1 file 2 *.files
+tar -cjvf file.tar.bz2 file1 file2 *.files
+
+unpack
+tar -xvf file.tar 
+tar -xzvf file.tar.gz 
+tar -xjvf file.tar.bz2
+
+
+
 ```
 
 ## docker 
