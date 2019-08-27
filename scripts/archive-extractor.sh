@@ -9,7 +9,7 @@ FILES_TAR_BZ2=${BASE_PATH}/*.tar.bz2
 extraction_function_zip(){
 for file in $FILES_ZIP
   do
-    echo "Processing file zip: $file"
+    #echo "Processing file zip: $file"
     #fileName=${file##*/}
     #echo "File name: $fileName"
     #filePureName=${fileName%.*}EXTENSION_ZIP
@@ -29,7 +29,7 @@ for file in $FILES_ZIP
 extraction_function_tar(){
 for file in $FILES_TAR
   do
-    echo "Processing file $file"
+    #echo "Processing file $file"
     if [[ -w $file ]]; then
       echo "Extracting archive $fileName ..."
       tar -xvf $file -C $BASE_PATH
@@ -43,7 +43,7 @@ for file in $FILES_TAR
 extraction_function_tar_gz(){
 for file in $FILES_TAR_GZ
   do
-    echo "Processing file $file"
+    #echo "Processing file $file"
     if [[ -w $file ]]; then
       echo "Extracting archive $fileName ..."
       tar -xzvf $file -C $BASE_PATH
@@ -57,7 +57,7 @@ for file in $FILES_TAR_GZ
 extraction_function_tar_bz2(){
 for file in $FILES_TAR_BZ2
   do
-    echo "Processing file $file"
+    #echo "Processing file $file"
     if [[ -w $file ]]; then
       echo "Extracting archive $fileName ..."
       tar -xjvf $file -C $BASE_PATH
