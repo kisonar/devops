@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Report>
     <Header>
         <OperatorName></OperatorName>                     
@@ -7,7 +8,7 @@
         <ReportEnd></ReportEnd>                           
     </Header>
     <NetworkElementIntegration>
-         <Description>Marcin Migdal Shows overall integration status</Description>
+         <Description>Shows overall integration status</Description>
          <Summary>XX created network elements found within time range</Summary>
          <IntegrationLevel>Y %</IntegrationLevel>         
          <Created total="XX">                             
