@@ -48,6 +48,7 @@ git push origin HEAD:refs/for/master
 
 ```
 grep -rnw '/path/to/somewhere/' -e 'pattern' 
+sudo journalctl -u NetworkManager.service
 fdisk <path-to-drive>
 
 sudo dnf install docker
