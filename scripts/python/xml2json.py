@@ -11,20 +11,23 @@ for filename in os.listdir(directory):
   if filename.endswith(".xml"):
     print filename
     filepathxml = os.path.join(directory, filename)
-    f = open(filepathxml, 'r')
-    text = f.read()
-    xmlContentAsDict = xmltodict.parse(text,encoding='utf-8')
-    print "XML to dickt"
-    jsoncontent = json.dumps(xmlContentAsDict, indent=1)
-    print "Generated JSON content is: "
-    print jsoncontent
-    jsoncontent = jsoncontent.replace('\n','')
-
+    file = open(filepathxml, 'r')
+    xmlContentAsDict = xmltodict.parse(file.read(),encoding='utf-8')
+    jsonContent = json.dumps(xmlContentAsDict, indent=1)
+    jsonContentNoNewLines = jsonContent.replace('\n','')
     purefilename = os.path.splitext(filename)[0]
+
+    jsonfilenamepartial = purefilename + '.json-partial'
     jsonfilename = purefilename + '.json'
+
     filepathjson = os.path.join(directory, jsonfilename)
-    with open(filepathjson, 'w') as outfile:
-      pp = pprint.PrettyPrinter(indent=2, stream=outfile)
-      pp.pprint(jsoncontent)
-  else:
-    continue
+    filepathjsonpartial = os.path.join(directory, jsonfilenamepartial)
+
+    with open(filepathjsonpartial, 'wr') as outfile:
+      pp = pprint.PrettyPrinter(indent=1, stream=outfile)
+      pp.pprint(jsonContentNoNewLines)
+    with open(filepathjsonpartial) as filein, open(filepathjson,'wr') as fileout:
+      for line in filein:
+        line=line.replace("'","") # remove ' from beginning of JSON created from XML
+        fileout.write(line)
+    os.remove(filepathjsonpartial) # remove json-partail
