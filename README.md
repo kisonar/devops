@@ -212,7 +212,8 @@ All in one example:
 mvn clean install surefire-report:report cobertura:cobertura site checkstyle:checkstyle pmd:pmd pmd:cpd findbugs:findbugs javadoc:javadoc versions:display-dependency-updates versions:display-plugin-updates dependency:analyze-report dependency:analyze-dep-mgt dependency:analyze-duplicate dependency:resolve-plugins dependency:tree -DoutputType=graphml -DoutputFile=dependency.graphml
 
 ```
-#SFTP
+# Services
+##SFTP
 ```
 sftp someone@somewhere
 lpwd / pwd
@@ -221,4 +222,18 @@ put some-file
 mput *.txt
 get some-file
 mget *.txt
+```
+
+## Nxlog
+
+### Python modules
+#### xmltodick
+Module required by xml2json.py
+```
+sudo dnf install python-xmltodict
+```
+
+####PyYAML
+```
+sudo dnf install PyYAML
 ```
