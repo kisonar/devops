@@ -213,7 +213,7 @@ mvn clean install surefire-report:report cobertura:cobertura site checkstyle:che
 
 ```
 # Services
-##SFTP
+## SFTP
 ```
 sftp someone@somewhere
 lpwd / pwd
@@ -233,7 +233,22 @@ Module required by xml2json.py
 sudo dnf install python-xmltodict
 ```
 
-####PyYAML
+#### PyYAML
 ```
 sudo dnf install PyYAML
+```
+
+# Python
+
+```
+ls /usr/bin/python*
+
+alternatives --install /usr/bin/python python /usr/bin/python3.6 2
+alternatives --install /usr/bin/python python /usr/bin/python2.7 1
+
+alternatives --config python
+python --version
+
+pip3 install pyyaml
+pip3 install xml2dict
 ```
