@@ -1,47 +1,5 @@
 # Source code, build & devops tools tips & tricks
 
-# Git
-
-## Git general
-
-```
-git checkout -b testing (moves you to local branch testing)
-git push origin testing -> makes remote at gitlab
-git status
-git add file_name
-git commit -am "your message"
-git commit --amend -s
-git pull origin testing
-git fetch -p
-
-git reset --hard origin/master
-git clean -fd
-
-git branch -d the_local_branch
-git branch -D the_local_branch (force mode)
-
-git branch -r
-
-GIT_SSH_COMMAND="ssh -v" git pull
-
-git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D -> clenup
-
-```
-
-## Gerrit 
-```
-ide na master
-git pull
-przechodze na branch'a local
-git rebase master
-ide na master
-git merge branchName --squash
-git commit -am "opis jakis" -sq
-git commit --amend 
-git push origin HEAD:refs/for/master
-
-```
-
 # devops
 
 ## bash for Linux
@@ -49,6 +7,7 @@ git push origin HEAD:refs/for/master
 ```
 grep -rnw '/path/to/somewhere/' -e 'pattern' 
 sudo journalctl -u NetworkManager.service
+timedatectl set-timezone Europe/Warsaw
 fdisk <path-to-drive>
 
 sudo dnf install docker
@@ -57,6 +16,7 @@ sudo dnf clean all
 
 du -xh / |grep '^\S*[0-9\.]\+G'|sort -rn
 cat /etc/sudoers
+cat /etc/passwd
 
 MBR/GPT clenup
 dd if=/dev/zero of=/dev/sdc bs=512 count=1
@@ -80,7 +40,6 @@ tar -xjvf file.tar.bz2
 ```
 
 ## docker 
-
 ```
 #docker usage
 docker images
@@ -116,9 +75,7 @@ systemctl start docker
 ```
 
 ## docker-compose
-
 ```
-
 sudo yum install epel-release
 sudo yum install -y python-pip
 sudo pip --proxy= http://host:port/ install docker-compose
@@ -150,7 +107,6 @@ scopes
 http://andresalmiray.com/maven-scopes-vs-gradle-configurations/
 
 ```
-
 ## Maven 3.6.x
 ```
 set MAVEN_OPTS=-Xmx2000m -XX:MaxPermSize=2000m
@@ -257,4 +213,46 @@ python --version
 
 pip3 install pyyaml
 pip3 install xml2dict
+```
+
+# Git
+
+## Git general
+
+```
+git checkout -b testing (moves you to local branch testing)
+git push origin testing -> makes remote at gitlab
+git status
+git add file_name
+git commit -am "your message"
+git commit --amend -s
+git pull origin testing
+git fetch -p
+
+git reset --hard origin/master
+git clean -fd
+
+git branch -d the_local_branch
+git branch -D the_local_branch (force mode)
+
+git branch -r
+
+GIT_SSH_COMMAND="ssh -v" git pull
+
+git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D -> clenup
+
+```
+
+## Gerrit 
+```
+go to master
+git pull
+swithc to branch'a local
+git rebase master
+go to master
+git merge branchName --squash
+git commit -am "opis jakis" -sq
+git commit --amend 
+git push origin HEAD:refs/for/master
+
 ```
