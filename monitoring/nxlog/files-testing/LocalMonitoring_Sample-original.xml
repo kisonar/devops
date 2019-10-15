@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Report>
+    <Header>
+        <OperatorName></OperatorName>                     
+        <Country></Country>                               
+        <Timezone></Timezone>                             
+        <ReportStart></ReportStart>                       
+        <ReportEnd></ReportEnd>                           
+    </Header>
+    <NetworkElementIntegration>
+         <Description>Shows overall integration status</Description>
+         <Summary>XX created network elements found within time range</Summary>
+         <IntegrationLevel>Y %</IntegrationLevel>         
+         <Created total="XX">                             
+             <NEType1>A</NEType1>                         
+             <NEType2>B</NEType2>
+             <NETypeN>C</NETypeN>
+         </Created>
+         <Integrated total="YY">                          
+             <NEType1>D</NEType1>                         
+             <NEType2>E</NEType2>
+             <NETypeN>F</NETypeN>
+         </Integrated>
+         <NotIntegrated total="ZZ">                       
+             <NEType1>G</NEType1>                         
+             <NEType2>H</NEType2>
+             <NETypeN>I</NETypeN>
+         </NotIntegrated>
+    </NetworkElementIntegration>
+    <CaseHandling>
+        <Description>Shows case handling user statistics</Description>
+        <Summary>RR case handling users created found within time range</Summary>
+        <UsersCreated total="RR">                         
+            <User recentlyLoggedIn="no">User1</User>      
+            <User recentlyLoggedIn="yes">User2</User>
+            <User recentlyLoggedIn="yes">UserN</User>
+        </UsersCreated>
+    </CaseHandling>
+    <LSSReports>
+        <Description>Shows number of collections and files received and sent by LSS</Description>
+        <Summary>PP collections with QQ files were received by LSS and SS collections with TT files were sent by LSS to RSS within time range</Summary>
+        <numCollectionsReceived>PP</numCollectionsReceived>   
+        <numFilesReceived>QQ</numFilesReceived>               
+        <numCollectionsSend>SS</numCollectionsSend>           
+        <numFilesSent>TT</numFilesSent>                       
+    </LSSReports>
+</Report>

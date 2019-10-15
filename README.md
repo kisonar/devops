@@ -1,53 +1,13 @@
 # Source code, build & devops tools tips & tricks
 
-# Git
-
-## Git general
-
-```
-git checkout -b testing (moves you to local branch testing)
-git push origin testing -> makes remote at gitlab
-git status
-git add file_name
-git commit -am "your message"
-git commit --amend -s
-git pull origin testing
-git fetch -p
-
-git reset --hard origin/master
-git clean -fd
-
-git branch -d the_local_branch
-git branch -D the_local_branch (force mode)
-
-git branch -r
-
-GIT_SSH_COMMAND="ssh -v" git pull
-
-git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D -> clenup
-
-```
-
-## Gerrit 
-```
-ide na master
-git pull
-przechodze na branch'a local
-git rebase master
-ide na master
-git merge branchName --squash
-git commit -am "opis jakis" -sq
-git commit --amend 
-git push origin HEAD:refs/for/master
-
-```
-
 # devops
 
 ## bash for Linux
 
 ```
 grep -rnw '/path/to/somewhere/' -e 'pattern' 
+sudo journalctl -u NetworkManager.service
+timedatectl set-timezone Europe/Warsaw
 fdisk <path-to-drive>
 
 sudo dnf install docker
@@ -56,6 +16,7 @@ sudo dnf clean all
 
 du -xh / |grep '^\S*[0-9\.]\+G'|sort -rn
 cat /etc/sudoers
+cat /etc/passwd
 
 MBR/GPT clenup
 dd if=/dev/zero of=/dev/sdc bs=512 count=1
@@ -65,10 +26,28 @@ private/public keys
 1) set permission to 400
 2) puttygen <file-name>.ppk -o <file-name>.pem -O private-openssh
 
+archives
+
+pack
+tar -cvf file.tar file1 file2 *.files
+tar -czvf file.tar.gz file1 file 2 *.files
+tar -cjvf file.tar.bz2 file1 file2 *.files
+
+unpack
+tar -xvf file.tar 
+tar -xzvf file.tar.gz 
+tar -xjvf file.tar.bz2
+
+users
+useradd -m -d /PATH/TO/FOLDER USERNAME newuser
+passwd newuser
+
+sudo cp -rf /root/.ssh/* /home/username/.ssh/
+chown -R username:username /home/username/.ssh
+
 ```
 
 ## docker 
-
 ```
 #docker usage
 docker images
@@ -93,10 +72,18 @@ docker-machine restart default
 
 ```
 
-## docker-compose
+```
+Installation destinantion change:
+systemctl stop docker
+mv /var/lib/docker /data/
+ln -s /data /var/lib/docker
+systemctl daemon-reload
+systemctl start docker
 
 ```
 
+## docker-compose
+```
 sudo yum install epel-release
 sudo yum install -y python-pip
 sudo pip --proxy= http://host:port/ install docker-compose
@@ -128,7 +115,6 @@ scopes
 http://andresalmiray.com/maven-scopes-vs-gradle-configurations/
 
 ```
-
 ## Maven 3.6.x
 ```
 set MAVEN_OPTS=-Xmx2000m -XX:MaxPermSize=2000m
@@ -188,5 +174,93 @@ b) Select Layout > Hierarchical > Orientation > Left to Right > OK
 
 All in one example:
 mvn clean install surefire-report:report cobertura:cobertura site checkstyle:checkstyle pmd:pmd pmd:cpd findbugs:findbugs javadoc:javadoc versions:display-dependency-updates versions:display-plugin-updates dependency:analyze-report dependency:analyze-dep-mgt dependency:analyze-duplicate dependency:resolve-plugins dependency:tree -DoutputType=graphml -DoutputFile=dependency.graphml
+
+```
+# Services
+## SFTP
+```
+sftp someone@somewhere
+lpwd / pwd
+lls / ls
+put some-file
+mput *.txt
+get some-file
+mget *.txt
+```
+
+## Nxlog
+
+### Python modules
+#### xmltodick
+Module required by xml2json.py
+```
+sudo dnf install python-xmltodict
+```
+
+#### PyYAML
+```
+sudo dnf install PyYAML
+```
+
+# Python
+
+```
+
+sudo dnf install python3
+sudo dnf install python3-pip
+
+ls /usr/bin/python*
+ln -s /usr/bin/python3.6 /usr/local/sbin/python
+
+or 
+alternatives --install /usr/bin/python python /usr/bin/python3.6 2
+alternatives --install /usr/bin/python python /usr/bin/python2.7 1
+alternatives --config python
+
+python --version
+
+pip3 install pyyaml
+pip3 install xml2dict
+```
+
+# Git
+
+## Git general
+
+```
+git checkout -b testing (moves you to local branch testing)
+git push origin testing -> makes remote at gitlab
+git status
+git add file_name
+git commit -am "your message"
+git commit --amend -s
+git pull origin testing
+git fetch -p
+
+git reset --hard origin/master
+git clean -fd
+
+git branch -d the_local_branch
+git branch -D the_local_branch (force mode)
+
+git branch -r
+
+GIT_SSH_COMMAND="ssh -v" git pull
+
+git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D -> clenup
+
+```
+
+## Gerrit 
+```
+go to master
+git pull
+swithc to branch'a local
+git rebase master
+go to master
+git merge branchName --squash
+git commit -am "opis jakis" -sq
+git commit --amend 
+git push origin HEAD:refs/for/master
 
 ```

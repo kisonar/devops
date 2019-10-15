@@ -1,0 +1,7 @@
+version: '3.6'
+services:
+  random-logger:
+    container_name: random-logger
+    image: chentex/random-logger:latest
+
+   

@@ -1,0 +1,12 @@
+[testbed-marcin]
+10.42.111.28 ansible_ssh_private_key_file=/home/marcin/development/1-openstack.pem
+10.42.111.20 ansible_ssh_private_key_file=/home/marcin/development/2-openstack.pem
+
+[testbed]
+foo.example.com
+bar.example.com
+
+[production]
+one.example.com
+two.example.com
+three.example.com
