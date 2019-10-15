@@ -37,6 +37,14 @@ unpack
 tar -xvf file.tar 
 tar -xzvf file.tar.gz 
 tar -xjvf file.tar.bz2
+
+users
+useradd -m -d /PATH/TO/FOLDER USERNAME newuser
+passwd newuser
+
+sudo cp -rf /root/.ssh/* /home/username/.ssh/
+chown -R username:username /home/username/.ssh
+
 ```
 
 ## docker 
