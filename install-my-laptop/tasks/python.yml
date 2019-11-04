@@ -1,0 +1,6 @@
+- name: install python 3
+  raw: sudo dnf install python3
+- name: set python 3 as default for all via alternative
+  raw: sudo alternatives --install /usr/bin/python python /usr/bin/python3.6.5 1
+- name: install-python3-additions
+  raw: sudo dnf install python3-pip

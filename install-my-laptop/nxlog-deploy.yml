@@ -1,19 +1,4 @@
 - hosts: testbed-marcin
-  vars:
-    http_port: 80
   remote_user: fedora
   tasks:
-    - name: install python 3
-      #yum install -y python36u python36u-pip => CENTOS/redhat
-      raw: sudo dnf install python3
-    #- name: set-python-3-as-default-for-root
-    #  raw: sudo ln -s /usr/bin/python3.6 /usr/local/sbin/python
-    - name: set python 3 as default for all via alternative
-      raw: sudo alternatives --install /usr/bin/python python /usr/bin/python3.6.5 1
-
-    - name: install-python3-additions
-      raw: sudo dnf install python3-pip
-    #- name: download and install nxlog
-    #  dnf: name=https://nxlog.co/system/files/products/files/348/nxlog-ce-2.10.2150-1_rhel7.x86_64.rpm state=installed
-    #- name: reboot Nxlog
-    #  service: name=nxlog enabled=yes state=started
+    - import_tasks: ./tasks/python.yml
