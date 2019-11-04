@@ -14,6 +14,8 @@ sudo dnf install docker
 sudo dnf update/upgrade
 sudo dnf clean all
 
+hsh -s /bin/bash testuser
+
 du -xh / |grep '^\S*[0-9\.]\+G'|sort -rn
 cat /etc/sudoers
 cat /etc/passwd

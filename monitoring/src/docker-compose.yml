@@ -104,8 +104,6 @@ services:
       - "12201:12201"
     volumes:
       - ./nxlog/config/nxlog.conf:/etc/nxlog.conf
-      - ./nxlog/config/xml2json.pl:/etc/xml2json.pl
-      - ./nxlog/config/xml2json.py:/etc/xml2json.py
       - ./nxlog/files/input:/var/log
       - ./nxlog/files/output:/lib
     restart: on-failure

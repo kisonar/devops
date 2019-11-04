@@ -1,0 +1,10 @@
+Operator|Date|Status|Count
+Sign-Finland|20181020|SUCCESS|41
+Sign-Finland|20181021|SUCCESS|15
+Sign-Finland|20181022|SUCCESS|898
+Sign-Finland|20181023|SUCCESS|999
+Sign-Finland|20181023|wbts_enabled_prosper|1
+Sign-Finland|20181023|wbts_enabled_prosper|2
+Sign-Finland|20181023|wbts_enabled_prosper|3
+Sign-Finland|20181023|wbts_enabled_prosper|4
+Sign-Finland|20181023|wbts_enabled_prosper|5
