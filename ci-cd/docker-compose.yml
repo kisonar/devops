@@ -1,17 +1,17 @@
 version: '3.6'
 services:
+  #http://localhost:8081
   jenkins:
     container_name: jenkins
     image: jenkins/jenkins:lts
     ports:
       - "8081:8080"
     volumes:
-      - ./jenskins:/var/jenkins_home
+      - ./jenkins:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
     user: root
    
-#http://localhost:8081
-
+  #http://localhost:8082/artifactory
   artifactory:
     container_name: artifactory
     image: docker.bintray.io/jfrog/artifactory-pro:latest
@@ -23,9 +23,7 @@ services:
     depends_on:
       - jenkins
       
-#http://localhost:8082/artifactory
-
-
+  # http://localhost:8083
   nexus:
     image: sonatype/nexus3
     container_name: nexus
@@ -37,4 +35,3 @@ services:
     depends_on:
      - jenkins
      - artifactory
-# http://localhost:8083      
