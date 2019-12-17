@@ -2,7 +2,7 @@ version: '3.6'
 services:
 
   grafana:
-    image: grafana/grafana:5.4.3 # newest to try v6.4.0-beta1
+    image: grafana/grafana:5.4.3 # newest to try v6.4.0-beta1 or another stable version when available
     container_name: grafana
     ports:
       - "3000:3000"

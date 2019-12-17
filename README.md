@@ -47,6 +47,14 @@ passwd newuser
 sudo cp -rf /root/.ssh/* /home/username/.ssh/
 chown -R username:username /home/username/.ssh
 
+iptables -F
+ss -lntu    => list opened ports
+netstat
+
+scp -rp sourcedirectory user@dest:/path
+scp -rp user@host:/path-to-dir ./storage-path 
+
+
 ```
 
 ## docker 
