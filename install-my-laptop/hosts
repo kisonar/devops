@@ -1,6 +1,5 @@
 [testbed-marcin]
-10.42.111.28 ansible_ssh_private_key_file=/home/marcin/development/1-openstack.pem
-10.42.111.20 ansible_ssh_private_key_file=/home/marcin/development/2-openstack.pem
+UNDEFINED_HOST ansible_ssh_private_key_file=UNDEFINED_KEY
 
 [testbed]
 foo.example.com
