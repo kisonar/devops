@@ -1,8 +1,8 @@
 [testbed-marcin]
-UNDEFINED_HOST ansible_ssh_private_key_file=UNDEFINED_KEY
+10.133.131.152 ansible_ssh_private_key_file=./keys-certs/daniel-key-pair.pem
 
 [testbed]
-foo.example.com
+UNDEFINED-HOST ansible_ssh_private_key_file=./keys-certs/UNDEFINED-PEM-FILE.pem
 bar.example.com
 
 [production]

@@ -1,9 +1,9 @@
 - hosts: testbed-marcin
-  remote_user: {{user}}
+  remote_user: root
   vars_files:
     - variables.yml
   tasks:
-    - import_tasks: ./tasks/python.yml
-      tag: {{python}}
-    - import_tasks: ./tasks/python.yml
-      tag: {{python}}
+    #- import_tasks: ./tasks/python.yml
+    #  tags: "{{tag_python}}"
+    - import_tasks: ./tasks/docker.yml
+      tags: "{{tag_docker}}"
