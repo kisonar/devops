@@ -1,0 +1,21 @@
+- name: install dnf-plugins-core
+  command: dnf -y install dnf-plugins-core
+
+- name: set up the stable repository
+  command: dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+
+- name: Install the latest version of Docker Engine - Community and containerd
+  command: dnf install docker-ce docker-ce-cli containerd.io
+
+- name: Cgroups Exception For Fedora 31, you’ll have to enable the backwards compatibility for Cgroups.
+  command: grubby --update-kernel=ALL --args="systemd.unified_cgroup_hierarchy=0"
+  tag: {{tag_fedora31}}
+
+- name: Enable Docker at boot
+  command: systemctl enable docker
+
+- name: chkconfig
+  command:  chkconfig docker on
+
+- name: Start Docker
+  command: systemctl start docker

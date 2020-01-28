@@ -4,3 +4,6 @@
     - variables.yml
   tasks:
     - import_tasks: ./tasks/python.yml
+      tag: {{python}}
+    - import_tasks: ./tasks/python.yml
+      tag: {{python}}
