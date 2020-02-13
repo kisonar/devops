@@ -19,3 +19,8 @@
 
 - name: Start Docker
   command: systemctl start docker
+
+- name: Install docker-compose
+  dnf:
+    name: docker-compose
+    state: installed
