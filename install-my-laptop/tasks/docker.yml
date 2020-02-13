@@ -20,6 +20,7 @@
 - name: Start Docker
   command: systemctl start docker
 
+#TODO split for docker and docker compose
 - name: Install docker-compose
   dnf:
     name: docker-compose
