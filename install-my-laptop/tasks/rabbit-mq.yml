@@ -1,0 +1,7 @@
+- name: Install dnf-plugins-core
+  copy:
+    src: ./docker/docker-compose.yml
+    dest: /root/docker-compose.yml
+    mode: u=rw,g=rw,o=r #664
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"

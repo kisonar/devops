@@ -17,6 +17,7 @@ sudo dnf clean all
 hsh -s /bin/bash testuser
 
 du -xh / |grep '^\S*[0-9\.]\+G'|sort -rn
+du -ah /var | sprt -n
 cat /etc/sudoers
 cat /etc/passwd
 
@@ -41,7 +42,7 @@ tar -xzvf file.tar.gz
 tar -xjvf file.tar.bz2
 
 users
-useradd -m -d /PATH/TO/FOLDER USERNAME newuser
+useradd -m -d /PATH/TO/FOLDER newuser
 passwd newuser
 
 sudo cp -rf /root/.ssh/* /home/username/.ssh/
