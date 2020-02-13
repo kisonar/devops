@@ -4,8 +4,9 @@ services:
     container_name: rabbit-mq
     image: rabbitmq:3-management
     ports:
-      - "15672:8080"
-      - "5672:8081"
+      - "9000:15672"
+      - "9001:5672"
     user: root
-#The default login is guest guest
+# http://localhost:9000/
+# The default login is guest guest
 #=======================================
