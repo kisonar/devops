@@ -24,3 +24,10 @@
   dnf:
     name: docker-compose
     state: installed
+
+#TODO WAs
+- name: Wa part 1 for Cgroups not working at Fedora 31
+  command: mkdir /sys/fs/cgroup/systemd
+
+- name: Wa part 2 for Cgroups not working at Fedora 31
+  command: mount -t cgroup -o none,name=systemd cgroup /sys/fs/cgroup/systemd
