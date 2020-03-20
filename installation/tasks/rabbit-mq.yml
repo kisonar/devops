@@ -1,6 +1,6 @@
-- name: Install dnf-plugins-core
+- name: Copy docker-compose for Rabbit-MQ
   copy:
-    src: ./docker/docker-compose.yml
+    src: ./stuff/rabbit-mq/docker-compose.yml
     dest: /root/docker-compose.yml
     mode: u=rw,g=rw,o=r #664
     owner: "{{ user_root }}"

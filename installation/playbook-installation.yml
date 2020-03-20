@@ -3,8 +3,8 @@
   vars_files:
     - variables.yml
   tasks:
-    #- import_tasks: ./tasks/python.yml
-    #  tags: "{{tag_python}}"
+    - import_tasks: ./tasks/python.yml
+      tags: "{{tag_python}}"
     - import_tasks: ./tasks/docker.yml
       tags: "{{tag_docker}}"
     - import_tasks: ./tasks/rabbit-mq.yml
