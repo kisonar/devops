@@ -1,0 +1,81 @@
+version: '3.6'
+services:
+
+  grafana:
+    image: grafana/grafana:5.4.3 # newest to try v6.4.0-beta1 or another stable version when available
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./grafana:/var/lib/grafana
+    environment:
+      # does not work overrriding - I do not know why, default credentials as below
+      #- GF_SECURITY_ADMIN_USER=admin
+      #- GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource
+    user: root
+
+  #loclahost:9000 -> UI
+  graylog:
+    image: graylog/graylog:3.0
+    container_name: graylog
+    environment:
+      # CHANGE ME (must be at least 16 characters)!
+      - GRAYLOG_PASSWORD_SECRET=somepasswordpepper
+      # Login: admin
+      # Password: admin
+      - GRAYLOG_ROOT_PASSWORD_SHA2=8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
+      - GRAYLOG_HTTP_EXTERNAL_URI=http://127.0.0.1:9000/
+    links:
+      - mongo
+      - elasticsearch
+    depends_on:
+      - mongo
+      - elasticsearch
+      - nxlog
+    ports:
+      # Graylog web interface and REST API
+      - "9000:9000"
+      # Syslog TCP
+      - "1514:1514"
+      # Syslog UDP
+      - "1514:1514/udp"
+      # GELF TCP
+      #- "12201:12201"
+      # GELF UDP
+      - "12201:12201/udp"
+
+  #loclahost:9200 -> health check against ElasticSearch
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.8.2
+    container_name: elasticsearch
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      - discovery.type=single-node
+#      - http.host=localhost
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    restart: on-failure
+
+  mongo:
+    image: mongo:3
+    container_name: mongo
+    #environment:
+    #  - MONGO_DATA_DIR=/data/db
+    #  - MONGO_LOG_DIR=/dev/null
+    #volumes:
+    #  - ./mongodb:/data/db
+    ports:
+      - "27017:27017"
+
+  nxlog:
+    image: nxlog/nxlog-ce:2.10.2150
+    container_name: nxlog
+    ports:
+      - "12201:12201"
+    volumes:
+      - ./nxlog/config/nxlog.conf:/etc/nxlog.conf
+      - ./nxlog/files/input:/var/log
+      - ./nxlog/files/output:/lib
+    restart: on-failure

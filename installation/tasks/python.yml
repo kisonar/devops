@@ -1,0 +1,6 @@
+- name: install python 3
+  command: dnf install python3
+- name: set python 3 as default for all via alternative
+  command: alternatives --install /usr/bin/python python /usr/bin/python3.6.5 1
+- name: install-python3-additions
+  command: dnf install python3-pip
