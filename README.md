@@ -3,7 +3,6 @@
 # devops
 
 ## bash for Linux
-
 ```
 grep -rnw '/path/to/somewhere/' -e 'pattern' 
 sudo journalctl -u NetworkManager.service
@@ -54,13 +53,12 @@ netstat
 
 scp -rp sourcedirectory user@dest:/path
 scp -rp user@host:/path-to-dir ./storage-path 
-
-
 ```
 
-## docker 
+## Docker 
+
+### Usage
 ```
-#docker usage
 docker images
 docker ps
 docker logs -f CONTAINER_ID
@@ -72,17 +70,17 @@ docker ps -q -a | xargs docker rm
 docker ps -a | grep -v "decisco" | awk '{print $1}' | xargs docker stop
 docker ps -a | grep -v "decisco" | awk '{print $1}' | xargs docker rm
 docker ps -a | grep -v "decisco" | awk '{print $1}' | xargs docker rmi -f
-
-# docker management
+```
+### Management
+```
 docker shutdown -t now
 docker-machine ip
 docker-machine env 
 docker-machine ssh default
 docker-machine regenerate-certs default
 docker-machine restart default
-
 ```
-
+### Installation
 ```
 Installation destinantion change:
 systemctl stop docker
@@ -91,10 +89,7 @@ ln -s /data /var/lib/docker
 systemctl daemon-reload
 systemctl start docker
 
-```
 
-## docker-compose
-```
 sudo yum install epel-release
 sudo yum install -y python-pip
 sudo pip --proxy= http://host:port/ install docker-compose
@@ -111,6 +106,14 @@ yum check-update ca-certificates; (($?==100))
 yum update ca-certificates
 yum reinstall ca-certificates
 update-ca-trust extract
+
+```
+### Compose
+```
+docker-compose up -d
+docker-compose logs
+docker-compose up -d <service-name>
+docker-compose down
 
 ```
 
@@ -199,24 +202,9 @@ get some-file
 mget *.txt
 ```
 
-## Nxlog
-
-### Python modules
-#### xmltodick
-Module required by xml2json.py
-```
-sudo dnf install python-xmltodict
-```
-
-#### PyYAML
-```
-sudo dnf install PyYAML
-```
-
 # Python
 
 ```
-
 sudo dnf install python3
 sudo dnf install python3-pip
 
@@ -237,7 +225,6 @@ pip3 install xml2dict
 # Git
 
 ## Git general
-
 ```
 git checkout -b testing (moves you to local branch testing)
 git push origin testing -> makes remote at gitlab
@@ -259,7 +246,6 @@ git branch -r
 GIT_SSH_COMMAND="ssh -v" git pull
 
 git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D -> clenup
-
 ```
 
 ## Gerrit 
@@ -273,5 +259,4 @@ git merge branchName --squash
 git commit -am "opis jakis" -sq
 git commit --amend 
 git push origin HEAD:refs/for/master
-
 ```
