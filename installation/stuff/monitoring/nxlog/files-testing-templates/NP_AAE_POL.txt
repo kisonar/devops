@@ -1,0 +1,10 @@
+Operator|Date|Status|Count
+Sign-Poland|20181020|SUCCESS|41
+Sign-Poland|20181021|SUCCESS|15
+Sign-Poland|20181022|SUCCESS|898
+Sign-Poland|20181023|SUCCESS|999
+Sign-Poland|20181023|wbts_enabled_prosper|1
+Sign-Poland|20181023|wbts_enabled_prosper|2
+Sign-Poland|20181023|wbts_enabled_prosper|3
+Sign-Poland|20181023|wbts_enabled_prosper|4
+Sign-Poland|20181023|wbts_enabled_prosper|5

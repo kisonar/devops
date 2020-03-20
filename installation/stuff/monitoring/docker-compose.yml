@@ -2,46 +2,18 @@ version: '3.6'
 services:
 
   grafana:
-    image: grafana/grafana:latest
+    image: grafana/grafana:5.4.3 # newest to try v6.4.0-beta1 or another stable version when available
     container_name: grafana
     ports:
       - "3000:3000"
-    env_file:
-      - 'env.grafana'
-    links:
-      - influxdb
-    #volumes:
-      # Data persistency
-      # sudo mkdir -p /srv/docker/grafana/data; chown 472:472 /srv/docker/grafana/data
-      #- /srv/docker/grafana/data:/var/lib/grafana
-    depends_on:
-      - influxdb
-
-  influxdb:
-    image: influxdb:latest
-    container_name: influxdb
-    ports:
-      - "8083:8083"
-      - "8086:8086"
-      - "8090:8090"
-    env_file:
-      - 'env.influxdb'
     volumes:
-      # Data persistency
-      # sudo mkdir -p /srv/docker/influxdb/data
-      - /srv/docker/influxdb/data:/var/lib/influxdb
-
-  #loclahost:5601 -> Kibana UI
-  kibana:
-    image: docker.elastic.co/kibana/kibana:6.3.2
-    container_name: kibana
+      - ./grafana:/var/lib/grafana
     environment:
-      - ELASTICSEARCH_URL=http://elasticsearch:9200
-    ports:
-      - "5601:5601"
-    restart: on-failure
-    depends_on:
-      - elasticsearch
+      # does not work overrriding - I do not know why, default credentials as below
+      #- GF_SECURITY_ADMIN_USER=admin
+      #- GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource
+    user: root
 
   #loclahost:9000 -> UI
   graylog:
@@ -75,7 +47,7 @@ services:
 
   #loclahost:9200 -> health check against ElasticSearch
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:6.6.1
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.8.2
     container_name: elasticsearch
     ports:
       - "9200:9200"
@@ -104,8 +76,6 @@ services:
       - "12201:12201"
     volumes:
       - ./nxlog/config/nxlog.conf:/etc/nxlog.conf
-      - ./nxlog/config/xml2json.pl:/etc/xml2json.pl
-      - ./nxlog/config/xml2json.py:/etc/xml2json.py
       - ./nxlog/files/input:/var/log
       - ./nxlog/files/output:/lib
     restart: on-failure

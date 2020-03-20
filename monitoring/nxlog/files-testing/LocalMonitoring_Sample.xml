@@ -1,7 +1,0 @@
-<Report>
-    <NetworkElementIntegration>
-         <Description>Marcin Migdal Shows overall integration status</Description>
-         <Summary>XX created network elements found within time range</Summary>
-         <IntegrationLevel>Y %</IntegrationLevel>
-    </NetworkElementIntegration>
-</Report>

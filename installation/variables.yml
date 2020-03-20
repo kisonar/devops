@@ -1,0 +1,6 @@
+user_root: root
+
+tag_python: python
+tag_docker: docker
+tag_fedora31: fedora31
+tag_rabbit_mq: rabbit-mq
