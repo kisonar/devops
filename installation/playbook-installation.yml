@@ -3,6 +3,8 @@
   vars_files:
     - variables.yml
   tasks:
+    - import_tasks: ./tasks/dnf.yml
+      tags: "{{tag_dnf}}"
     - import_tasks: ./tasks/python.yml
       tags: "{{tag_python}}"
     - import_tasks: ./tasks/docker.yml

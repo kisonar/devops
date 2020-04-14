@@ -64,6 +64,11 @@ scp -rp user@host:/path-to-dir ./storage-path
 
 systemctl /start/status/stop mysqld
 
+sudo dnf install snapd
+snap install packetsender
+
+usage: packetsender
+
 ```
 
 ## Docker 

@@ -3,32 +3,49 @@
     name: dnf-plugins-core
     state: installed
 
+- name: Install yum-utils
+  dnf:
+    name: yum-utils
+    state: installed
+
 # TODO introduce dnf module
 - name: Set up the stable repository
   command: dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 
+# TODO introduce dnf module
 - name: Install the latest version of Docker Engine - Community and containerd
-  command: dnf -y install docker-ce docker-ce-cli containerd.io
+  command: dnf -y install containerd.io
 
-#- name: Cgroups Exception For Fedora 31, you’ll have to enable the backwards compatibility for Cgroups.
-#  command: grubby --update-kernel=ALL --args="systemd.unified_cgroup_hierarchy=0"
-#  tags: "{{tag_fedora31}}"
+- name: Install Docker CE
+  dnf:
+    name: docker-ce
+    state: installed
+
+- name: Install Docker CE CLI
+  dnf:
+    name: docker-ce-cli
+    state: installed
 
 - name: Enable Docker at boot
   command: systemctl enable docker
 
-- name: Start Docker
-  command: systemctl start docker
+- name: Chconfig for Docker
+  command: chkconfig docker on
 
-#TODO split for docker and docker compose
-- name: Install docker-compose
-  dnf:
-    name: docker-compose
-    state: installed
+- name: Reload Docker daemon
+  command: systemctl daemon-reload
 
-#TODO WAs
-#- name: Wa part 1 for Cgroups not working at Fedora 31
-#  command: mkdir /sys/fs/cgroup/systemd
+- name: Start Docker daemon
+  command: systemctl start docker.service
 
-#- name: Wa part 2 for Cgroups not working at Fedora 31
-#  command: mount -t cgroup -o none,name=systemd cgroup /sys/fs/cgroup/systemd
+#------------------------------------------------------------------------------------------------
+- name: Install Docker Compose
+  get_url:
+    url: https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-Linux-x86_64
+    dest: "{{ docker_compose_path }}"
+    mode: 0755
+
+- name: Apply executable permissions to docker-compose binary
+  file:
+    path: "{{ docker_compose_path }}"
+    mode:  u=rwx,g=rwx,o=rwx

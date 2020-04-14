@@ -1,5 +1,8 @@
 user_root: root
 
+docker_compose_path: /usr/local/bin/docker-compose
+docker_compose_version: 1.25.4
+
 tag_python: python
 tag_docker: docker
 tag_fedora31: fedora31
