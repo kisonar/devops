@@ -53,7 +53,6 @@ iptables -t nat -L
 iptables -t nat -A PREROUTING -p udp --dport 514 -j REDIRECT --to 1514
 systemctl status iptables
 
-
 etc/sysconfig/iptables 
 
 ss -lntu    => list opened ports
@@ -68,7 +67,6 @@ sudo dnf install snapd
 snap install packetsender
 
 usage: packetsender
-
 ```
 
 ## Docker 
@@ -182,7 +180,6 @@ dependency:go-offline
 -pl, --projects, Build specified reactor projects instead of all projects
 -am, --also-make, If project list is specified, also build projects required by the list
 -amd, --also-make-dependents, If project list is specified, also build projects that depend on projects on the list 
-
 -------------------------------------------------------------------------------
 
 Drawing dependencies between modules:
