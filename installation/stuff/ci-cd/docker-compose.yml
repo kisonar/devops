@@ -22,8 +22,6 @@ services:
     user: root
     volumes:
      - ./nexus:/nexus-data
-#    depends_on:
-#     - jenkins
 
   #http://localhost:8082/ui
   #requires license and $$$ - cannot afford for this now

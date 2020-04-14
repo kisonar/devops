@@ -1,12 +1,5 @@
-[testbed-marcin]
-10.133.116.157 ansible_ssh_private_key_file=./keys-certs/svc_enc.pem
-
-
 [testbed]
 UNDEFINED-HOST ansible_ssh_private_key_file=./keys-certs/UNDEFINED-PEM-FILE.pem
-bar.example.com
 
 [production]
 one.example.com
-two.example.com
-three.example.com
