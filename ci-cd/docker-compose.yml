@@ -11,9 +11,22 @@ services:
       - ./jenkins:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
     user: root
+      
+  #http://localhost:8083
+  nexus:
+    image: sonatype/nexus3
+    container_name: nexus
+    ports:
+      - "8083:8081"
+      - "443:443"
+    user: root
+    volumes:
+     - ./nexus:/nexus-data
+#    depends_on:
+#     - jenkins
 
   #http://localhost:8082/ui
-  #requires license so money
+  #requires license and $$$ - cannot afford for this now
   # admin/password
   #artifactory:
   #  container_name: artifactory
@@ -26,17 +39,3 @@ services:
   #  volumes:
   #    - ./artifactory:/var/opt/jfrog/artifactory
   #  user: root
-
-      
-  #http://localhost:8083
-  nexus:
-    image: sonatype/nexus3
-    container_name: nexus
-    ports:
-      - "8083:8081"
-    user: root
-    volumes:
-     - ./nexus:/nexus-data
-#    depends_on:
-#     - jenkins
-
