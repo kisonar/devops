@@ -4,6 +4,5 @@
 
 ### Running
 ```
-
-
+nxlog-run.sh
 ```
