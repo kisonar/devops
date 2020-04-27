@@ -1,3 +1,9 @@
+- name: Create  directory for Rabbit-MQ
+  file:
+    path: /root/rabbot-mq
+    state: directory
+    mode: '0755'
+
 - name: Copy docker-compose for Rabbit-MQ
   copy:
     src: ./stuff/rabbit-mq/docker-compose.yml

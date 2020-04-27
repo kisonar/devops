@@ -2,18 +2,18 @@
 
 # devops
 
-## bash for Linux
+## Bash for Linux
 ```
 grep -rnw '/path/to/somewhere/' -e 'pattern' 
 sudo journalctl -u NetworkManager.service
 timedatectl set-timezone Europe/Warsaw
 fdisk <path-to-drive>
 
-sudo dnf install docker
+sudo dnf install <something aka docker>
 sudo dnf update/upgrade
 sudo dnf clean all
 
-hsh -s /bin/bash testuser
+sh -s /bin/bash testuser
 
 du -xh / |grep '^\S*[0-9\.]\+G'|sort -rn
 du -ah /var | sprt -n
@@ -65,7 +65,6 @@ systemctl /start/status/stop mysqld
 
 sudo dnf install snapd
 snap install packetsender
-
 usage: packetsender
 ```
 
@@ -85,7 +84,8 @@ docker ps -a | grep -v "decisco" | awk '{print $1}' | xargs docker stop
 docker ps -a | grep -v "decisco" | awk '{print $1}' | xargs docker rm
 docker ps -a | grep -v "decisco" | awk '{print $1}' | xargs docker rmi -f
 ```
-### Management
+
+### Management - use very rare
 ```
 docker shutdown -t now
 docker-machine ip
@@ -94,6 +94,7 @@ docker-machine ssh default
 docker-machine regenerate-certs default
 docker-machine restart default
 ```
+
 ### Installation
 ```
 Installation destinantion change:
@@ -101,16 +102,10 @@ systemctl stop docker
 mv /var/lib/docker /data/
 ln -s /data /var/lib/docker
 systemctl daemon-reload
+sudo systemctl enable docker
 systemctl start docker
 
-
-sudo yum install epel-release
-sudo yum install -y python-pip
-sudo pip --proxy= http://host:port/ install docker-compose
 sudo usermod -a -G docker $USER
-sudo systemctl daemon-reload
-sudo systemctl restart docker
-sudo systemctl enable docker
 ~/.docker/config.json
 /etc/systemd/system/docker.service.d/override.conf
 
@@ -120,18 +115,18 @@ yum check-update ca-certificates; (($?==100))
 yum update ca-certificates
 yum reinstall ca-certificates
 update-ca-trust extract
-
 ```
+
 ### Compose
 ```
 docker-compose up -d
 docker-compose logs
 docker-compose up -d <service-name>
 docker-compose down
-
 ```
 
 # Build tools
+
 ## Gradle 5.x
 ```
 gradle clean build 
@@ -141,8 +136,8 @@ gradle clean build --build-cache
 
 scopes
 http://andresalmiray.com/maven-scopes-vs-gradle-configurations/
-
 ```
+
 ## Maven 3.6.x
 ```
 set MAVEN_OPTS=-Xmx2000m -XX:MaxPermSize=2000m
@@ -201,9 +196,10 @@ b) Select Layout > Hierarchical > Orientation > Left to Right > OK
 
 All in one example:
 mvn clean install surefire-report:report cobertura:cobertura site checkstyle:checkstyle pmd:pmd pmd:cpd findbugs:findbugs javadoc:javadoc versions:display-dependency-updates versions:display-plugin-updates dependency:analyze-report dependency:analyze-dep-mgt dependency:analyze-duplicate dependency:resolve-plugins dependency:tree -DoutputType=graphml -DoutputFile=dependency.graphml
-
 ```
+
 # Services
+
 ## SFTP
 ```
 sftp someone@somewhere
@@ -216,7 +212,6 @@ mget *.txt
 ```
 
 # Python
-
 ```
 sudo dnf install python3
 sudo dnf install python3-pip
