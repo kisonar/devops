@@ -1,7 +1,13 @@
+- name: Create  directory for ci-cd
+  file:
+    path: /root/ci-cd
+    state: directory
+    mode: '0755'
+
 - name: Copy docker-compose for Rabbit-MQ
   copy:
-    src: ./stuff/ci/docker-compose.yml
-    dest: /root/docker-compose.yml
+    src: ./stuff/ci-cd/docker-compose.yml
+    dest: /root/ci-cd/docker-compose.yml
     mode: u=rw,g=rw,o=r #664
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
