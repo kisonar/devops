@@ -1,7 +1,8 @@
 version: '3.6'
 
-#http://localhost:8081
+
 services:
+  #http://localhost:8081
   jenkins:
     container_name: jenkins
     image: jenkins/jenkins:lts
@@ -22,18 +23,3 @@ services:
     user: root
     volumes:
      - ./nexus:/nexus-data
-
-  #http://localhost:8082/ui
-  #requires license and $$$ - cannot afford for this now
-  # admin/password
-  #artifactory:
-  #  container_name: artifactory
-  #  image: docker.bintray.io/jfrog/artifactory-pro:latest
-  #  ports:
-  #    - "8082:8082"
-  #    - "8081:8081"
-  #    - "8046:8046"
-  #    - "8070:8070"
-  #  volumes:
-  #    - ./artifactory:/var/opt/jfrog/artifactory
-  #  user: root
