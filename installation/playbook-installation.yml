@@ -13,3 +13,5 @@
       tags: "{{ tag_rabbit_mq }}"
     - import_tasks: ./tasks/python.yml
       tags: "{{ tag_python }}"
+    - import_tasks: ./tasks/python-alternatives.yml
+      tags: "{{ tag_python_alternatives }}"

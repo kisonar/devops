@@ -1,0 +1,2 @@
+- name: set python 3 as default for all via alternative
+  command: alternatives --install /usr/bin/python python /usr/bin/python3.6.5 1
