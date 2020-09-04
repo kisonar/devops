@@ -76,7 +76,6 @@ usage: packetsender
 scp -rp sourcedirectory user@dest:/path
 scp -rp user@host:/path-to-dir ./storage-path 
 ```
-
 ## Docker 
 
 ### Usage
@@ -132,11 +131,32 @@ docker-compose up -d
 docker-compose logs
 docker-compose up -d <service-name>
 docker-compose down
+
+Before deployment fill ./ansible/stuff/docker/daemon.json for enabling download of docker image from Nexus
+```
+
+## Python
+```
+sudo dnf install python3
+sudo dnf install python3-pip
+
+ls /usr/bin/python*
+ln -s /usr/bin/python3.6 /usr/local/sbin/python
+
+or 
+alternatives --install /usr/bin/python python /usr/bin/python3.6 2
+alternatives --install /usr/bin/python python /usr/bin/python2.7 1
+alternatives --config python
+
+python --version
+
+pip3 install pyyaml
+pip3 install xml2dict
 ```
 
 # Build tools
 
-## Gradle 5.x
+## Gradle 6.x
 ```
 gradle clean build 
 gradle clean build -X test (exclude) 
@@ -220,24 +240,6 @@ get some-file
 mget *.txt
 ```
 
-# Python
-```
-sudo dnf install python3
-sudo dnf install python3-pip
-
-ls /usr/bin/python*
-ln -s /usr/bin/python3.6 /usr/local/sbin/python
-
-or 
-alternatives --install /usr/bin/python python /usr/bin/python3.6 2
-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
-alternatives --config python
-
-python --version
-
-pip3 install pyyaml
-pip3 install xml2dict
-```
 
 # Git
 

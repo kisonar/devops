@@ -1,5 +1,0 @@
-[testbed]
-UNDEFINED-HOST ansible_ssh_private_key_file=./keys-certs/UNDEFINED-PEM-FILE.pem
-
-[production]
-one.example.com
