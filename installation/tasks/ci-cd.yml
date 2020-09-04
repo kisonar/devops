@@ -4,7 +4,7 @@
     state: directory
     mode: '0755'
 
-- name: Copy docker-compose for Rabbit-MQ
+- name: Copy docker-compose for CI/CD
   copy:
     src: ./stuff/ci-cd/docker-compose.yml
     dest: /root/ci-cd/docker-compose.yml
