@@ -127,7 +127,7 @@ docker-compose down
 
 # Build tools
 
-## Gradle 5.x
+## Gradle 6.x
 ```
 gradle clean build 
 gradle clean build -X test (exclude) 
