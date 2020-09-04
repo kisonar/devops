@@ -5,9 +5,18 @@
 ## Bash for Linux
 ```
 grep -rnw '/path/to/somewhere/' -e 'pattern' 
+
+systemctl /start/status/stop mysqld
 sudo journalctl -u NetworkManager.service
+
 timedatectl set-timezone Europe/Warsaw
+
 fdisk <path-to-drive>
+lsbkl -f
+format disk with: mkfs.ext4 /dev/vdb
+mount -t ext4 /dev/vdb /journals
+e2fsck -f /dev/vdb
+resize2fs /dev/vdb
 
 sudo dnf install <something aka docker>
 sudo dnf update/upgrade
@@ -17,6 +26,7 @@ sh -s /bin/bash testuser
 
 du -xh / |grep '^\S*[0-9\.]\+G'|sort -rn
 du -ah /var | sprt -n
+
 cat /etc/sudoers
 cat /etc/passwd
 
@@ -55,17 +65,16 @@ systemctl status iptables
 
 etc/sysconfig/iptables 
 
-ss -lntu    => list opened ports
+list opened ports
+ss -lntu
 netstat
-
-scp -rp sourcedirectory user@dest:/path
-scp -rp user@host:/path-to-dir ./storage-path 
-
-systemctl /start/status/stop mysqld
 
 sudo dnf install snapd
 snap install packetsender
 usage: packetsender
+
+scp -rp sourcedirectory user@dest:/path
+scp -rp user@host:/path-to-dir ./storage-path 
 ```
 
 ## Docker 
