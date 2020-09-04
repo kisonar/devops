@@ -1,0 +1,8 @@
+- name: Download sdkman script
+  get_url:
+    url: https://get.sdkman.io
+    dest: /sdkman-script.sh
+    mode: 0777
+
+- name: Install sdkman
+  command: /sdkman-script.sh
