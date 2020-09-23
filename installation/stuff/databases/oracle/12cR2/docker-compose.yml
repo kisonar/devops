@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: quay.io/maksymbilenko/oracle-12c
+    ports:
+      - "8080:8080"
+      - "1521:1521"
+    environment:
+      - processes=200
+      - DATABASES=sample
+    volumes:
+      - ./oracle:/u01/app/oracle
+      - ./oracle-sql:/docker-entrypoint-initdb.d
+
+
+#hostname: localhost
+#port: 1521
+#sid: xe
+#service name: xe
+#username: system/SYS
+#password: oracle
