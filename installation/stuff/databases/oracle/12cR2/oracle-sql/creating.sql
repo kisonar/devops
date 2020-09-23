@@ -5,13 +5,10 @@ commit;
 -- Fix ORA-01950: no privileges on tablespace 'USERS'
 CREATE TABLESPACE table_space_mossad DATAFILE 'table_space_mossad.dat' SIZE 50M EXTENT MANAGEMENT LOCAL AUTOALLOCATE;
 commit;
-
 ALTER USER mossad DEFAULT TABLESPACE table_space_mossad;
 commit;
-
 alter user mossad quota unlimited on table_space_mossad;
 commit;
-
 GRANT UNLIMITED TABLESPACE TO mossad;
 commit;
 

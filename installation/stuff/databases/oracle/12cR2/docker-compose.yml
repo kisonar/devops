@@ -22,11 +22,6 @@ services:
 #username: system/sys
 #password: oracle
 
-#http://localhost:8080/apex
-#workspace: INTERNAL
-#user: ADMIN
-#password: 0Racle$
-
 #http://localhost:8080/em
 #user: sys
 #password: oracle
