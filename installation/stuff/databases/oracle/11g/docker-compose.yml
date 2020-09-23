@@ -12,6 +12,6 @@ services:
       - ./oracle-sql:/docker-entrypoint-initdb.d/
 
     environment:
-      - ORACLE_ENABLE_XDB=tru
+      - ORACLE_ENABLE_XDB=true
       - ORACLE_ALLOW_REMOTE=true
       - ORACLE_DISABLE_ASYNCH_IO=true
