@@ -1,6 +1,15 @@
 # Oracle 11g XE
 
-## APEX - does notwork
+## Connection
+```
+hostname: localhost
+port: 1521
+sid: xe
+username: system
+password: oracle
+```
+
+## APEX - does not work
 ```
 http://localhost:8080/apex/apex_admin :
 username: ADMIN
@@ -16,16 +25,3 @@ username SYS & SYSTEM
 password: oracle
 ```
 
-## Connection
-```
-hostname: localhost
-port: 1521
-sid: xe
-username: system
-password: oracle
-```
-
-### CLI
-````
-Use sqlcl-19.2.1.246.1707.zip which can be downloaded from Oracle official web site.
-````
