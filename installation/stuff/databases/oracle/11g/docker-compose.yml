@@ -1,7 +1,7 @@
 version: '3.6'
 
 services:
-  oracle-db:
+  oracle-db-11g-xs:
     image: epiclabs/docker-oracle-xe-11g
     ports:
       - 1521:1521
@@ -10,7 +10,6 @@ services:
     volumes:
       - ./oracle/:/u01/app/oracle
       - ./oracle-sql:/docker-entrypoint-initdb.d/
-
     environment:
       - ORACLE_ENABLE_XDB=true
       - ORACLE_ALLOW_REMOTE=true

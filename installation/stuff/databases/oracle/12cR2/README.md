@@ -1,7 +1,15 @@
-# Oracle 12cR2
+# Oracle 12.2 Standard Edition
 
-```  
-hostname: localhost
+## Runtime
+```
+Check if oracle directory has 666 permissions
+```
+
+## Connections
+``` 
+Database name: XE
+Instance name: xe
+
 port: 1521
 sid: xe
 service name: xe

@@ -8,14 +8,6 @@ sid: xe
 username: system
 password: oracle
 ```
-
-## APEX - does not work
-```
-http://localhost:8080/apex/apex_admin :
-username: ADMIN
-password: admin
-```
-
 ## Users
 ```
 username XDB
@@ -25,3 +17,9 @@ username SYS & SYSTEM
 password: oracle
 ```
 
+## APEX - cannot log in
+```
+http://localhost:8080/apex/apex_admin :
+username: ADMIN
+password: admin
+```

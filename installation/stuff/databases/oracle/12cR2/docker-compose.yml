@@ -1,8 +1,7 @@
-version: '3.1'
+version: '3.6'
 
 services:
-
-  db:
+  oracle-db-12c-se:
     image: quay.io/maksymbilenko/oracle-12c
     ports:
       - "8080:8080"
