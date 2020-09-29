@@ -1,7 +1,5 @@
-version: '3.6'
+version: '3.7'
 services:
-  # http://<HOST>:9000/
-  # The default login is guest guest
   rabbit-mq:
     container_name: rabbit-mq
     image: rabbitmq:3-management
