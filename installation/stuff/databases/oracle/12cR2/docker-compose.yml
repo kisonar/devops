@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  oracle-db-12c-se:
+    image: quay.io/maksymbilenko/oracle-12c
+    restart: always
+    ports:
+      - "8080:8080"
+      - "1521:1521"
+    volumes:
+      - ./oracle:/u01/app/oracle
+      - ./oracle-sql:/docker-entrypoint-initdb.d
+    environment:
+      - processes=200
+      - DATABASES=sample
