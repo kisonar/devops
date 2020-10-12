@@ -2,7 +2,8 @@
 
 # devops
 
-## Bash for Linux
+## Linux
+###### Various
 ```
 grep -rnw '/path/to/somewhere/' -e 'pattern' 
 
@@ -10,25 +11,7 @@ systemctl /start/status/stop mysqld
 sudo journalctl -u NetworkManager.service
 
 timedatectl set-timezone Europe/Warsaw
-
-fdisk <path-to-drive>
-lsbkl -f
-format disk with: mkfs.ext4 /dev/vdb
-mount -t ext4 /dev/vdb /journals
-e2fsck -f /dev/vdb
-resize2fs /dev/vdb
-
-sudo dnf install <something aka docker>
-sudo dnf update/upgrade
-sudo dnf clean all
-
 sh -s /bin/bash testuser
-
-du -xh / |grep '^\S*[0-9\.]\+G'|sort -rn
-du -ah /var | sprt -n
-
-cat /etc/sudoers
-cat /etc/passwd
 
 MBR/GPT clenup
 dd if=/dev/zero of=/dev/sdc bs=512 count=1
@@ -38,8 +21,69 @@ private/public keys
 1) set permission to 400
 2) puttygen <file-name>.ppk -o <file-name>.pem -O private-openssh
 
-archives
+sudo cp -rf /root/.ssh/* /home/username/.ssh/
+chown -R username:username /home/username/.ssh
+```
+##### Users
+```
+cat /etc/sudoers
+cat /etc/passwd
+useradd -m -d /PATH/TO/FOLDER newuser
+passwd newuser
+```
+##### Disk management
+###### Commands
+```
+du -xh / |grep '^\S*[0-9\.]\+G'|sort -rn
+du -ah /var | sprt -n
+```
+###### Create new
+```
+1 create new data volume in Openstack
+2 attach created data volume to VM
+3 list available devices:lsblk
+4 format disk with: mkfs.ext4 /dev/vdb
+5 create directory with command: mkdir /some-disk 
+6 chmod 777 -R /journals
+7 mount -t ext4 /dev/vdb /journals
+```
+###### Extend one
+```
+1 create backup of existing data volume as snapshot in OpenStack
+2 find disk UUID with: lsblk -f
+3 turn off services using mounted data volume
+4 detach data volume from VM: umount  /dev/vdb /some-disk
+5 extend data volume in OpenStack
+6 attach data volume to VM
+7 check disk and resize it to it's new size defined from OpenStack in point 5: 
+  e2fsck -f /dev/vdb
+  resize2fs /dev/vdb
+  In case after attaching disk is not visible in from VM level, reboot VM
+8 mount drive: mount  /dev/vdb /some-disk
 
+If you want to have everything done in a smooth way, then you can add below steps instead of point 8:
+Add entry in/etc/fstab:
+UUID=<uuid-entry> /journals ext4 defaults 0 2
+where UUID you  get from: lsbkl -f
+```
+##### Ports and packer sending
+```
+list opened ports
+ss -lntu
+netstat
+
+sudo dnf install snapd
+snap install packetsender
+usage: packetsender
+```
+##### DNF actions
+```
+sudo dnf install <something aka docker>
+sudo dnf update/upgrade
+sudo dnf clean all
+```
+##### Archives
+```
 pack
 tar -cvf file.tar file1 file2 *.files
 tar -czvf file.tar.gz file1 file 2 *.files
@@ -49,51 +93,46 @@ unpack
 tar -xvf file.tar 
 tar -xzvf file.tar.gz 
 tar -xjvf file.tar.bz2
-
-users
-useradd -m -d /PATH/TO/FOLDER newuser
-passwd newuser
-
-sudo cp -rf /root/.ssh/* /home/username/.ssh/
-chown -R username:username /home/username/.ssh
-
+```
+##### IP tables
+```
+/etc/sysconfig/iptables
 iptables -L
 iptables -F
 iptables -t nat -L
 iptables -t nat -A PREROUTING -p udp --dport 514 -j REDIRECT --to 1514
 systemctl status iptables
-
-etc/sysconfig/iptables 
-
-list opened ports
-ss -lntu
-netstat
-
-sudo dnf install snapd
-snap install packetsender
-usage: packetsender
-
+```
+##### SCP
+```
 scp -rp sourcedirectory user@dest:/path
 scp -rp user@host:/path-to-dir ./storage-path 
 ```
-## Docker 
+##### SFTP
+```
+sftp someone@somewhere
+lpwd / pwd
+lls / ls
+put some-file
+mput *.txt
+get some-file
+mget *.txt
+```
 
-### Usage
+## Docker 
+##### Usage
 ```
 docker images
 docker ps
 docker logs -f CONTAINER_ID
 docker system prune -a
-
 docker ps -q -a | xargs docker stop
 docker ps -q -a | xargs docker rm
-
 docker ps -a | grep -v "decisco" | awk '{print $1}' | xargs docker stop
 docker ps -a | grep -v "decisco" | awk '{print $1}' | xargs docker rm
 docker ps -a | grep -v "decisco" | awk '{print $1}' | xargs docker rmi -f
 ```
-
-### Management - use very rare
+##### Management - use very rare
 ```
 docker shutdown -t now
 docker-machine ip
@@ -102,8 +141,7 @@ docker-machine ssh default
 docker-machine regenerate-certs default
 docker-machine restart default
 ```
-
-### Installation
+##### Installation
 ```
 Installation destinantion change:
 systemctl stop docker
@@ -119,13 +157,12 @@ sudo usermod -a -G docker $USER
 
 Problems with certificates
 
-yum check-update ca-certificates; (($?==100))
-yum update ca-certificates
-yum reinstall ca-certificates
+dnf/yum check-update ca-certificates; (($?==100))
+dnf/yum update ca-certificates
+dnf/yum reinstall ca-certificates
 update-ca-trust extract
 ```
-
-### Compose
+##### Compose
 ```
 docker-compose up -d
 docker-compose logs
@@ -156,7 +193,7 @@ pip3 install xml2dict
 
 # Build tools
 
-## Gradle 6.x
+##### Gradle 6.x
 ```
 gradle clean build 
 gradle clean build -X test (exclude) 
@@ -167,7 +204,7 @@ scopes
 http://andresalmiray.com/maven-scopes-vs-gradle-configurations/
 ```
 
-## Maven 3.6.x
+###### Maven 3.6.x
 ```
 set MAVEN_OPTS=-Xmx2000m -XX:MaxPermSize=2000m
 
@@ -227,23 +264,9 @@ All in one example:
 mvn clean install surefire-report:report cobertura:cobertura site checkstyle:checkstyle pmd:pmd pmd:cpd findbugs:findbugs javadoc:javadoc versions:display-dependency-updates versions:display-plugin-updates dependency:analyze-report dependency:analyze-dep-mgt dependency:analyze-duplicate dependency:resolve-plugins dependency:tree -DoutputType=graphml -DoutputFile=dependency.graphml
 ```
 
-# Services
-
-## SFTP
-```
-sftp someone@somewhere
-lpwd / pwd
-lls / ls
-put some-file
-mput *.txt
-get some-file
-mget *.txt
-```
-
-
 # Git
 
-## Git general
+##### Git general
 ```
 git checkout -b testing (moves you to local branch testing)
 git push origin testing -> makes remote at gitlab
@@ -266,8 +289,7 @@ GIT_SSH_COMMAND="ssh -v" git pull
 
 git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D -> clenup
 ```
-
-## Gerrit 
+##### Gerrit 
 ```
 go to master
 git pull
