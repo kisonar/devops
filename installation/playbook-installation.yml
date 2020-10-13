@@ -19,3 +19,5 @@
       tags: "{{ tag_proxy }}"
     - import_tasks: ./tasks/sdkman.yml
       tags: "{{ tag_sdkman }}"
+    - import_tasks: ./tasks/open-ldap.yml
+      tags: "{{ tag_open_ldap }}"
