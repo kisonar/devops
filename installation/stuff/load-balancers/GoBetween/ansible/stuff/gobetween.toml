@@ -1,0 +1,116 @@
+[api]
+enabled = true  # true | false
+bind = ":8888"  # bind host:port
+
+# uncomment to enable
+#[api.basic_auth]   # (optional) Enable HTTP Basic Auth
+#login = "admin"    # HTTP Auth Login
+#password = "1111"  # HTTP Auth Password
+
+# uncomment to enable
+#[api.tls]                        # (optional) Enable HTTPS
+#cert_path = "/path/to/cert.pem"  # Path to certificate
+#key_path = "/path/to/key.pem"    # Path to key
+
+#==============================================================================
+[servers.tcp-http]
+bind = ":9000"
+protocol = "tcp"
+balance = "roundrobin"
+max_connections = 10000
+client_idle_timeout = "10m"
+backend_idle_timeout = "10m"
+backend_connection_timeout = "2s"
+
+    [servers.tcp-http.discovery]
+    kind = "static"
+    static_list = [
+      "IP-1:9000 weight=1",
+      "IP-2:9000 weight=1"
+    ]
+    [servers.tcp-http.healthcheck]
+    fails = 1
+    passes = 1
+    interval = "60s"
+    timeout="1s"
+    kind = "ping"
+    ping_timeout_duration = "500ms"
+
+#==============================================================================
+[servers.gelf-tcp]
+bind = ":12201"
+protocol = "tcp"
+balance = "roundrobin"
+max_connections = 10000
+client_idle_timeout = "10m"
+backend_idle_timeout = "10m"
+backend_connection_timeout = "2s"
+
+    [servers.gelf-tcp.discovery]
+    kind = "static"
+    static_list = [
+      "IP-1:12201 weight=1",
+      "IP-2:12201 weight=1"
+   ]
+
+#==============================================================================
+#[servers.gelf-udp]
+#bind = ":12201"
+#protocol = "udp"
+#balance = "roundrobin"
+#udp_responses = 0
+#max_connections = 10000
+#client_idle_timeout = "10m"
+#backend_idle_timeout = "10m"
+#backend_connection_timeout = "2s"
+#max_requests = 0
+#max_responses = 0
+
+
+#    [servers.gelf-udp.discovery]
+#    kind = "static"
+#    static_list = [
+#      "10.133.116.179:12201 weight=1",
+#      "10.133.116.179:12201 weight=1"
+#    ]
+#==============================================================================
+#[servers.syslog-udp]
+#bind = ":514"
+#protocol = "udp"
+#balance = "roundrobin"
+#max_connections = 10000
+#client_idle_timeout = "10m"
+#backend_idle_timeout = "10m"
+#backend_connection_timeout = "2s"
+
+#    [servers.syslog-udp.discovery]
+#    kind = "static"
+#    static_list = [
+#      "10.133.116.179:514 weight=1",
+#      "10.133.116.179:514 weight=1"
+#    ]
+#==============================================================================
+[servers.syslog-tcp]
+bind = ":514"
+protocol = "tcp"
+balance = "roundrobin"
+max_connections = 10000
+client_idle_timeout = "10m"
+backend_idle_timeout = "10m"
+backend_connection_timeout = "2s"
+
+    [servers.syslog-tcp.discovery]
+    kind = "static"
+    static_list = [
+      "IP-1:12201 weight=1",
+      "IP-2:12201 weight=1"
+    ]
+
+
+[profiler]
+enabled = true  # false | true
+bind = ":6060"  # "host:port"
+
+[logging]
+level = "info"   # "debug" | "info" | "warn" | "error"
+output = "stdout" # "stdout" | "stderr" | "/path/to/gobetween.log

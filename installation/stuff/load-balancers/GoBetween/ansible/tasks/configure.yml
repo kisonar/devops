@@ -1,0 +1,15 @@
+- name: GoBetween copy docker-compose.yml
+  copy:
+    src: ./stuff/docker-compose.yml
+    dest: /root/docker-compose.yml
+    mode: u=rw,g=rw,o=r #664
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"
+
+- name: GoBetween copy configuration file
+  copy:
+    src: ./stuff/gobetween.toml
+    dest: /root/gobetween.toml
+    mode: u=rw,g=rw,o=r #664
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"

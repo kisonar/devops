@@ -1,0 +1,43 @@
+# Haproxy
+
+## Installation and upgrade of Haproxy with usage of Ansible 
+
+### Ansible playbook execution
+
+#### Pre-requisite
+```
+Before you start deployment install docker and docker-compose on target machine - look at Tools directory.
+Keep in mind that both docker and docker-compose installations depend on OS type.
+```
+
+#### Running playbook
+```
+How to run Ansible and install or update Haproxy?
+
+Just clone repository, go to Haproxy directory and follow below steps.
+
+1 Changes required in ansible directory
+Check and change entries in variables.yml 
+Check and change entries in hosts
+
+If required you may also change haproxy.cfg file.
+
+2 Then run directly from ansible directory:
+ansible-playbook -i hosts.ini playbook-haproxy.yml
+```
+
+#### Ansible playbook execution verification
+
+```
+Check if web console of Haproxy is availble
+http://<HOST-IP>:3000/monitor
+
+Graylog nodes shoud be accessed at following URL
+http://<HOST-IP>:9000
+```
+
+## Important info
+```
+Haproxy allows for forwarding TCP & HTTP message
+UDP is not supported
+```

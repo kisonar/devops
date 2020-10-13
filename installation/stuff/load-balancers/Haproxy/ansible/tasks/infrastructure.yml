@@ -1,0 +1,15 @@
+- name: Create /var/lib/haproxy
+  file:
+    path: /var/lib/haproxy
+    state: directory
+    mode: u=rwx,g=rwx,o=rx #775
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"
+
+- name: Create /etc/haproxy
+  file:
+    path: /etc/haproxy/
+    state: directory
+    mode: u=rwx,g=rwx,o=rx #775
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"

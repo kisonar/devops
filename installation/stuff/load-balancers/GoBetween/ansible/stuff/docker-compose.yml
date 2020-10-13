@@ -1,0 +1,22 @@
+version: '3.6'
+services:
+
+  gobetween:
+    image: yyyar/gobetween:0.7.0
+    container_name: gobetween
+    ports:
+      #Grafana
+      #- "3000:3000"
+      #Graylog
+      - "12201:12201"
+      - "514:514"
+      - "1514:1514"
+      - "9000:9000"
+      #Elasticsearch
+      #- "9200:9200"
+      #Go Between
+      - "8888:8888"
+      - "6060:6060"
+    volumes:
+      - ./:/etc/gobetween/conf/
+    restart: on-failure

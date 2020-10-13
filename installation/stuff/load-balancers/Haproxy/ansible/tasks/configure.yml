@@ -1,0 +1,7 @@
+- name: Haproxy - copy haproxy.cfg
+  template:
+    src: ./etc/haproxy/haproxy.cfg
+    dest: /etc/haproxy/haproxy.cfg
+    mode: u=rw,g=rw,o=r #664
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"

@@ -1,0 +1,7 @@
+# below variable's value is being set in hosts
+user_root: root
+
+target_server_group: group-gobetween
+
+tag_timezone: timezone
+tag_configure: configure
