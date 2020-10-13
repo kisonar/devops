@@ -119,7 +119,7 @@ get some-file
 mget *.txt
 ```
 
-## Docker 
+## Docker for Fedora 31 
 ##### Usage
 ```
 docker images

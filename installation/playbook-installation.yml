@@ -1,5 +1,5 @@
-- hosts: testbed
-  remote_user: {{ user_root }}
+- hosts: testing
+  remote_user: "{{user_root}}"
   vars_files:
     - variables.yml
   tasks:

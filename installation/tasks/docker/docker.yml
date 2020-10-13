@@ -26,11 +26,20 @@
     name: docker-ce-cli
     state: installed
 
+- name: Create cgroup directory for docker
+  file:
+    path: /sys/fs/cgroup/systemd
+    state: directory
+    mode: u=rwx,g=rwx,o=rwx #777
+    owner: "{{user_root}}"
+    group: "{{user_root}}"
+
+- name: Cgroup mounting
+  command: mount -t cgroup -o none,name=systemd cgroup /sys/fs/cgroup/systemd
+  ignore_errors: yes
+
 - name: Enable Docker at boot
   command: systemctl enable docker
-
-- name: Chconfig for Docker
-  command: chkconfig docker on
 
 - name: Reload Docker daemon
   command: systemctl daemon-reload

@@ -13,7 +13,9 @@ jenkins_port: 8080
 jenkins_user: jenkins
 
 tag_ci_cd: ci-cd
+tag_dnf: dnf
 tag_docker: docker
+tag_fedora30: fedora30
 tag_fedora31: fedora31
 tag_proxy: proxy
 tag_python: python
