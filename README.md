@@ -116,7 +116,7 @@ mput *.txt
 get some-file
 mget *.txt
 ```
-###### LDAP
+##### LDAP
 ```
 UID (ang. User Identifier) – identyfikator użytkownika
 RID (ang. Relative Identifier) – liczba reprezentująca względny identyfikator użytkownika
