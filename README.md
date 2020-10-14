@@ -1,9 +1,7 @@
 # Source code, build & devops tools tips & tricks
 
-# devops
-
 ## Linux
-###### Various
+##### Various
 ```
 grep -rnw '/path/to/somewhere/' -e 'pattern' 
 
@@ -118,6 +116,17 @@ mput *.txt
 get some-file
 mget *.txt
 ```
+###### LDAP
+```
+UID (ang. User Identifier) – identyfikator użytkownika
+RID (ang. Relative Identifier) – liczba reprezentująca względny identyfikator użytkownika
+CN (ang. Common Name) – imię
+SN (ang. Surname) – nazwisko
+OU (ang. Organizational Unit) – jednostka organizacyjna
+O (ang. Organization) – jednostka lub organizacja
+DC (ang. Domain Component) – składnik nazwy domenowej
+C (ang. Country) – państwo
+```
 
 ## Docker for Fedora 31 
 ##### Usage
@@ -191,8 +200,7 @@ pip3 install pyyaml
 pip3 install xml2dict
 ```
 
-# Build tools
-
+## Build tools
 ##### Gradle 6.x
 ```
 gradle clean build 
@@ -203,7 +211,6 @@ gradle clean build --build-cache
 scopes
 http://andresalmiray.com/maven-scopes-vs-gradle-configurations/
 ```
-
 ###### Maven 3.6.x
 ```
 set MAVEN_OPTS=-Xmx2000m -XX:MaxPermSize=2000m
@@ -264,8 +271,7 @@ All in one example:
 mvn clean install surefire-report:report cobertura:cobertura site checkstyle:checkstyle pmd:pmd pmd:cpd findbugs:findbugs javadoc:javadoc versions:display-dependency-updates versions:display-plugin-updates dependency:analyze-report dependency:analyze-dep-mgt dependency:analyze-duplicate dependency:resolve-plugins dependency:tree -DoutputType=graphml -DoutputFile=dependency.graphml
 ```
 
-# Git
-
+## Git
 ##### Git general
 ```
 git checkout -b testing (moves you to local branch testing)
