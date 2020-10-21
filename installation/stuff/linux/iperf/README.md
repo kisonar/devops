@@ -13,3 +13,10 @@ b) run ansible-playbook -i hosts.ini playbook-installation.yml --tags="iperf-cli
 
 By deafult installation of client covers step that runs report generation.
 ```
+##### Information
+```
+iperf3 
+-s (run as server) -f (format M Mbytes,Gbytes) M -p (change port) 3456 -D (daemon) -w (buffer size) 500K 
+-c (client) -R (reverse mode) --get-server-output (at client) -d (bi-directional)
+-P (number of parallel client streams) 2
+```
