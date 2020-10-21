@@ -1,7 +1,0 @@
-- name: Create docker-compose.yml in /root
-  template:
-    src: ./docker/docker-compose.yml
-    dest: /{{dest_dir}}/docker-compose.yml
-    mode: u=rw,g=rw,o=r #664
-    owner: "{{ user_root }}"
-    group: "{{ user_root }}"

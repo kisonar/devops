@@ -1,7 +1,0 @@
-- name: HAProxy - stop docker containers
-  command: docker-compose down
-  ignore_errors: yes
-
-- name: HAProxy - start docker containers
-  command: docker-compose up -d
-  ignore_errors: yes

@@ -6,14 +6,12 @@
 
 #### Pre-requisite
 ```
-Before you start deployment install docker and docker-compose on target machine - look at Tools directory.
+Before you start deployment install docker and docker-compose on target machine.
 Keep in mind that both docker and docker-compose installations depend on OS type.
 ```
 
 #### Running playbook
 ```
-How to run Ansible and install or update Haproxy?
-
 Just clone repository, go to Haproxy directory and follow below steps.
 
 1 Changes required in ansible directory
@@ -23,7 +21,7 @@ Check and change entries in hosts
 If required you may also change haproxy.cfg file.
 
 2 Then run directly from ansible directory:
-ansible-playbook -i hosts.ini playbook-haproxy.yml
+ansible-playbook -i hosts.ini playbook-installation.yml --tags="haproxy"
 ```
 
 #### Ansible playbook execution verification

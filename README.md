@@ -128,7 +128,18 @@ DC (ang. Domain Component) – składnik nazwy domenowej
 C (ang. Country) – państwo
 ```
 
-## Docker for Fedora 31 
+## Docker for Fedora 31: 
+
+##### Works with
+```
+mine: 
+fedora-31-2020-04-01
+fedora-32-2020-07-28     
+
+theirs: 
+fedora-32-2020-07-28 
+```
+
 ##### Usage
 ```
 docker images

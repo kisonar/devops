@@ -1,13 +1,7 @@
-#NOTEs:
-#  for RHEL in general use yum
-#  for RHEL@Nokia do not use yum to get EPEL repository, direct RPM invocation is needed,
-#  for fedora use dnf instead of yum
-- hosts: " {{ target_server_group }} "
+
   remote_user: root # or any other
   vars_files:
     - variables.yml
   tasks:
-    - import_tasks: ./../../Common/ansible/tasks/timezone-utc.yml
-      tags: "{{ tag_timezone }}"
     - import_tasks: ./tasks/configure.yml
       tags: "{{ tag_configure}}"
