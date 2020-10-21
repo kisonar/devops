@@ -1,6 +1,6 @@
 [api]
 enabled = true  # true | false
-bind = ":8888"  # bind host:port
+bind = ":{{ port_gobetween }}"  # bind host:port
 
 # uncomment to enable
 #[api.basic_auth]   # (optional) Enable HTTP Basic Auth
@@ -13,8 +13,8 @@ bind = ":8888"  # bind host:port
 #key_path = "/path/to/key.pem"    # Path to key
 
 #==============================================================================
-[servers.tcp-http]
-bind = ":{{graylog_http_port}}"
+[servers.graylog-tcp-http]
+bind = ":{{ port_graylog_http }}"
 protocol = "tcp"
 balance = "roundrobin"
 max_connections = 10000
@@ -22,13 +22,13 @@ client_idle_timeout = "10m"
 backend_idle_timeout = "10m"
 backend_connection_timeout = "2s"
 
-    [servers.tcp-http.discovery]
+    [servers.graylog-tcp-http.discovery]
     kind = "static"
     static_list = [
-      "{{ elasticsearch_1_IP }}:{{ elasticsearch_http_port }} weight=1",
-      "{{ elasticsearch_2_IP }}:{{ elasticsearch_http_port }} weight=1"
+      "{{ elasticsearch_1_IP }}:{{ port_graylog_http }} weight=1",
+      "{{ elasticsearch_2_IP }}:{{ port_graylog_http }} weight=1"
     ]
-    [servers.tcp-http.healthcheck]
+    [servers.graylog-tcp-http.healthcheck]
     fails = 1
     passes = 1
     interval = "60s"
@@ -37,8 +37,8 @@ backend_connection_timeout = "2s"
     ping_timeout_duration = "500ms"
 
 #==============================================================================
-[servers.gelf-tcp]
-bind = ":{{ graylog_gelf_tcp_port }}"
+[servers.graylog-gelf-tcp]
+bind = ":{{ port_graylog_gelf_tcp }}"
 protocol = "tcp"
 balance = "roundrobin"
 max_connections = 10000
@@ -46,12 +46,19 @@ client_idle_timeout = "10m"
 backend_idle_timeout = "10m"
 backend_connection_timeout = "2s"
 
-    [servers.gelf-tcp.discovery]
+    [servers.graylog-gelf-tcp.discovery]
     kind = "static"
     static_list = [
-      "{{ graylog_1_IP }}:{{ graylog_gelf_tcp_port }} weight=1",
-      "{{ graylog_2_IP }}:{{ graylog_gelf_tcp_port }} weight=1"
+      "{{ graylog_1_IP }}:{{ port_graylog_gelf_tcp }} weight=1",
+      "{{ graylog_2_IP }}:{{ port_graylog_gelf_tcp }} weight=1"
    ]
+   [servers.graylog-gelf-tcp.healthcheck]
+       fails = 1
+       passes = 1
+       interval = "60s"
+       timeout="1s"
+       kind = "ping"
+       ping_timeout_duration = "500ms"
 
 #==============================================================================
 #[servers.gelf-udp]
@@ -70,12 +77,12 @@ backend_connection_timeout = "2s"
 #    [servers.gelf-udp.discovery]
 #    kind = "static"
 #    static_list = [
-#      "10.133.116.179:{{ graylog_gelf_tcp_port }} weight=1",
-#      "10.133.116.179:{{ graylog_gelf_tcp_port }} weight=1"
+#      "10.133.116.179:{{ port_graylog_gelf_tcp}} weight=1",
+#      "10.133.116.179:{{ port_graylog_gelf_tcp }} weight=1"
 #    ]
 #==============================================================================
 #[servers.syslog-udp]
-#bind = ":514"
+#bind = ":{{ port_rsyslog_514 }}"
 #protocol = "udp"
 #balance = "roundrobin"
 #max_connections = 10000
@@ -86,12 +93,12 @@ backend_connection_timeout = "2s"
 #    [servers.syslog-udp.discovery]
 #    kind = "static"
 #    static_list = [
-#      "10.133.116.179:{{ rsyslog_tcp_port_514 }} weight=1",
-#      "10.133.116.179:{{ rsyslog_tcp_port_514 }} weight=1"
+#      "{{ graylog_1_IP }}:{{ port_rsyslog_514 }} weight=1",
+#      "{{ graylog_1_IP }}:{{ port_rsyslog_514 }} weight=1"
 #    ]
 #==============================================================================
-[servers.syslog-tcp]
-bind = ":{{ rsyslog_tcp_port_514 }}"
+[servers.syslog-tcp-514]
+bind = ":{{ port_rsyslog_514 }}"
 protocol = "tcp"
 balance = "roundrobin"
 max_connections = 10000
@@ -99,12 +106,19 @@ client_idle_timeout = "10m"
 backend_idle_timeout = "10m"
 backend_connection_timeout = "2s"
 
-    [servers.syslog-tcp.discovery]
+    [servers.syslog-tcp-514.discovery]
     kind = "static"
     static_list = [
-      "{{ graylog_1_IP }}:{{ rsyslog_tcp_port_514 }} weight=1",
-      "{{ graylog_2_IP }}:{{ rsyslog_tcp_port_514 }} weight=1"
+      "{{ graylog_1_IP }}:{{ port_rsyslog_514 }} weight=1",
+      "{{ graylog_2_IP }}:{{ port_rsyslog_514 }} weight=1"
     ]
+    [servers.syslog-tcp-514.healthcheck]
+           fails = 1
+           passes = 1
+           interval = "60s"
+           timeout="1s"
+           kind = "ping"
+           ping_timeout_duration = "500ms"
 
 
 [profiler]

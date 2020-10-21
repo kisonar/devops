@@ -8,7 +8,8 @@ services:
       - "{{ port_grafana }}:{{ port_grafana }}"
       #Graylog
       - "{{ port_graylog_gelf_tcp }}:{{ port_graylog_gelf_tcp }}"
-      - "{{ port_rsyslog_tcp_1514 }}:{{ port_rsyslog_tcp_1514 }}"
+      - "{{ port_rsyslog_514 }}:{{ port_rsyslog_514 }}"
+      - "{{ port_rsyslog_1514 }}:{{ port_rsyslog_1514 }}"
       - "{{ port_graylog_http }}:{{ port_graylog_http }}"
       #Elasticsearch
       - "{{ port_elasticsearch_http }}:{{ port_elasticsearch_http }}"
