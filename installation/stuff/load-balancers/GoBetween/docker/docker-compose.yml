@@ -5,17 +5,15 @@ services:
     container_name: gobetween
     ports:
       #Grafana
-      #- "3000:3000"
+      - "{{ port_grafana }}:{{ port_grafana }}"
       #Graylog
-      - "12201:12201"
-      - "514:514"
-      - "1514:1514"
-      - "9000:9000"
+      - "{{ port_graylog_gelf_tcp }}:{{ port_graylog_gelf_tcp }}"
+      - "{{ port_rsyslog_tcp_1514 }}:{{ port_rsyslog_tcp_1514 }}"
+      - "{{ port_graylog_http }}:{{ port_graylog_http }}"
       #Elasticsearch
-      #- "9200:9200"
+      - "{{ port_elasticsearch_http }}:{{ port_elasticsearch_http }}"
       #Go Between
-      - "8888:8888"
-      - "6060:6060"
+      - "{{ port_gobetween }}:{{ port_gobetween }}"
     volumes:
       - ./:/etc/gobetween/conf/
-    restart: on-failure
+    restart: always
