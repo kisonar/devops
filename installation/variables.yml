@@ -9,28 +9,26 @@ DOCKER_REGISTRY_HOST: <NOT-DEFINED>
 DOCKER_REGISTRY_PORT: <NOT-DEFINED>
 
 jenkins_home_dir: /var/jenkins_home
+jenkins_user: jenkins
 backups_dir: /var/backups
 scripts_dir: /opt/pipeline_scripts
 
-jenkins_user: jenkins
-
 #HaProxy
 environment_type: ENV-TYPE-NOT-DEFINED
-graylog_1_IP: 10.157.50.116 #<IP-NOT-SET>
-graylog_2_IP: 10.157.50.116 #<IP-NOT-SET>
-graylog_3_IP: 10.157.50.116 # <IP-NOT-SET>
-
-elasticsearch_1_IP: 10.157.50.116 #<IP-NOT-SET>
-elasticsearch_2_IP: 10.157.50.116 # <IP-NOT-SET>
-elasticsearch_3_IP: 10.157.50.116 #<IP-NOT-SET>
-elasticsearch_4_IP: 10.157.50.116 #<IP-NOT-SET>
-elasticsearch_5_IP: 10.157.50.116 #<IP-NOT-SET>
+graylog_1_IP: IP-NOT-SET
+graylog_2_IP: IP-NOT-SET
+graylog_3_IP: IP-NOT-SET
+elasticsearch_1_IP: IP-NOT-SET
+elasticsearch_2_IP: IP-NOT-SET
+elasticsearch_3_IP: IP-NOT-SET
+elasticsearch_4_IP: IP-NOT-SET
+elasticsearch_5_IP: IP-NOT-SET
 
 #Rabbit-mq
-rabbit_mq_1_IP: 10.157.50.116 #<IP-NOT-SET>
+rabbit_mq_1_IP: IP-NOT-SET
 
 #Iperf
-iperf_server_ip: 10.157.52.129 #<IP-NOT-SET>
+iperf_server_ip: IP-NOT-SET
 
 #ports
 port_rsyslog_514: 514
