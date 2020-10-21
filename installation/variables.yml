@@ -1,4 +1,5 @@
 user_root: root
+installation_directory: /root
 target_server_group: testing
 
 docker_compose_path: /usr/local/bin/docker-compose
@@ -14,18 +15,19 @@ jenkins_port: 8080
 jenkins_user: jenkins
 
 #HaProxy
-environment_type: <ENV-TYPE-NOT-DEFINED>
-graylog_1_IP: <IP-NOT-SET>
-graylog_2_IP: <IP-NOT-SET>
-graylog_3_IP: <IP-NOT-SET>
+environment_type: ENV-TYPE-NOT-DEFINED
+graylog_1_IP: 10.157.50.116 #<IP-NOT-SET>
+graylog_2_IP: 10.157.50.116 #<IP-NOT-SET>
+graylog_3_IP: 10.157.50.116 # <IP-NOT-SET>
 
-elasticsearch_1_IP: <IP-NOT-SET>
-elasticsearch_2_IP: <IP-NOT-SET>
-elasticsearch_3_IP: <IP-NOT-SET>
-elasticsearch_4_IP: <IP-NOT-SET>
-elasticsearch_5_IP: <IP-NOT-SET>
+elasticsearch_1_IP: 10.157.50.116 #<IP-NOT-SET>
+elasticsearch_2_IP: 10.157.50.116 # <IP-NOT-SET>
+elasticsearch_3_IP: 10.157.50.116 #<IP-NOT-SET>
+elasticsearch_4_IP: 10.157.50.116 #<IP-NOT-SET>
+elasticsearch_5_IP: 10.157.50.116 #<IP-NOT-SET>
 
-rabbit_mq_port_web_ui: 3000
+#Rabbit-mq
+rabbit_mq_port_web_ui: 7000
 rabbit_mq_port_tcp: 5672
 rabbit_mq_1_IP: 10.157.50.116 #<IP-NOT-SET>
 
@@ -42,7 +44,7 @@ tag_docker: docker
 tag_fedora30: fedora30
 tag_fedora31: fedora31
 tag_open_ldap: open-ldap
-tag_lb_gobetwwen: gobetween
+tag_lb_gobetween: gobetween
 tag_lb_haproxy: haproxy
 tag_open_ladap: open-ldap
 tag_proxy: proxy

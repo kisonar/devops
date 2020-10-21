@@ -1,4 +1,4 @@
-- name: Create /var/lib/haproxy
+- name: Haproxy - create /var/lib/haproxy
   file:
     path: /var/lib/haproxy
     state: directory
@@ -6,7 +6,7 @@
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
 
-- name: Create /etc/haproxy
+- name: Haproxy - create /etc/haproxy
   file:
     path: /etc/haproxy/
     state: directory
@@ -22,10 +22,10 @@
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
 
-- name: Create docker-compose.yml in /root
+- name: Haproxy - create docker-compose.yml in /root
   template:
     src: ./stuff/load-balancers/Haproxy/docker/docker-compose.yml
-    dest: /{{dest_dir}}/docker-compose.yml
+    dest: "{{ installation_directory }}/docker-compose.yml"
     mode: u=rw,g=rw,o=r #664
     owner: "{{ user_root }}"
     group: "{{ user_root }}"

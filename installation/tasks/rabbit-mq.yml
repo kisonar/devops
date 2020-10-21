@@ -1,7 +1,7 @@
-- name: Copy docker-compose for Rabbit-MQ
+- name: Rabbit-MQ - copy docker-compose
   template:
     src: ./stuff/rabbit-mq/docker-compose.yml
-    dest: /root/docker-compose.yml
+    dest: "{{ installation_directory }}/docker-compose.yml"
     mode: u=rw,g=rw,o=r #664
     owner: "{{ user_root }}"
     group: "{{ user_root }}"

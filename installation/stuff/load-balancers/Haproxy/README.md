@@ -28,14 +28,14 @@ ansible-playbook -i hosts.ini playbook-installation.yml --tags="haproxy"
 
 ```
 Check if web console of Haproxy is availble
-http://<HOST-IP>:3000/monitor
+http://<HOST-IP>:<PORT>>/monitor
 
 Graylog nodes shoud be accessed at following URL
-http://<HOST-IP>:9000
+http://<GARYLOG-HOST-IP>:<GRAYLOG-PORT>
 ```
 
 ## Important info
 ```
 Haproxy allows for forwarding TCP & HTTP message
-UDP is not supported
+UDP is not supported.
 ```

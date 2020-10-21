@@ -14,7 +14,7 @@ bind = ":8888"  # bind host:port
 
 #==============================================================================
 [servers.tcp-http]
-bind = ":9000"
+bind = ":{{graylog_http_port}}"
 protocol = "tcp"
 balance = "roundrobin"
 max_connections = 10000
@@ -25,8 +25,8 @@ backend_connection_timeout = "2s"
     [servers.tcp-http.discovery]
     kind = "static"
     static_list = [
-      "IP-1:9000 weight=1",
-      "IP-2:9000 weight=1"
+      "{{ elasticsearch_1_IP }}:{{ elasticsearch_http_port }} weight=1",
+      "{{ elasticsearch_2_IP }}:{{ elasticsearch_http_port }} weight=1"
     ]
     [servers.tcp-http.healthcheck]
     fails = 1
@@ -38,7 +38,7 @@ backend_connection_timeout = "2s"
 
 #==============================================================================
 [servers.gelf-tcp]
-bind = ":12201"
+bind = ":{{ graylog_gelf_tcp_port }}"
 protocol = "tcp"
 balance = "roundrobin"
 max_connections = 10000
@@ -49,8 +49,8 @@ backend_connection_timeout = "2s"
     [servers.gelf-tcp.discovery]
     kind = "static"
     static_list = [
-      "IP-1:12201 weight=1",
-      "IP-2:12201 weight=1"
+      "{{ graylog_1_IP }}:{{ graylog_gelf_tcp_port }} weight=1",
+      "{{ graylog_2_IP }}:{{ graylog_gelf_tcp_port }} weight=1"
    ]
 
 #==============================================================================
@@ -70,8 +70,8 @@ backend_connection_timeout = "2s"
 #    [servers.gelf-udp.discovery]
 #    kind = "static"
 #    static_list = [
-#      "10.133.116.179:12201 weight=1",
-#      "10.133.116.179:12201 weight=1"
+#      "10.133.116.179:{{ graylog_gelf_tcp_port }} weight=1",
+#      "10.133.116.179:{{ graylog_gelf_tcp_port }} weight=1"
 #    ]
 #==============================================================================
 #[servers.syslog-udp]
@@ -86,12 +86,12 @@ backend_connection_timeout = "2s"
 #    [servers.syslog-udp.discovery]
 #    kind = "static"
 #    static_list = [
-#      "10.133.116.179:514 weight=1",
-#      "10.133.116.179:514 weight=1"
+#      "10.133.116.179:{{ rsyslog_tcp_port_514 }} weight=1",
+#      "10.133.116.179:{{ rsyslog_tcp_port_514 }} weight=1"
 #    ]
 #==============================================================================
 [servers.syslog-tcp]
-bind = ":514"
+bind = ":{{ rsyslog_tcp_port_514 }}"
 protocol = "tcp"
 balance = "roundrobin"
 max_connections = 10000
@@ -102,8 +102,8 @@ backend_connection_timeout = "2s"
     [servers.syslog-tcp.discovery]
     kind = "static"
     static_list = [
-      "IP-1:12201 weight=1",
-      "IP-2:12201 weight=1"
+      "{{ graylog_1_IP }}:{{ rsyslog_tcp_port_514 }} weight=1",
+      "{{ graylog_2_IP }}:{{ rsyslog_tcp_port_514 }} weight=1"
     ]
 
 
