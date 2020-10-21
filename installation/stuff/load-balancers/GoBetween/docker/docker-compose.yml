@@ -1,6 +1,5 @@
-version: '3.6'
+version: '3.7'
 services:
-
   gobetween:
     image: yyyar/gobetween:0.7.0
     container_name: gobetween

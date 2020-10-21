@@ -1,5 +1,5 @@
 - name: Copy docker-compose for Rabbit-MQ
-  copy:
+  template:
     src: ./stuff/rabbit-mq/docker-compose.yml
     dest: /root/docker-compose.yml
     mode: u=rw,g=rw,o=r #664

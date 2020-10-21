@@ -1,15 +1,15 @@
-version: '3.6'
+version: '3.7'
 services:
   haproxy:
     image: haproxy:2.2.2
     container_name: haproxy
     ports:
-      - "{{rsyslog_tcp_port_514}}:{{rsyslog_tcp_port_514}}"
-      - "{{rsyslog_tcp_port_1514}}:{{rsyslog_tcp_port_1514}}"
-      - "{{ha_proxy_web_console_port}}:{{ha_proxy_web_console_port}}"
-      - "{{graylog_http_port}}:{{graylog_http_port}}"
-      - "{{elasticsearch_http_port}}:{{elasticsearch_http_port}}"
-      - "{{graylog_gelf_tcp_port}}:{{graylog_gelf_tcp_port}}"
+      - "{{ rsyslog_tcp_port_514 }}:{{ rsyslog_tcp_port_514 }}"
+      - "{{ rsyslog_tcp_port_1514 }}:{{ rsyslog_tcp_port_1514 }}"
+      - "{{ ha_proxy_web_console_port }}:{{ ha_proxy_web_console_port }}"
+      - "{{ graylog_http_port }}:{{ graylog_http_port }}"
+      - "{{ elasticsearch_http_port }}:{{ elasticsearch_http_port }}"
+      - "{{ graylog_gelf_tcp_port }}:{{ graylog_gelf_tcp_port }}"
     volumes:
       - /etc/haproxy:/usr/local/etc/haproxy
       - /var/lib/haproxy:/var/lib/haproxy

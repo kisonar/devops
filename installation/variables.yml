@@ -25,6 +25,10 @@ elasticsearch_3_IP: <IP-NOT-SET>
 elasticsearch_4_IP: <IP-NOT-SET>
 elasticsearch_5_IP: <IP-NOT-SET>
 
+rabbit_mq_port_web_ui: 3000
+rabbit_mq_port_tcp: 5672
+rabbit_mq_1_IP: 10.157.50.116 #<IP-NOT-SET>
+
 rsyslog_tcp_port_514: 514
 rsyslog_tcp_port_1514: 1514
 ha_proxy_web_console_port: 3000
@@ -46,4 +50,3 @@ tag_python: python
 tag_python_alternatives: python-alternatives
 tag_rabbit_mq: rabbit-mq
 tag_sdkman: sdkman
-

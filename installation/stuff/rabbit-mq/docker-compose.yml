@@ -4,6 +4,6 @@ services:
     container_name: rabbit-mq
     image: rabbitmq:3-management
     ports:
-      - "9000:15672" # web UI port
-      - "9200:5672" # TCP port
+      - "{{ rabbit_mq_port_web_ui }}:15672" # web UI port
+      - "{{ rabbit_mq_port_tcp }}:5672" # TCP port
     user: root
