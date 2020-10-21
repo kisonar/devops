@@ -1,0 +1,4 @@
+- name: Install nload
+  dnf:
+    name: "nload"
+    state: latest
