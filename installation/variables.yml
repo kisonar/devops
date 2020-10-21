@@ -29,6 +29,9 @@ elasticsearch_5_IP: 10.157.50.116 #<IP-NOT-SET>
 #Rabbit-mq
 rabbit_mq_1_IP: 10.157.50.116 #<IP-NOT-SET>
 
+#Iperf
+iperf_server_ip: 10.157.52.129 #<IP-NOT-SET>
+
 #ports
 port_rsyslog_514: 514
 port_rsyslog_1514: 1514
@@ -45,12 +48,12 @@ port_graylog_gelf_tcp: 12201
 tag_ci_cd: ci-cd
 tag_dnf: dnf
 tag_docker: docker
-tag_fedora30: fedora30
 tag_fedora31: fedora31
-tag_open_ldap: open-ldap
 tag_lb_gobetween: gobetween
 tag_lb_haproxy: haproxy
-tag_open_ladap: open-ldap
+tag_iperf_client: iperf-client
+tag_iperf_server: iperf-server
+tag_open_ldap: open-ldap
 tag_proxy: proxy
 tag_python: python
 tag_python_alternatives: python-alternatives

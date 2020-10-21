@@ -1,0 +1,4 @@
+- import_tasks: ./iperf.yml
+
+- name: Iperf run server
+  command: iperf3 -s -f K -D > iperf3.log

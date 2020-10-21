@@ -1,6 +1,6 @@
 - name: Copy proxy
   copy:
-    src: ./scripts/proxy.sh
+    src: ./stuff/linux/ssh/proxy.sh
     dest: /etc/profile.d/proxy.sh
     mode: u=rwx,g=rwx,o=rx #775
     owner: root
