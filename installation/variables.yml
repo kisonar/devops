@@ -32,13 +32,13 @@ graylog_http_port: 9000
 elasticsearch_http_port: 9200
 graylog_gelf_tcp_port: 12201
 
-
 tag_ci_cd: ci-cd
 tag_dnf: dnf
 tag_docker: docker
 tag_fedora30: fedora30
 tag_fedora31: fedora31
 tag_open_ldap: open-ldap
+tag_lb_gobetwwen: gobetween
 tag_lb_haproxy: haproxy
 tag_open_ladap: open-ldap
 tag_proxy: proxy

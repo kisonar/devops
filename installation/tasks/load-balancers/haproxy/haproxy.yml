@@ -16,7 +16,7 @@
 
 - name: Haproxy - copy haproxy.cfg
   template:
-    src: ./stuff/load-balancers-Haproxy/etc/haproxy/haproxy.cfg
+    src: ./stuff/load-balancers/Haproxy/etc/haproxy/haproxy.cfg
     dest: /etc/haproxy/haproxy.cfg
     mode: u=rw,g=rw,o=r #664
     owner: "{{ user_root }}"
@@ -24,7 +24,7 @@
 
 - name: Create docker-compose.yml in /root
   template:
-    src: ./stuff/load-balancers-Haproxy/docker/docker-compose.yml
+    src: ./stuff/load-balancers/Haproxy/docker/docker-compose.yml
     dest: /{{dest_dir}}/docker-compose.yml
     mode: u=rw,g=rw,o=r #664
     owner: "{{ user_root }}"

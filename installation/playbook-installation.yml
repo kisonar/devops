@@ -23,3 +23,5 @@
       tags: "{{ tag_open_ldap }}"
     - import_tasks: ./tasks/load-balancers/haproxy/haproxy.yml
       tags: "{{tag_lb_haproxy }}"
+    - import_tasks: ./tasks/load-balancers/gobetween/gobetween.yml
+      tags: "{{tag_lb_haproxy }}"
