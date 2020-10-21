@@ -1,8 +1,7 @@
 # RabbitNQ
 
-
-## Web Cinsole
+## Web Console
  ```
-http://<HOST>:9000
+http://<HOST-IP>:<PORT>
 Default login is guest guest
 ```

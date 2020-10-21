@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+  gobetween:
+    image: yyyar/gobetween:0.7.0
+    container_name: gobetween
+    ports:
+      #Grafana
+      - "{{ port_grafana }}:{{ port_grafana }}"
+      #Graylog
+      - "{{ port_graylog_gelf_tcp }}:{{ port_graylog_gelf_tcp }}"
+      - "{{ port_rsyslog_514 }}:{{ port_rsyslog_514 }}"
+      - "{{ port_rsyslog_1514 }}:{{ port_rsyslog_1514 }}"
+      - "{{ port_graylog_http }}:{{ port_graylog_http }}"
+      #Elasticsearch
+      - "{{ port_elasticsearch_http }}:{{ port_elasticsearch_http }}"
+      #Go Between
+      - "{{ port_gobetween }}:{{ port_gobetween }}"
+    volumes:
+      - ./:/etc/gobetween/conf/
+    restart: always

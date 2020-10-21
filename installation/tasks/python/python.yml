@@ -4,5 +4,6 @@
     state: installed
   
 - name: install-python3-additions
+  dnf:
     name: python3-pip
     state: installed

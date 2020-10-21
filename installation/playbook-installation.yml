@@ -1,5 +1,5 @@
-- hosts: testbed
-  remote_user: {{ user_root }}
+- hosts: "{{ target_server_group }}"
+  remote_user: "{{ user_root }}"
   vars_files:
     - variables.yml
   tasks:
@@ -19,3 +19,9 @@
       tags: "{{ tag_proxy }}"
     - import_tasks: ./tasks/sdkman.yml
       tags: "{{ tag_sdkman }}"
+    - import_tasks: ./tasks/open-ldap.yml
+      tags: "{{ tag_open_ldap }}"
+    - import_tasks: ./tasks/load-balancers/haproxy/haproxy.yml
+      tags: "{{ tag_lb_haproxy }}"
+    - import_tasks: ./tasks/load-balancers/gobetween/gobetween.yml
+      tags: "{{ tag_lb_gobetween }}"

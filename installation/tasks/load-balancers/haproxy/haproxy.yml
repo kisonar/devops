@@ -1,0 +1,39 @@
+- name: Haproxy - create /var/lib/haproxy
+  file:
+    path: /var/lib/haproxy
+    state: directory
+    mode: u=rwx,g=rwx,o=rx #775
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"
+
+- name: Haproxy - create /etc/haproxy
+  file:
+    path: /etc/haproxy/
+    state: directory
+    mode: u=rwx,g=rwx,o=rx #775
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"
+
+- name: Haproxy - copy haproxy.cfg
+  template:
+    src: ./stuff/load-balancers/Haproxy/etc/haproxy/haproxy.cfg
+    dest: /etc/haproxy/haproxy.cfg
+    mode: u=rw,g=rw,o=r #664
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"
+
+- name: Haproxy - create docker-compose.yml in /root
+  template:
+    src: ./stuff/load-balancers/Haproxy/docker/docker-compose.yml
+    dest: "{{ installation_directory }}/docker-compose.yml"
+    mode: u=rw,g=rw,o=r #664
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"
+
+- name: HAProxy - stop docker containers
+  command: docker-compose down
+  ignore_errors: yes
+
+- name: HAProxy - start docker containers
+  command: docker-compose up -d
+  ignore_errors: yes

@@ -1,0 +1,23 @@
+- name: GoBetween copy docker-compose.yml
+  template:
+    src: ./stuff/load-balancers/GoBetween/docker/docker-compose.yml
+    dest: /root/docker-compose.yml
+    mode: u=rw,g=rw,o=r #664
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"
+
+- name: GoBetween copy configuration file
+  template:
+    src: ./stuff/load-balancers/GoBetween/config/gobetween.toml
+    dest: /root/gobetween.toml
+    mode: u=rw,g=rw,o=r #664
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"
+
+- name: GoBetween - stop docker containers
+  command: docker-compose down
+  ignore_errors: yes
+
+- name: GoBetween - start docker containers
+  command: docker-compose up -d
+  ignore_errors: yes
