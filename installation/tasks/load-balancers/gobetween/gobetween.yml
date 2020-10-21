@@ -1,5 +1,5 @@
 - name: GoBetween copy docker-compose.yml
-  copy:
+  template:
     src: ./stuff/load-balancers/GoBetween/docker/docker-compose.yml
     dest: /root/docker-compose.yml
     mode: u=rw,g=rw,o=r #664
