@@ -12,15 +12,15 @@ Keep in mind that both docker and docker-compose installations depend on OS type
 
 #### Running playbook
 ```
-Just clone repository, go to Haproxy directory and follow below steps.
+Just clone repository, go to installation directory and follow below steps.
 
-1 Changes required in ansible directory
+1 Changes required in  directory
 Check and change entries in variables.yml 
 Check and change entries in hosts
 
 If required you may also change haproxy.cfg file.
 
-2 Then run directly from ansible directory:
+2 Then run directly from directory:
 ansible-playbook -i hosts.ini playbook-installation.yml --tags="haproxy"
 ```
 

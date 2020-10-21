@@ -12,15 +12,14 @@ It is suggested to create VM with:
 ```
 How to run Ansible in order to install & configure GoBetween?
 
-Just clone repository, go to gobetween directory and follow below steps.
+Just clone repository, go to installation directory and follow below steps.
 
-1 Changes required in ansible directory
+1 Changes required in directory
 Check and change or leave entries in hosts
 Check and change or leave entries in variables.yml
-Setup IPs of servers for TCP & UDP protocols in staff/gobetween.toml
 
 2 Then run :
-ansible-playbook -i hosts playbook-gobetween.yml
+ansible-playbook -i hosts playbook-installation.yml --tags="gobetween"
 ```
 
 ### Ansible playbook execution verification

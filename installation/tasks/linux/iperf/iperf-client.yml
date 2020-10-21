@@ -1,0 +1,4 @@
+- import_tasks: ./iperf.yml
+
+- name: Iperf run client
+  command: iperf3 -c {{ iperf_server_ip }} -f M >> iperf-report.log

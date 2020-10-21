@@ -22,6 +22,11 @@ private/public keys
 sudo cp -rf /root/.ssh/* /home/username/.ssh/
 chown -R username:username /home/username/.ssh
 ```
+##### IPerf
+```
+Run server iperf3 -s -f K -D > iperf3.log
+Run client iperf3 -c <iperf-server-ip> -f K
+```
 ##### Users
 ```
 cat /etc/sudoers
@@ -128,7 +133,7 @@ DC (ang. Domain Component) – składnik nazwy domenowej
 C (ang. Country) – państwo
 ```
 
-## Docker for Fedora 31: 
+## Docker for Fedora 31+
 
 ##### Works with
 ```
