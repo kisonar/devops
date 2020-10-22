@@ -22,11 +22,6 @@ private/public keys
 sudo cp -rf /root/.ssh/* /home/username/.ssh/
 chown -R username:username /home/username/.ssh
 ```
-##### IPerf
-```
-Run server iperf3 -s -f K -D > iperf3.log
-Run client iperf3 -c <iperf-server-ip> -f K
-```
 ##### Users
 ```
 cat /etc/sudoers

@@ -17,3 +17,4 @@ services:
       # - LDAP_GROUP: Group used to group created users. Default: readers
     volumes:
       - ./data:/bitnami/openldap
+    restart: always

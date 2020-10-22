@@ -20,3 +20,9 @@ iperf3
 -c (client) -R (reverse mode) --get-server-output (at client) -d (bi-directional)
 -P (number of parallel client streams) 2
 ```
+
+##### Example manual runs
+```
+Run server: iperf3 -s -f K -D > iperf3.log
+Run client: iperf3 -c <iperf-server-ip> -f K
+```
