@@ -22,6 +22,15 @@ private/public keys
 sudo cp -rf /root/.ssh/* /home/username/.ssh/
 chown -R username:username /home/username/.ssh
 ```
+##### Keys
+```
+Generate key pairs
+ssh-keygen -t rsa -b 4096 -f ssh_host_rsa_key
+
+Remove passphrase 	
+ssh-keygen -p -P $passwd -N "" -f id_rsa
+```
+
 ##### Users
 ```
 cat /etc/sudoers
@@ -76,9 +85,11 @@ usage: packetsender
 ```
 ##### DNF actions
 ```
-sudo dnf install <something aka docker>
+sudo dnf install <something aka docker> , e.g. sudo dnf install ansible
 sudo dnf update/upgrade
 sudo dnf clean all
+sudo dnf clean packages
+sudo dnf update
 ```
 ##### Archives
 ```
@@ -105,6 +116,10 @@ systemctl status iptables
 ```
 scp -rp sourcedirectory user@dest:/path
 scp -rp user@host:/path-to-dir ./storage-path 
+
+examples:
+scp docker-compose.yml centos@1.2.3.4:/home/centos
+scp ./test.zip fedora@1.2.3.4:/home/fedora
 ```
 ##### SFTP
 ```
