@@ -64,7 +64,7 @@ Add entry in/etc/fstab:
 UUID=<uuid-entry> /journals ext4 defaults 0 2
 where UUID you  get from: lsbkl -f
 ```
-##### Ports and packer sending
+##### Ports and packet sending
 ```
 list opened ports
 ss -lntu
@@ -222,7 +222,7 @@ gradle clean build --build-cache
 scopes
 http://andresalmiray.com/maven-scopes-vs-gradle-configurations/
 ```
-###### Maven 3.6.x
+##### Maven 3.6.x
 ```
 set MAVEN_OPTS=-Xmx2000m -XX:MaxPermSize=2000m
 
