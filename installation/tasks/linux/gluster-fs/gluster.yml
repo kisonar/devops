@@ -1,0 +1,4 @@
+- name: Install Gluster-Server
+  dnf:
+    name: "gluster-server"
+    state: installed
