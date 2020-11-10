@@ -14,5 +14,13 @@
     src: ./stuff/databases/oracle/11xe/classic/listener.ora
     dest: /u01/app/oracle/product/11.2.0/xe/network/admin/listener.ora
     mode: u=rwx,g=rwx,o=rx #775
-    owner: dba
-    group: oracle
+    owner: oracle
+    group: dba
+
+- name: Copy tnsnames.ora
+  copy:
+    src: ./stuff/databases/oracle/11xe/classic/tnsnames.ora
+    dest: /u01/app/oracle/product/11.2.0/xe/network/admin/tnsnames.ora
+    mode: u=rwx,g=rwx,o=rx #775
+    owner: oracle
+    group: dba

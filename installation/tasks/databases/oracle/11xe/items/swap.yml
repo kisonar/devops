@@ -1,13 +1,16 @@
-- name: SWAP create location
-  command: dd if=/dev/zero of=/swapfile bs=3000 count=1048576
-
-- name: SWAP change permission
+- name: SWAP file and it's permission
   file:
     path: /swapfile
     state: file
     mode: 600
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
+
+- name: SWAP off
+  command: swapoff /swapfile
+
+- name: SWAP mount location
+  command: dd if=/dev/zero of=/swapfile bs=3000 count=1048576
 
 - name: SWAP create
   command: mkswap /swapfile
