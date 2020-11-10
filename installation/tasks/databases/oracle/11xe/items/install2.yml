@@ -1,0 +1,8 @@
+- name: Install
+  command: rpm -i oracle-xe-11.2.0-1.0.x86_64.rpm
+
+- name: Start
+  command: /etc/init.d/oracle-xe start
+
+- name:  check
+  command: systemctl status oracle-xe.service

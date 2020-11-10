@@ -1,0 +1,17 @@
+- name: SWAP create location
+  command: dd if=/dev/zero of=/swapfile bs=1024 count=1048576
+
+- name: SWAP change permission
+  command: chmod 600 /swapfile
+
+- name: SWAP create
+  command: mkswap /swapfile
+
+- name: SWAP on
+  command: sudo swapon /swapfile
+
+- name: SWAP verify show
+  command: swapon --show
+
+- name: SWAP free
+  command: free -h
