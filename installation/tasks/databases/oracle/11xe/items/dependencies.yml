@@ -1,5 +1,5 @@
 - name: SWAP create location
-  command: dd if=/dev/zero of=/swapfile bs=1024 count=1048576
+  command: dd if=/dev/zero of=/swapfile bs=3000 count=1048576
 
 - name: SWAP change permission
   file:

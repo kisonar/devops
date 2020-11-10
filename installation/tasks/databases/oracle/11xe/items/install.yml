@@ -5,3 +5,14 @@
     mode: u=rwx,g=rwx,o=rx #775
     owner: root
     group: root
+
+- name: Install
+  command: rpm -i oracle-xe-11.2.0-1.0.x86_64.rpm
+
+- name: Copy listener.ora
+  copy:
+    src: ./stuff/databases/oracle/11xe/classic/listener.ora
+    dest: /u01/app/oracle/product/11.2.0/xe/network/admin/listener.ora
+    mode: u=rwx,g=rwx,o=rx #775
+    owner: dba
+    group: oracle
