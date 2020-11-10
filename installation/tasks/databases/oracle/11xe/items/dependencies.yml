@@ -2,13 +2,18 @@
   command: dd if=/dev/zero of=/swapfile bs=1024 count=1048576
 
 - name: SWAP change permission
-  command: chmod 600 /swapfile
+  file:
+    path: /swapfile
+    state: file
+    mode: 600
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"
 
 - name: SWAP create
   command: mkswap /swapfile
 
 - name: SWAP on
-  command: sudo swapon /swapfile
+  command: swapon /swapfile
 
 - name: SWAP verify show
   command: swapon --show
