@@ -7,4 +7,3 @@
   dnf:
     name: "libnsl"
     state: installed
-
