@@ -1,16 +1,16 @@
 - name: SWAP file and it's permission
   file:
     path: /swapfile
-    state: file
+    state: touch
     mode: 600
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
 
-- name: SWAP off
-  command: swapoff /swapfile
+#- name: SWAP off
+#  command: swapoff /swapfile
 
 - name: SWAP mount location
-  command: dd if=/dev/zero of=/swapfile bs=3000 count=1048576
+  command: dd if=/dev/zero of=/swapfile bs=2048k count=1536
 
 - name: SWAP create
   command: mkswap /swapfile
