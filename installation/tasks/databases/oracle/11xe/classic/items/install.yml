@@ -6,45 +6,5 @@
     owner: root
     group: root
 
-#- name: Install
-#  command: rpm -i oracle-xe-11.2.0-1.0.x86_64.rpm
-
-- name: Copy listener.ora
-  copy:
-    src: ./stuff/databases/oracle/11xe/classic/config/listener.ora
-    dest: /u01/app/oracle/product/11.2.0/xe/network/admin/listener.ora
-    mode: u=rwx,g=rwx,o=rx #775
-    owner: oracle
-    group: dba
-
-- name: Copy tnsnames.ora
-  copy:
-    src: ./stuff/databases/oracle/11xe/classic/config/tnsnames.ora
-    dest: /u01/app/oracle/product/11.2.0/xe/network/admin/tnsnames.ora
-    mode: u=rwx,g=rwx,o=rx #775
-    owner: oracle
-    group: dba
-
-- name: Copy init.ora
-  copy:
-    src: ./stuff/databases/oracle/11xe/classic/config/init.ora
-    dest: /u01/app/oracle/product/11.2.0/xe/config/scripts/init.ora
-    mode: u=rwx,g=rwx,o=rx #775
-    owner: oracle
-    group: dba
-
-- name: Copy initXETemp.ora
-  copy:
-    src: ./stuff/databases/oracle/11xe/classic/config/initXETemp.ora
-    dest: /u01/app/oracle/product/11.2.0/xe/config/scripts/initXETemp.ora
-    mode: u=rwx,g=rwx,o=rx #775
-    owner: oracle
-    group: dba
-
-- name: Copy sql-setup.sh
-  copy:
-    src: ./stuff/databases/oracle/11xe/classic/config/sql-setup.sh
-    dest: /root/sql-setup.sh
-    mode: u=rwx,g=rwx,o=rwx #777
-    owner: root
-    group: root
+- name: Install
+  command: rpm -i oracle-xe-11.2.0-1.0.x86_64.rpm
