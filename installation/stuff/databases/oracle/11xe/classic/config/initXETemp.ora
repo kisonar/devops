@@ -28,7 +28,7 @@ DB_RECOVERY_FILE_DEST=/u01/app/oracle/fast_recovery_area
 ###########################################
 compatible=11.2.0.0.0
 diagnostic_dest=/u01/app/oracle
-memory_target=1G
+memory_target=2G
 
 ###########################################
 # Sessions

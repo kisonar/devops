@@ -1,4 +1,0 @@
-- import_tasks: ./items/dependencies.yml
-- import_tasks: ./items/swap.yml
-- import_tasks: ./items/install.yml
-#- import_tasks: ./items/startup.yml
