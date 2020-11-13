@@ -1,5 +1,6 @@
 - hosts: "{{ target_server_group }}"
   remote_user: "{{ user_root }}"
+  gather_facts: True
   vars_files:
     - variables.yml
   tasks:

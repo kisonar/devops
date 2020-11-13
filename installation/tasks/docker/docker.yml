@@ -8,6 +8,7 @@
     name: yum-utils
     state: installed
 
+# TODO - warnign is being displayed
 - name: Set up the stable repository
   command: dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 
@@ -34,6 +35,7 @@
     owner: "{{user_root}}"
     group: "{{user_root}}"
 
+#TODO try to use Ansible Mount
 - name: Cgroup mounting
   command: mount -t cgroup -o none,name=systemd cgroup /sys/fs/cgroup/systemd
   ignore_errors: yes

@@ -2,12 +2,9 @@
   file:
     path: /swapfile
     state: touch
-    mode: 600
+    mode: 0600
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
-
-#- name: SWAP off
-#  command: swapoff /swapfile
 
 - name: SWAP mount location
   command: dd if=/dev/zero of=/swapfile bs=2048k count=1536
@@ -20,6 +17,12 @@
 
 - name: SWAP verify show
   command: swapon --show
+  register: swaponresponse
+
+- debug: msg="{{ swaponresponse.stdout }}"
 
 - name: SWAP free
   command: free -h
+  register: freeresponse
+#
+- debug: msg={{ freeresponse.stdout_lines }}

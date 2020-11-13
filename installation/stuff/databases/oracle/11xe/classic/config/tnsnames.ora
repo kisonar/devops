@@ -2,7 +2,7 @@
 
 XE =
   (DESCRIPTION =
-    (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.0.11)(PORT = 1521))
+    (ADDRESS = (PROTOCOL = TCP)(HOST = {{inventory_hostname}})(PORT = 1521))
     (CONNECT_DATA =
       (SERVER = SHARED)
       (SERVICE_NAME = XE)
