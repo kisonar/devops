@@ -34,4 +34,6 @@
     - import_tasks: ./tasks/load-balancers/gobetween/gobetween.yml
       tags: "{{ tag_lb_gobetween }}"
     - import_tasks: ./tasks/databases/oracle/11xe/classic/oracle11xe.yml
-      tags: "{{ tag_oracle_11xe }}"
+      tags: "{{ tag_oracle_11xe_classic }}"
+    - import_tasks: ./tasks/databases/oracle/11xe/docker/oracle11xe.yml
+      tags: "{{ tag_oracle_11xe_docker }}"

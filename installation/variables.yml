@@ -58,7 +58,8 @@ tag_lb_gobetween: gobetween
 tag_lb_haproxy: haproxy
 tag_nload: nload
 tag_open_ldap: open-ldap
-tag_oracle_11xe: oracle11xe
+tag_oracle_11xe_classic: oracle11xe-classic
+tag_oracle_11xe_docker: oracle11xe-docker
 tag_proxy: proxy
 tag_python: python
 tag_python_alternatives: python-alternatives
