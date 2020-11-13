@@ -28,7 +28,7 @@
       tags: "{{ tag_python }}"
     - import_tasks: ./tasks/python/python-alternatives.yml
       tags: "{{ tag_python_alternatives }}"
-    - import_tasks: ./tasks/open-ldap.yml
+    - import_tasks: ./tasks/ldap/ldap.yml
       tags: "{{ tag_open_ldap }}"
     - import_tasks: ./tasks/load-balancers/haproxy/haproxy.yml
       tags: "{{ tag_lb_haproxy }}"
