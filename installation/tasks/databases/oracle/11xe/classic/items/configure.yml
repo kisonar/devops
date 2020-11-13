@@ -1,21 +1,12 @@
-- name: List hosts
+- name: Host from hosts.ini
   debug: msg={{inventory_hostname}}
 
-- name: Copy listener.ora
-  template:
-    src: ./stuff/databases/oracle/11xe/classic/config/listener.ora
-    dest: /u01/app/oracle/product/11.2.0/xe/network/admin/listener.ora
-    mode: u=rwx,g=rwx,o=rx #775
-    owner: oracle
-    group: dba
+- name: Host local fetch
+  command: hostname
+  register: localhostname
 
-- name: Copy tnsnames.ora
-  template:
-    src: ./stuff/databases/oracle/11xe/classic/config/tnsnames.ora
-    dest: /u01/app/oracle/product/11.2.0/xe/network/admin/tnsnames.ora
-    mode: u=rwx,g=rwx,o=rx #775
-    owner: oracle
-    group: dba
+- name: Host local print
+  debug: msg={{localhostname.stdout}}
 
 - name: Copy init.ora
   copy:

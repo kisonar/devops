@@ -19,10 +19,10 @@
   command: swapon --show
   register: swaponresponse
 
-- debug: msg="{{ swaponresponse.stdout }}"
+- debug: msg="{{ swaponresponse.stdout_lines }}"
 
 - name: SWAP free
   command: free -h
   register: freeresponse
-#
+
 - debug: msg={{ freeresponse.stdout_lines }}
