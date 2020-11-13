@@ -2,4 +2,3 @@
 - import_tasks: ./items/swap.yml
 - import_tasks: ./items/install.yml
 - import_tasks: ./items/configure.yml
-#- import_tasks: ./items/startup.yml

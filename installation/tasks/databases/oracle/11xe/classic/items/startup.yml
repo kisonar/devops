@@ -1,5 +1,0 @@
-- name: Oracle 11XE start
-  command: /etc/init.d/oracle-xe start
-
-- name: Oracle 11XE status check
-  command: systemctl status oracle-xe.service

@@ -1,3 +1,10 @@
+#
+
+```
+Automatic work -> fire ansible
+
+```
+
 # Manual work
 ```
 /etc/init.d/oracle-xe configure
