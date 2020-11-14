@@ -4,5 +4,15 @@
     dest: /sdkman-script.sh
     mode: 0777
 
+- name: Install zip
+  dnf:
+    name: "zip"
+    state: latest
+
+- name: Install unzip
+  dnf:
+    name: "unzip"
+    state: latest
+
 - name: Install sdkman
   command: /sdkman-script.sh

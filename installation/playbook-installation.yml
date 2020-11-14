@@ -1,5 +1,6 @@
 - hosts: "{{ target_server_group }}"
   remote_user: "{{ user_root }}"
+  gather_facts: True
   vars_files:
     - variables.yml
   tasks:
@@ -27,9 +28,13 @@
       tags: "{{ tag_python }}"
     - import_tasks: ./tasks/python/python-alternatives.yml
       tags: "{{ tag_python_alternatives }}"
-    - import_tasks: ./tasks/open-ldap.yml
+    - import_tasks: ./tasks/ldap/ldap.yml
       tags: "{{ tag_open_ldap }}"
     - import_tasks: ./tasks/load-balancers/haproxy/haproxy.yml
       tags: "{{ tag_lb_haproxy }}"
     - import_tasks: ./tasks/load-balancers/gobetween/gobetween.yml
       tags: "{{ tag_lb_gobetween }}"
+    - import_tasks: ./tasks/databases/oracle/11xe/classic/oracle11xe.yml
+      tags: "{{ tag_oracle_11xe_classic }}"
+    - import_tasks: ./tasks/databases/oracle/11xe/docker/oracle11xe.yml
+      tags: "{{ tag_oracle_11xe_docker }}"

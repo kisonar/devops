@@ -5,5 +5,5 @@ services:
     image: rabbitmq:3-management
     ports:
       - "{{ port_rabbit_mq_web_ui }}:15672" # web UI port
-      - "{{ rabbit_mq_port_tcp }}:5672" # TCP port
+      - "{{ port_rabbit_mq_tcp }}:5672" # TCP port
     user: root

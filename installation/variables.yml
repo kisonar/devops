@@ -43,6 +43,10 @@ port_graylog_http: 9000
 port_elasticsearch_http: 9200
 port_graylog_gelf_tcp: 12201
 
+#Oracle 11xe
+oracle_11xe_rpm_location: /run/media/marcin/MigiBigDisk/repozytoria/repo-install-client/development/Oracle-db/XE/oracle-xe-11.2.0-1.0.x86_64.rpm/Disk1
+oracle_11xe_rpm_name: oracle-xe-11.2.0-1.0.x86_64.rpm
+
 tag_ci_cd: ci-cd
 tag_dnf: dnf
 tag_docker: docker
@@ -54,6 +58,8 @@ tag_lb_gobetween: gobetween
 tag_lb_haproxy: haproxy
 tag_nload: nload
 tag_open_ldap: open-ldap
+tag_oracle_11xe_classic: oracle11xe-classic
+tag_oracle_11xe_docker: oracle11xe-docker
 tag_proxy: proxy
 tag_python: python
 tag_python_alternatives: python-alternatives

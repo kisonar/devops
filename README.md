@@ -127,6 +127,11 @@ O (ang. Organization) – jednostka lub organizacja
 DC (ang. Domain Component) – składnik nazwy domenowej
 C (ang. Country) – państwo
 ```
+##### RDP
+```
+sudo dnf install -y remmina
+```
+
 
 ## Docker for Fedora 31+
 

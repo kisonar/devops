@@ -1,0 +1,20 @@
+# listener.ora Network Configuration File:
+
+SID_LIST_LISTENER =
+  (SID_LIST =
+    (SID_DESC =
+      (SID_NAME = XE)
+      (ORACLE_HOME = /u01/app/oracle/product/11.2.0/xe)
+      (PROGRAM = extproc)
+    )
+  )
+
+LISTENER =
+  (DESCRIPTION=
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = IPC)(KEY = EXTPROC_FOR_XE))
+      (ADDRESS = (PROTOCOL = TCP)(HOST = {{localhostname.stdout}})(PORT = 1521))
+    )
+  )
+
+DEFAULT_SERVICE_LISTENER = (XE)
