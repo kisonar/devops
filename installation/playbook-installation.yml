@@ -38,3 +38,5 @@
       tags: "{{ tag_oracle_11xe_classic }}"
     - import_tasks: ./tasks/databases/oracle/11xe/docker/oracle11xe.yml
       tags: "{{ tag_oracle_11xe_docker }}"
+    - import_tasks: ./tasks/linux/gluster-fs/gluster-fs.yml.yml
+      tags: "{{ tag_gluster_fs}}"
