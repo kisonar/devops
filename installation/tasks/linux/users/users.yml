@@ -1,4 +1,4 @@
-#- include_vars: definitions.yml
+- include_vars: ./stuff/linux/users/definitions.yml
 
 - name: Create group {{ user_group }}
   group:
@@ -14,10 +14,4 @@
     group: "{{user_group}}"
     shell: "{{item.shell}}"
     home: /home/{{item.username}}
-  loop:
-    - username: user1
-      password: user1
-      shell: /bin/bash
-    - username: user2
-      password: user2
-      shell: /bin/bash
+  loop: "{{definitions}}"
