@@ -44,7 +44,7 @@ port_elasticsearch_http: 9200
 port_graylog_gelf_tcp: 12201
 
 #Oracle 11xe
-oracle_11xe_rpm_location: /run/media/marcin/MigiBigDisk/repozytoria/repo-install-client/development/Oracle-db/XE/oracle-xe-11.2.0-1.0.x86_64.rpm/Disk1
+oracle_11xe_rpm_location: /run/media/marcin/MigiBigDisk/repozytoria/repo-install-client/development/Oracle-db/XE
 oracle_11xe_rpm_name: oracle-xe-11.2.0-1.0.x86_64.rpm
 
 #Gluster FS

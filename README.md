@@ -137,12 +137,8 @@ sudo dnf install -y remmina
 
 ##### Works with
 ```
-mine: 
 fedora-31-2020-04-01
 fedora-32-2020-07-28     
-
-theirs: 
-fedora-32-2020-07-28 
 ```
 
 ##### Usage

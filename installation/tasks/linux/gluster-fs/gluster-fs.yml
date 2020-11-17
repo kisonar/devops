@@ -1,4 +1,14 @@
-- name: Install Gluster-Server
+- name: Install GlusterFS-Server
   dnf:
-    name: "gluster-server"
+    name: "glusterfs-server"
     state: installed
+
+- name: Add IP address of all hosts to all hosts
+  lineinfile:
+    dest: /etc/hosts
+    # below line swaps private IP with public one
+    #regexp: '.*{{ item }}$'
+    line: "{{ hostvars[item].ansible_ssh_host }} {{item}}"
+    state: present
+  when: (hostvars[item].ansible_ssh_host is defined) and (hostvars[item].ansible_ssh_host != 'HOST-IP')
+  loop: "{{ groups.all}}"
