@@ -1,0 +1,8 @@
+users:
+  - username: user1
+    userpassword: user1pass
+    shell: /bin/bash
+
+  - username: user2
+    userpassword: user2pass
+    shell: /sbin/nologin

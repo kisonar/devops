@@ -47,6 +47,9 @@ port_graylog_gelf_tcp: 12201
 oracle_11xe_rpm_location: /run/media/marcin/MigiBigDisk/repozytoria/repo-install-client/development/Oracle-db/XE/oracle-xe-11.2.0-1.0.x86_64.rpm/Disk1
 oracle_11xe_rpm_name: oracle-xe-11.2.0-1.0.x86_64.rpm
 
+#Gluster FS
+user_group: gluster
+
 tag_ci_cd: ci-cd
 tag_dnf: dnf
 tag_docker: docker
@@ -66,3 +69,4 @@ tag_python: python
 tag_python_alternatives: python-alternatives
 tag_rabbit_mq: rabbit-mq
 tag_sdkman: sdkman
+tag_users: users
