@@ -132,6 +132,10 @@ C (ang. Country) – państwo
 sudo dnf install -y remmina
 ```
 
+##### Ansible
+```
+ansible-playbook -i hosts.ini playbook-name.yml -vvv
+```
 
 ## Docker for Fedora 31+
 

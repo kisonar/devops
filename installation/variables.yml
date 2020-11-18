@@ -50,6 +50,7 @@ oracle_11xe_rpm_name: oracle-xe-11.2.0-1.0.x86_64.rpm
 
 #Gluster FS
 user_group: gluster
+gluster_volume_name: gluster
 
 tag_ci_cd: ci-cd
 tag_dnf: dnf

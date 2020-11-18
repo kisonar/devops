@@ -12,15 +12,7 @@
 
 - name: Create gluster volume
   file:
-    path: "/gluster"
-    state: directory
-    mode: u=rwx,g=rwx,o=rwx #777
-    owner: "{{ user_root }}"
-    group: "{{ user_root }}"
-
-- name: Create gluster volume directory
-  file:
-    path: "/gluster/volume"
+    path: "/{{ gluster_volume_name }}"
     state: directory
     mode: u=rwx,g=rwx,o=rwx #777
     owner: "{{ user_root }}"
@@ -29,14 +21,14 @@
 - name: Mount gluster volume
   gluster.gluster.gluster_volume:
     state: present
-    name: test1
-    bricks: /gluster/volume
+    name: "{{ gluster_volume_name }}"
+    bricks: "{{ gluster_volume_name }}"
     rebalance: yes
     cluster: "{{ hostvars | join(',') }}"
-    force: true # has to be when you mount at root partition brick
+    force: true # has to be forced when you mount at root partition brick
   run_once: true
 
 - name: Start gluster volume
   gluster.gluster.gluster_volume:
     state: started
-    name: test1
+    name: "{{ gluster_volume_name }}"
