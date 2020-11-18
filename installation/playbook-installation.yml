@@ -41,4 +41,6 @@
     - import_tasks: ./tasks/linux/users/users.yml
       tags: "{{ tag_users}}"
     - import_tasks: ./tasks/linux/gluster-fs/gluster-fs.yml
-      tags: "{{ tag_gluster_fs}}"
+      tags: "{{ tag_gluster_fs }}"
+    - import_tasks: ./tasks/linux/hosts.yml
+      tags: "{{ tag_hosts }}"

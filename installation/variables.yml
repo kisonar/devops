@@ -42,6 +42,7 @@ port_gobetween: 8888
 port_graylog_http: 9000
 port_elasticsearch_http: 9200
 port_graylog_gelf_tcp: 12201
+port_gluster_fs: 24009
 
 #Oracle 11xe
 oracle_11xe_rpm_location: /run/media/marcin/MigiBigDisk/repozytoria/repo-install-client/development/Oracle-db/XE
@@ -55,6 +56,7 @@ tag_dnf: dnf
 tag_docker: docker
 tag_fedora31: fedora31
 tag_gluster_fs: gluster-fs
+tag_hosts: hosts
 tag_iftop: iftop
 tag_iperf_client: iperf-client
 tag_iperf_server: iperf-server

@@ -1,0 +1,42 @@
+- name: Form a cluster - peer nodes.
+  command: "gluster peer probe {{ peernode }}"
+  loop: "{{ ansible_play_hosts | flatten(levels=1) }}"
+  loop_control:
+    loop_var: peernode
+    pause: 2
+  register: glusterpeerprobe
+  become: true
+  run_once: true
+  any_errors_fatal: true
+  changed_when: "'peer probe: success.' in glusterpeerprobe.stdout_lines"
+
+- name: Create gluster volume
+  file:
+    path: "/gluster"
+    state: directory
+    mode: u=rwx,g=rwx,o=rwx #777
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"
+
+- name: Create gluster volume directory
+  file:
+    path: "/gluster/volume"
+    state: directory
+    mode: u=rwx,g=rwx,o=rwx #777
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"
+
+- name: Mount gluster volume
+  gluster.gluster.gluster_volume:
+    state: present
+    name: test1
+    bricks: /gluster/volume
+    rebalance: yes
+    cluster: "{{ hostvars | join(',') }}"
+    force: true # has to be when you mount at root partition brick
+  run_once: true
+
+- name: Start gluster volume
+  gluster.gluster.gluster_volume:
+    state: started
+    name: test1

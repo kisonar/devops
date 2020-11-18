@@ -1,0 +1,7 @@
+- name: Install Glusterfs-server
+  dnf:
+    name: "glusterfs-server"
+    state: installed
+
+- name: Start Glusterfs daemon
+  command: systemctl start glusterd.service
