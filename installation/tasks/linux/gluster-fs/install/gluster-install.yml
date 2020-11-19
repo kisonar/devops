@@ -8,6 +8,6 @@
 
 - name: Start Glusterfs daemon
   systemd:
-    name: glusterd.servicer
+    name: glusterd.service
     state: restarted
     enabled: yes

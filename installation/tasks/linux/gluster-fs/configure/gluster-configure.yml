@@ -12,7 +12,7 @@
 
 - name: Create gluster volume
   file:
-    path: "/{{ gluster_volume_name }}"
+    path: /{{ gluster_volume_name }}
     state: directory
     mode: u=rwx,g=rwx,o=rwx #777
     owner: "{{ user_root }}"
@@ -22,7 +22,7 @@
   gluster.gluster.gluster_volume:
     state: present
     name: "{{ gluster_volume_name }}"
-    bricks: "{{ gluster_volume_name }}"
+    bricks: /{{ gluster_volume_name }}
     rebalance: yes
     cluster: "{{ hostvars | join(',') }}"
     force: true # has to be forced when you mount at root partition brick
