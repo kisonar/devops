@@ -1,3 +1,2 @@
-- import_tasks: ./install/gluster-arm-controller.yml
 - import_tasks: ./install/gluster-install.yml
 - import_tasks: ./configure/gluster-configure.yml

@@ -3,9 +3,6 @@
     name: "glusterfs-server"
     state: installed
 
-#- name: Start Glusterfs daemon
-#  command: systemctl start glusterd.service
-
 - name: Start Glusterfs daemon
   systemd:
     name: glusterd.service

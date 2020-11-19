@@ -1,0 +1,3 @@
+- name: Install Ansible module for Openstack
+  command: ansible-galaxy collection install openstack.cloud
+  delegate_to: 127.0.0.1
