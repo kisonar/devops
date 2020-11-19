@@ -5,7 +5,7 @@
 Install at Ansible Controller manually
 ansible-galaxy collection install gluster.gluster
 
-It is also beign done during ansible-playbook run.
+It is also beign done during ansible-playbook run with tag extensions.
 ```
 
 # Notes

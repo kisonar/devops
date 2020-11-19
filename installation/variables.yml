@@ -57,7 +57,6 @@ tag_docker: docker
 tag_extensions: extensions
 tag_fedora31: fedora31
 tag_gluster_fs: gluster-fs
-tag_routing: routing
 tag_iftop: iftop
 tag_iperf_client: iperf-client
 tag_iperf_server: iperf-server
@@ -65,11 +64,13 @@ tag_lb_gobetween: gobetween
 tag_lb_haproxy: haproxy
 tag_nload: nload
 tag_open_ldap: open-ldap
+tag_open_stack: openstack
 tag_oracle_11xe_classic: oracle11xe-classic
 tag_oracle_11xe_docker: oracle11xe-docker
 tag_proxy: proxy
 tag_python: python
 tag_python_alternatives: python-alternatives
 tag_rabbit_mq: rabbit-mq
+tag_routing: routing
 tag_sdkman: sdkman
 tag_users: users

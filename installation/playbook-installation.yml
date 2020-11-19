@@ -46,3 +46,5 @@
       tags: "{{ tag_oracle_11xe_docker }}"
     - import_tasks: ./tasks/extensions/extensions.yml
       tags: "{{ tag_extensions }}"
+    - import_tasks: ./tasks/openstack/openstack.yml
+      tags: "{{ tag_open_stack}}"
