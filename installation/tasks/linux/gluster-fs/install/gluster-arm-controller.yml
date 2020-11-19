@@ -1,0 +1,3 @@
+- name: Install Gluster Ansible module at controller
+  command: ansible-galaxy collection install gluster.gluster
+  delegate_to: 127.0.0.1

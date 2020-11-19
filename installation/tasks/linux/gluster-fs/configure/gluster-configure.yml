@@ -1,0 +1,58 @@
+- name: Form a cluster - peer nodes.
+  command: "gluster peer probe {{ peernode }}"
+  loop: "{{ ansible_play_hosts | flatten(levels=1) }}"
+  loop_control:
+    loop_var: peernode
+    pause: 2
+  register: glusterpeerprobe
+  become: true
+  run_once: true
+  any_errors_fatal: true
+  changed_when: "'peer probe: success.' in glusterpeerprobe.stdout_lines"
+
+- name: Create gluster volume directory on each node
+  file:
+    path: /{{ gluster_volume_name }}
+    state: directory
+    mode: u=rwx,g=rwx,o=rwx #777
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"
+
+- name: Configure and mount gluster volume
+  gluster.gluster.gluster_volume:
+    state: present
+    name: "{{ gluster_volume_name }}"
+    bricks: /{{ gluster_volume_name }}
+    rebalance: yes
+    redundancies: 1
+    replicas: 2
+    cluster: "{{ hostvars | join(',') }}"
+    force: true # has to be forced when you mount at root partition brick
+    transport: tcp
+    stripes: 2
+    options:
+      { performance.cache-size: 128MB,
+        write-behind: 'on',
+        quick-read: 'on'
+      }
+  run_once: true
+
+- name: Ensure Gluster volume is mounted.
+  mount:
+    name: "{{ gluster_volume_name }}"
+    src: "{{ inventory_hostname }}:/{{ gluster_volume_name }}"
+    fstype: glusterfs
+    opts: "defaults,_netdev"
+    state: mounted
+
+- name: Stop gluster volume
+  gluster.gluster.gluster_volume:
+    state: stopped
+    name: "{{ gluster_volume_name }}"
+  run_once: true
+
+- name: Start gluster volume
+  gluster.gluster.gluster_volume:
+    state: started
+    name: "{{ gluster_volume_name }}"
+  run_once: true

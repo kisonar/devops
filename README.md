@@ -41,23 +41,23 @@ du -ah /var | sprt -n
 2 attach created data volume to VM
 3 list available devices:lsblk
 4 format disk with: mkfs.ext4 /dev/vdb
-5 create directory with command: mkdir /some-disk 
-6 chmod 777 -R /journals
-7 mount -t ext4 /dev/vdb /journals
+5 create directory with command: mkdir /some-directory 
+6 chmod 777 -R /some-directory 
+7 mount -t ext4 /dev/vdb /some-directory 
 ```
 ###### Extend one
 ```
 1 create backup of existing data volume as snapshot in OpenStack
 2 find disk UUID with: lsblk -f
 3 turn off services using mounted data volume
-4 detach data volume from VM: umount  /dev/vdb /some-disk
+4 detach data volume from VM: umount  /dev/vdb /some-directory
 5 extend data volume in OpenStack
 6 attach data volume to VM
 7 check disk and resize it to it's new size defined from OpenStack in point 5: 
   e2fsck -f /dev/vdb
   resize2fs /dev/vdb
   In case after attaching disk is not visible in from VM level, reboot VM
-8 mount drive: mount  /dev/vdb /some-disk
+8 mount drive: mount -t ext4 /dev/vdb /some-directory
 
 If you want to have everything done in a smooth way, then you can add below steps instead of point 8:
 Add entry in/etc/fstab:
@@ -132,17 +132,17 @@ C (ang. Country) – państwo
 sudo dnf install -y remmina
 ```
 
+##### Ansible
+```
+ansible-playbook -i hosts.ini playbook-name.yml -vvv
+```
 
 ## Docker for Fedora 31+
 
 ##### Works with
 ```
-mine: 
 fedora-31-2020-04-01
 fedora-32-2020-07-28     
-
-theirs: 
-fedora-32-2020-07-28 
 ```
 
 ##### Usage
@@ -231,7 +231,7 @@ http://andresalmiray.com/maven-scopes-vs-gradle-configurations/
 ```
 set MAVEN_OPTS=-Xmx2000m -XX:MaxPermSize=2000m
 
-mvn clean install [-T 4 - threads per build'a, 2C - 2 threads per Core ] [-o]
+mvn clean install [-T 4 - threads per build'a, 2C - 2 threads per Core ] [-o] -X (debug mode)
 mvn versions:set -DnewVersion=2.0-SNAPSHOTKogut
 
 junit: -Dsurefire.skipAfterFailureCount=1 -DskipTests

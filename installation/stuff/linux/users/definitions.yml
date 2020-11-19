@@ -1,0 +1,12 @@
+definitions:
+  - username: user1
+    password: user1pass
+    shell: /bin/bash
+
+  - username: user2
+    password: user2pass
+    shell: /sbin/nologin
+
+  - username: user3
+    password: user3pass
+    shell: /bin/bash
