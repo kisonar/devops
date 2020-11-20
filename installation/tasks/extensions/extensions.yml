@@ -1,2 +1,0 @@
-- import_tasks: ./gluster/gluster.yml
-- import_tasks: ./openstack/openstack.yml

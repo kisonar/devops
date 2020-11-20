@@ -1,8 +1,8 @@
 - name: Copy RPM
   copy:
     src: "{{ oracle_11xe_rpm_location }}/{{ oracle_11xe_rpm_name }}"
-    dest: "/root/{{ oracle_11xe_rpm_name }}"
-    mode: u=rwx,g=rwx,o=rx #775
+    dest: "/root/oracle-xe-11.2.0-1.0.x86_64.rpm"
+    mode: u=rx,g=rx,o=rx #775
     owner: root
     group: root
 

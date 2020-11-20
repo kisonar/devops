@@ -134,7 +134,8 @@ sudo dnf install -y remmina
 
 ##### Ansible
 ```
-ansible-playbook -i hosts.ini playbook-name.yml -vvv -t="tag1,tag2"
+Use version 2.9
+ansible-playbook -i hosts.ini playbook-name.yml --skip-tags="proxy"
 ```
 
 ## Docker for Fedora 31+
