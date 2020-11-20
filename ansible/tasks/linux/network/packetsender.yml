@@ -1,0 +1,7 @@
+- name: Install snapd
+  dnf:
+    name: snapd
+    state: installed
+
+- name: Install packetsender
+  command: snap install packetsender

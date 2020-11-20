@@ -1,0 +1,5 @@
+- name: Linux dnf update
+  dnf:
+    name: "remmina"
+    state: installed
+  delegate_to: 127.0.0.1

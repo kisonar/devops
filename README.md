@@ -1,4 +1,4 @@
-# Source code, build & devops tools tips & tricks
+# Source code, build & devops tools tips & tricks 
 
 ## Linux
 ##### Various
@@ -70,9 +70,7 @@ list opened ports
 ss -lntu
 netstat
 
-sudo dnf install snapd
-snap install packetsender
-usage: packetsender
+packetsender
 ```
 ##### DNF actions
 ```
@@ -129,16 +127,16 @@ C (ang. Country) – państwo
 ```
 ##### RDP
 ```
-sudo dnf install -y remmina
+remmina
 ```
 
 ##### Ansible
 ```
 Use version 2.9
-ansible-playbook -i hosts.ini playbook-name.yml --skip-tags="proxy"
+ansible-playbook -i hosts.ini playbook-name.yml --skip-tags="proxy" -t="t1,t2"
 ```
 
-## Docker for Fedora 31+
+## Docker for Fedora 32
 
 ##### Works with
 ```

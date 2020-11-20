@@ -1,7 +1,5 @@
 target_server_group: testing
-
 user_root: root
-
 installation_directory: /root
 
 # Ports
@@ -38,6 +36,7 @@ tag_proxy: proxy
 tag_python: python
 tag_python_alternatives: python-alternatives
 tag_rabbit_mq: rabbit-mq
+tag_rdp: rdp
 tag_routing: routing
 tag_sdkman: sdkman
 tag_terraform: terraform
