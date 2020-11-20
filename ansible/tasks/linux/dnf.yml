@@ -2,3 +2,8 @@
   dnf:
     name: "*"
     state: latest
+
+- name: Install dnf-plugins-core
+  dnf:
+    name: dnf-plugins-core
+    state: installed

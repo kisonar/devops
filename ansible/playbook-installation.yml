@@ -6,7 +6,7 @@
     - variables-installation.yml
   tasks:
     - import_tasks: ./tasks/linux/dnf.yml
-      tags: "{{ tag_dnf }}"
+      tags: "{{ tag_dnf },{{ tag_docker }}"
     - import_tasks: ./tasks/linux/sdkman.yml
       tags: "{{ tag_sdkman }}"
     - import_tasks: ./tasks/linux/users/users.yml

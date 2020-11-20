@@ -1,8 +1,3 @@
-- name: Install dnf-plugins-core
-  dnf:
-    name: dnf-plugins-core
-    state: installed
-
 - name: Install yum-utils
   dnf:
     name: yum-utils
