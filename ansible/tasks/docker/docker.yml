@@ -8,7 +8,7 @@
     name: yum-utils
     state: installed
 
-# TODO - warnign is being displayed
+# TODO - warning is being displayed
 - name: Set up the stable repository
   command: dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 
@@ -49,7 +49,6 @@
 - name: Start Docker daemon
   command: systemctl start docker.service
 
-#------------------------------------------------------------------------------------------------
 - name: Install Docker Compose
   get_url:
     url: https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-Linux-x86_64
