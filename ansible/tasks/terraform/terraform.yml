@@ -1,0 +1,7 @@
+- name: Install sdkman
+  command: sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/$release/hashicorp.repo
+
+- name: Install unzip
+  dnf:
+    name: "terraform"
+    state: installed

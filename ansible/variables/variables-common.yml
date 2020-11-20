@@ -40,4 +40,5 @@ tag_python_alternatives: python-alternatives
 tag_rabbit_mq: rabbit-mq
 tag_routing: routing
 tag_sdkman: sdkman
+tag_terraform: terraform
 tag_users: users
