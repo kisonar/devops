@@ -1,0 +1,3 @@
+- import_tasks: ./install/install.yml
+- import_tasks: ./install/post-install.yml
+- import_tasks: ./connection/unsecure-connection.yml
