@@ -1,23 +1,31 @@
-- name: LDAP - create /data directory
+- name: LDAP - create /root/ldap directory
   file:
-    path: "{{ installation_directory }}/data"
+    path: /root/ldap
     state: directory
     mode: u=rwx,g=rwx,o=rwx #776
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
 
-- name: LDAP - create docker-compose.yml in /root
+- name: LDAP - create /root/ldap/data directory
+  file:
+    path: /root/ldap/data
+    state: directory
+    mode: u=rwx,g=rwx,o=rwx #776
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"
+
+- name: LDAP - create docker-compose.yml in /root/ldap
   template:
     src: ./stuff/ldap/openldap/docker-compose.yml
-    dest: "{{ installation_directory }}/docker-compose.yml"
+    dest: /root/ldap/docker-compose.yml
     mode: u=rw,g=rw,o=r #664
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
 
 - name: LDAP - stop docker containers
-  command: docker-compose down
+  command: docker-compose down -f /root/ldap/docker-compose.yml
   ignore_errors: yes
 
 - name: LDAP - start docker containers
-  command: docker-compose up -d
+  command: docker-compose up -d -f /root/ldap/docker-compose.yml
   ignore_errors: yes

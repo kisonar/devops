@@ -1,15 +1,21 @@
+- name: Rabbit-MQ - create  directory
+  file:
+    path: /root/rabbit-mq/
+    state: directory
+    mode: '0755'
+
 - name: Rabbit-MQ - copy docker-compose
   template:
     src: ./stuff/rabbit-mq/docker-compose.yml
-    dest: "{{ installation_directory }}/docker-compose.yml"
+    dest: /root/rabbit-mq/docker-compose.yml
     mode: u=rw,g=rw,o=r #664
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
 
 - name: Rabbit-MQ - stop docker containers
-  command: docker-compose down
+  command: docker-compose down -f /root/rabbit-mq/docker-compose.yml
   ignore_errors: yes
 
 - name: Rabbit-MQ - start docker containers
-  command: docker-compose up -d
+  command: docker-compose up -d -f /root/rabbit-mq/docker-compose.yml
   ignore_errors: yes

@@ -1,7 +1,7 @@
 - name: Oracle 11XE copy docker-compose.yml
   template:
     src: ./stuff/databases/oracle/11xe/docker/docker-compose.yml
-    dest: /root/docker-compose.yml
+    dest: "{{ installation_directory }}/docker-compose.yml"
     mode: u=rw,g=rw,o=r #664
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
