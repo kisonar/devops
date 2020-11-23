@@ -7,7 +7,7 @@
   tasks:
     - import_tasks: ./tasks/localhost/linux/rdp.yml
       tags: "{{ tag_rdp }}"
-    - import_tasks: ./tasks/extensions/extensions.yml
+    - import_tasks: ./tasks/localhost/extensions/extensions.yml
       tags: "{{ tag_extensions }}"
-    - import_tasks: ./tasks/terraform/terraform.yml
+    - import_tasks: ./tasks/localhost/terraform/terraform.yml
       tags: "{{ tag_terraform }}"

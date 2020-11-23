@@ -4,11 +4,11 @@
   vars_files:
     - variables-common.yml
   tasks:
-    - import_tasks: ./tasks/linux/proxy.yml
-      tags: "{{ tag_proxy }}"
     - import_tasks: ./tasks/python/python.yml
       tags: "{{ tag_python }}"
     - import_tasks: ./tasks/python/python-alternatives.yml
       tags: "{{ tag_python_alternatives }}"
     - import_tasks: ./tasks/databases/oracle/11xe/classic/oracle11xe.yml
       tags: "{{ tag_oracle_11xe_classic }}"
+    - import_tasks: ./tasks/linux/proxy.yml
+      tags: "{{ tag_proxy }}"
