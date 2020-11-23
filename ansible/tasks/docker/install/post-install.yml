@@ -1,15 +1,15 @@
-- name: chkconfig for docker
+- name: Docker post install - chkconfig for docker
   command: chkconfig docker on
   ignore_errors: yes
 
-- name: Create docker group
+- name: Docker post install - create docker group
   command: sudo groupadd docker
   ignore_errors: yes
 
-- name: Add yourself to docker group
+- name: Docker post install - add yourself to docker group
   command: sudo usermod -aG docker $USER
   ignore_errors: yes
 
-- name: Docker cgoups
+- name: Docker post install - Docker cgoups
   command: grubby --update-kernel=ALL --args="systemd.unified_cgroup_hierarchy=0"
   ignore_errors: yes

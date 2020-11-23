@@ -3,11 +3,11 @@
     name: yum-utils
     state: installed
 
-# TODO - warning is being displayed
-- name: Docker - set up the stable repository
+#TODO warning
+- name: Docker - set up stable repository
   command: dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 
-- name: Install the latest version of Docker Engine - Community and containerd
+- name: Docker - install containerd
   dnf:
     name: containerd.io
     state: installed
@@ -30,7 +30,7 @@
     owner: "{{user_root}}"
     group: "{{user_root}}"
 
-#TODO try to use Ansible Mount
+#TODO warning try to use Ansible Mount
 - name: Docker -  Cgroup mounting
   command: mount -t cgroup -o none,name=systemd cgroup /sys/fs/cgroup/systemd
   ignore_errors: yes

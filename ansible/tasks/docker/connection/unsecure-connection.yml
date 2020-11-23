@@ -1,4 +1,4 @@
-- name: Copy proxy
+- name: Docker - insecure connection
   template:
     src: ./stuff/docker/daemon.json
     dest: /etc/docker/daemon.json
