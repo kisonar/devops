@@ -1,7 +1,13 @@
-- name: Install sdkman
-  command: sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/$release/hashicorp.repo
+- name: Install Terraform repository
+  command: sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
+  delegate_to: 127.0.0.1
 
-- name: Install unzip
+- name: Install Terraform
   dnf:
     name: "terraform"
     state: installed
+#    enablerepo: https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
+    validate_certs: yes
+  delegate_to: 127.0.0.1
+  become: true
+  become_user: "{{ user_root }}"
