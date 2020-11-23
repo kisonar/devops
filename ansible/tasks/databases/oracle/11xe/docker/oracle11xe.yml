@@ -1,15 +1,21 @@
+- name: Create  directory for CI/CD
+  file:
+    path: /root/oracle-11xe
+    state: directory
+    mode: '0755'
+
 - name: Oracle 11XE copy docker-compose.yml
   template:
     src: ./stuff/databases/oracle/11xe/docker/docker-compose.yml
-    dest: "{{ installation_directory }}/docker-compose.yml"
+    dest: /root/oracle-11xe/docker-compose.yml
     mode: u=rw,g=rw,o=r #664
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
 
 - name: Oracle 11XE - stop docker containers
-  command: docker-compose down
+  command: docker-compose down -f /root/oracle-11xe/docker-compose.yml
   ignore_errors: yes
 
 - name: Oracle 11XE - start docker containers
-  command: docker-compose up -d
+  command: docker-compose up -d -f /root/oracle-11xe/docker-compose.yml
   ignore_errors: yes
