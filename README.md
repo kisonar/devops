@@ -13,7 +13,9 @@ sh -s /bin/bash testuser
 
 MBR/GPT clenup
 dd if=/dev/zero of=/dev/sdc bs=512 count=1
-
+```
+##### Security
+```
 private/public keys
 - transformation
 1) set permission to 400
@@ -21,6 +23,10 @@ private/public keys
 
 sudo cp -rf /root/.ssh/* /home/username/.ssh/
 chown -R username:username /home/username/.ssh
+
+ssh-add keyfile.pem
+ssh-keygen -y -f ./svc-testing.pem 
+
 ```
 ##### Users
 ```
