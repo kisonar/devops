@@ -1,4 +1,0 @@
-- name: Iperf install
-  dnf:
-    name: "iperf3"
-    state: latest

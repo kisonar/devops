@@ -1,0 +1,4 @@
+- name: Linux Network - Iperf install
+  dnf:
+    name: "iperf3"
+    state: latest

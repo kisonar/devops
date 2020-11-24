@@ -1,0 +1,27 @@
+- hosts: "{{ target_server_group }}"
+  remote_user: "{{ user_root }}"
+  gather_facts: True
+  vars_files:
+    - ./variables/variables-common.yml
+    - ./variables/variables-services.yml
+  tasks:
+    - import_tasks: ./tasks/linux/network/iperf/iperf-server.yml
+      tags: "{{ tag_iperf_server }}"
+    - import_tasks: ./tasks/linux/network/iperf/iperf-client.yml
+      tags: "{{ tag_iperf_client }}"
+    - import_tasks: ./tasks/linux/network/iftop.yml
+      tags: "{{ tag_iftop }}"
+    - import_tasks: ./tasks/linux/network/nload.yml
+      tags: "{{ tag_nload }}"
+    - import_tasks: ./tasks/ci-cd.yml
+      tags: "{{ tag_ci_cd }}"
+    - import_tasks: ./tasks/rabbit-mq.yml
+      tags: "{{ tag_rabbit_mq }}"
+    - import_tasks: ./tasks/ldap/ldap.yml
+      tags: "{{ tag_open_ldap }}"
+    - import_tasks: ./tasks/databases/oracle/11xe/docker/oracle11xe.yml
+      tags: "{{ tag_oracle_11xe_docker }}"
+    - import_tasks: ./tasks/load-balancers/haproxy/haproxy.yml
+      tags: "{{ tag_lb_haproxy }}"
+    - import_tasks: ./tasks/load-balancers/gobetween/gobetween.yml
+      tags: "{{ tag_lb_gobetween }}"

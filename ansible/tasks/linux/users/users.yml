@@ -1,0 +1,17 @@
+- include_vars: ./stuff/linux/users/definitions.yml
+
+- name: Linux - Create group {{ user_group }}
+  group:
+    name: "{{user_group}}"
+    state: present
+
+- name: Linux - Create users
+  user:
+    name: "{{item.username}}"
+    password: "{{item.password | password_hash('sha512') }}"
+    create_home: yes
+    update_password: always
+    group: "{{user_group}}"
+    shell: "{{item.shell}}"
+    home: /home/{{item.username}}
+  loop: "{{definitions}}"

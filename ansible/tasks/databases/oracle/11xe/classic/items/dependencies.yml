@@ -1,0 +1,9 @@
+- name: Oracle 11XE - Install dependency libaio
+  dnf:
+    name: "libaio"
+    state: installed
+
+- name: Oracle 11XE - Install dependency libnsl
+  dnf:
+    name: "libnsl"
+    state: installed

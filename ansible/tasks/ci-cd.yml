@@ -1,0 +1,20 @@
+- name: CI/CD - Create  directory
+  file:
+    path: /root/ci-cd
+    state: directory
+    mode: '0755'
+
+- name: CI/CD - Copy docker-compose file
+  copy:
+    src: ./stuff/ci-cd/docker-compose.yml
+    dest: /root/ci-cd/docker-compose.yml
+    mode: u=rw,g=rw,o=r #664
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"
+
+- name: CI/CD - Enable and restart services
+  community.general.docker_compose:
+    project_src: /root/ci-cd
+    build: no
+    restarted: yes
+    state: present
