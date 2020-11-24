@@ -3,11 +3,11 @@
   ignore_errors: yes
 
 - name: Docker post install - create docker group
-  command: sudo groupadd docker
+  command: groupadd docker
   ignore_errors: yes
 
 - name: Docker post install - add yourself to docker group
-  command: sudo usermod -aG docker $USER
+  command: usermod -aG docker $USER
   ignore_errors: yes
 
 - name: Docker post install - Docker cgoups

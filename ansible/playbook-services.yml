@@ -2,8 +2,8 @@
   remote_user: "{{ user_root }}"
   gather_facts: True
   vars_files:
-    - variables.yml
-    - variables-common.yml
+    - ./variables/variables-common.yml
+    - ./variables/variables-services.yml
   tasks:
     - import_tasks: ./tasks/linux/network/iperf/iperf-server.yml
       tags: "{{ tag_iperf_server }}"
