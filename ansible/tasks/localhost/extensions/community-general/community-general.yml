@@ -1,0 +1,10 @@
+- name: Install Ansible module for Docker-Compose
+  command: ansible-galaxy collection install community.general
+  delegate_to: 127.0.0.1
+
+#covers
+# community.general
+# google.cloud
+# ansible.posix
+# ansible.netcommon
+# community.kubernetes

@@ -32,7 +32,7 @@
     group: "{{user_root}}"
 
 #TODO warning try to use Ansible Mount
-- name: Docker -  Cgroup mounting
+- name: Docker - Cgroup mounting
   command: mount -t cgroup -o none,name=systemd cgroup /sys/fs/cgroup/systemd
   ignore_errors: yes
 
@@ -51,7 +51,13 @@
     dest: "{{ docker_compose_path }}"
     mode: 0755
 
-- name: Install -apply executable permissions to docker-compose binary
+- name: Docker -apply executable permissions to docker-compose binary
   file:
     path: "{{ docker_compose_path }}"
     mode:  u=rwx,g=rwx,o=rwx
+
+- name: Docker - pip3 install docker required for Ansible Docker plugin support
+  command: pip3 install docker
+
+- name: Docker - pip3 install docker-compose required for Ansible Docker Compose plugin support
+  command: pip3 install docker-compose

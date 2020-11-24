@@ -1,1 +1,2 @@
 - import_tasks: ./gluster/gluster.yml
+- import_tasks: ./community-general/community-general.yml

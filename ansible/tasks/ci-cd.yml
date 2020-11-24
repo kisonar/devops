@@ -12,10 +12,10 @@
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
 
-- name: CI/CD - stop docker containers
-  command: docker-compose down -f /root/ci-cd/docker-compose.yml
-  ignore_errors: yes
-
-- name: CI/CD - start docker containers
-  command: docker-compose up -d -f /root/ci-cd/docker-compose.yml
-  ignore_errors: yes
+- name: Restart services
+  community.general.docker_compose:
+    project_src: /root/ci-cd/
+    build: no
+    restarted: yes
+    state: present
+  register: output
