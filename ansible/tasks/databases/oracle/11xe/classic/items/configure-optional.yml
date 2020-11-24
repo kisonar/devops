@@ -1,5 +1,5 @@
 # ========================
-# Optional steps
+# Optional steps which may break instance
 
 - name: Oracle 11XE - Copy listener.ora
   template:
