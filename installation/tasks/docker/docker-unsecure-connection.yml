@@ -1,7 +1,0 @@
-- name: Copy proxy
-  template:
-    src: ./stuff/docker/daemon.json
-    dest: /etc/docker/daemon.json
-    mode: u=rw,g=rw,o=rw #775
-    owner: root
-    group: root

@@ -1,0 +1,66 @@
+- name: Docker - install yum-utils
+  dnf:
+    name: yum-utils
+    state: installed
+
+- name: Docker - set up stable repository | ignore warning
+  command: dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+  args:
+    warn: false
+
+- name: Docker - install containerd
+  dnf:
+    name: containerd.io
+    state: installed
+
+- name: Docker - install Docker CE
+  dnf:
+    name: docker-ce
+    state: installed
+
+- name: Docker - install Docker CE CLI
+  dnf:
+    name: docker-ce-cli
+    state: installed
+
+- name: Docker - create cgroup directory for docker
+  file:
+    path: /sys/fs/cgroup/systemd
+    state: directory
+    mode: u=rwx,g=rwx,o=rwx #777
+    owner: "{{user_root}}"
+    group: "{{user_root}}"
+
+- name: Docker mount cgroup
+  mount:
+    path: /sys/fs/cgroup/systemd
+    src: cgroup
+    fstype: cgroup
+    opts: none,name=systemd
+    state: mounted
+
+- name: Docker - enable Docker at boot
+  command: systemctl enable docker
+
+- name: Docker - reload Docker daemon
+  command: systemctl daemon-reload
+
+- name: Docker - start Docker daemon
+  command: systemctl start docker.service
+
+- name: Docker - install Docker Compose
+  get_url:
+    url: https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-Linux-x86_64
+    dest: "{{ docker_compose_path }}"
+    mode: 0755
+
+- name: Docker -apply executable permissions to docker-compose binary
+  file:
+    path: "{{ docker_compose_path }}"
+    mode:  u=rwx,g=rwx,o=rwx
+
+- name: Docker - pip3 install docker required for Ansible Docker plugin support
+  command: pip3 install docker
+
+- name: Docker - pip3 install docker-compose required for Ansible Docker Compose plugin support
+  command: pip3 install docker-compose

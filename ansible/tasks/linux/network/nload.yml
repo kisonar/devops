@@ -1,0 +1,4 @@
+- name: Linux Network - Install nload
+  dnf:
+    name: "nload"
+    state: latest

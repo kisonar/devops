@@ -1,0 +1,13 @@
+- hosts: "{{ target_server_group }}"
+  remote_user: "{{ user_root }}"
+  gather_facts: True
+  vars_files:
+    - ./variables/variables-common.yml
+    - ./variables/variables-installation.yml
+  tasks:
+    - import_tasks: ./tasks/localhost/linux/rdp.yml
+      tags: "{{ tag_rdp }}"
+    - import_tasks: ./tasks/localhost/extensions/extensions.yml
+      tags: "{{ tag_extensions }}"
+    - import_tasks: ./tasks/localhost/terraform/terraform.yml
+      tags: "{{ tag_terraform }}"

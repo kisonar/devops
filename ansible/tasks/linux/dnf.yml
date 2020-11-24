@@ -1,0 +1,9 @@
+- name: DNF - Linux dnf update
+  dnf:
+    name: "*"
+    state: latest
+
+- name: DNF - Install dnf-plugins-core
+  dnf:
+    name: dnf-plugins-core
+    state: installed

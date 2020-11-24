@@ -1,0 +1,9 @@
+installation_directory: /root
+
+docker_compose_path: /usr/local/bin/docker-compose
+docker_compose_version: 1.25.4
+
+DOCKER_REGISTRY_HOST: 127.0.0.1
+DOCKER_REGISTRY_PORT: 3333
+
+user_group: some-users

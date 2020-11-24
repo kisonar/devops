@@ -1,0 +1,30 @@
+- name: LDAP - Create /root/ldap directory
+  file:
+    path: /root/ldap
+    state: directory
+    mode: u=rwx,g=rwx,o=rwx #776
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"
+
+- name: LDAP - Create /root/ldap/data directory
+  file:
+    path: /root/ldap/data
+    state: directory
+    mode: u=rwx,g=rwx,o=rwx #776
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"
+
+- name: LDAP - Create docker-compose.yml in /root/ldap
+  template:
+    src: ./stuff/ldap/openldap/docker-compose.yml
+    dest: /root/ldap/docker-compose.yml
+    mode: u=rw,g=rw,o=r #664
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"
+
+- name: LDAP - Enable and restart services
+  community.general.docker_compose:
+    project_src: /root/ldap
+    build: no
+    restarted: yes
+    state: present

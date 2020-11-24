@@ -1,4 +1,0 @@
-- name: Linux dnf update
-  dnf:
-    name: "*"
-    state: latest
