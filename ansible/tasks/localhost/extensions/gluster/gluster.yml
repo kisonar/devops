@@ -1,3 +1,4 @@
 - name: Install Ansible module for Gluster
   command: ansible-galaxy collection install gluster.gluster
   delegate_to: 127.0.0.1
+  ignore_errors: yes
