@@ -1,18 +1,18 @@
-- name: Install zip
+- name: SDKMAN - Install zip
   dnf:
     name: "zip"
     state: latest
 
-- name: Install unzip
+- name: SDKMAN - Install unzip
   dnf:
     name: "unzip"
     state: latest
 
-- name: Download sdkman script
+- name: SDKMAN - Download SDKMAN script
   get_url:
     url: https://get.sdkman.io
     dest: /sdkman-script.sh
     mode: 0777
 
-- name: Install sdkman
+- name: SDKMAN - Install sdkman
   command: /sdkman-script.sh

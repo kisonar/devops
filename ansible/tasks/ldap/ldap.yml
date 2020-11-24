@@ -22,10 +22,9 @@
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
 
-- name: LDAP - stop docker containers
-  command: docker-compose down -f /root/ldap/docker-compose.yml
-  ignore_errors: yes
-
-- name: LDAP - start docker containers
-  command: docker-compose up -d -f /root/ldap/docker-compose.yml
-  ignore_errors: yes
+- name: LDAP - enable and restart services
+  community.general.docker_compose:
+    project_src: /root/ldap
+    build: no
+    restarted: yes
+    state: present

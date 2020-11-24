@@ -1,12 +1,13 @@
 - name: Install Terraform repository
   command: sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
+  args:
+    warn: false
   delegate_to: 127.0.0.1
 
 - name: Install Terraform
   dnf:
     name: "terraform"
     state: installed
-#    enablerepo: https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
     validate_certs: yes
   delegate_to: 127.0.0.1
   become: true

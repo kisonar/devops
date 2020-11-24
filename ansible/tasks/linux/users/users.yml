@@ -1,11 +1,11 @@
 - include_vars: ./stuff/linux/users/definitions.yml
 
-- name: Create group {{ user_group }}
+- name: Linux - Create group {{ user_group }}
   group:
     name: "{{user_group}}"
     state: present
 
-- name: Create users
+- name: Linux - Create users
   user:
     name: "{{item.username}}"
     password: "{{item.password | password_hash('sha512') }}"

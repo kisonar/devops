@@ -1,4 +1,4 @@
-- name: Create  directory for CI/CD
+- name: Oracle 11XE - Create  directory
   file:
     path: /root/oracle-11xe
     state: directory
@@ -12,10 +12,9 @@
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
 
-- name: Oracle 11XE - stop docker containers
-  command: docker-compose down -f /root/oracle-11xe/docker-compose.yml
-  ignore_errors: yes
-
-- name: Oracle 11XE - start docker containers
-  command: docker-compose up -d -f /root/oracle-11xe/docker-compose.yml
-  ignore_errors: yes
+- name: Oracle 11XE- enable and restart services
+  community.general.docker_compose:
+    project_src: /root/oracle-11xe
+    build: no
+    restarted: yes
+    state: present

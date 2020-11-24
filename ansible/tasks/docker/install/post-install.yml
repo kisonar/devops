@@ -10,6 +10,6 @@
   command: usermod -aG docker $USER
   ignore_errors: yes
 
-- name: Docker post install - Docker cgoups
+- name: Docker post install - Docker cgroups
   command: grubby --update-kernel=ALL --args="systemd.unified_cgroup_hierarchy=0"
   ignore_errors: yes

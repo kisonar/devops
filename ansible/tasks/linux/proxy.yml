@@ -1,4 +1,4 @@
-- name: Copy proxy
+- name: Proxy - Copy proxy script
   copy:
     src: ./stuff/linux/ssh/proxy.sh
     dest: /etc/profile.d/proxy.sh

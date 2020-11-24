@@ -1,9 +1,9 @@
-- name: Install Glusterfs-server
+- name: Linux GlusterFS - Install Glusterfs-server
   dnf:
     name: "glusterfs-server"
     state: installed
 
-- name: Start Glusterfs daemon
+- name: Linux GlusterFS - Start Glusterfs daemon
   systemd:
     name: glusterd.service
     state: restarted

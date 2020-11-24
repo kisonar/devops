@@ -12,10 +12,9 @@
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
 
-- name: Rabbit-MQ - stop docker containers
-  command: docker-compose down -f /root/rabbit-mq/docker-compose.yml
-  ignore_errors: yes
-
-- name: Rabbit-MQ - start docker containers
-  command: docker-compose up -d -f /root/rabbit-mq/docker-compose.yml
-  ignore_errors: yes
+- name: Rabbit-MQ  - enable and restart services
+  community.general.docker_compose:
+    project_src: /root/rabbit-mq
+    build: no
+    restarted: yes
+    state: present

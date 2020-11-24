@@ -3,7 +3,7 @@
     name: yum-utils
     state: installed
 
-- name: Docker - set up stable repository
+- name: Docker - set up stable repository | ignore warning
   command: dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
   args:
     warn: false
@@ -31,10 +31,13 @@
     owner: "{{user_root}}"
     group: "{{user_root}}"
 
-#TODO warning try to use Ansible Mount
-- name: Docker - Cgroup mounting
-  command: mount -t cgroup -o none,name=systemd cgroup /sys/fs/cgroup/systemd
-  ignore_errors: yes
+- name: Docker mount cgroup
+  mount:
+    path: /sys/fs/cgroup/systemd
+    src: cgroup
+    fstype: cgroup
+    opts: none,name=systemd
+    state: mounted
 
 - name: Docker - enable Docker at boot
   command: systemctl enable docker

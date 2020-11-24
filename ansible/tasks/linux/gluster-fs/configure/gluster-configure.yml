@@ -1,4 +1,4 @@
-- name: Form a cluster - peer nodes.
+- name: Linux GlusterFS - Form a cluster - peer nodes.
   command: "gluster peer probe {{ peernode }}"
   loop: "{{ ansible_play_hosts | flatten(levels=1) }}"
   loop_control:
@@ -10,7 +10,7 @@
   any_errors_fatal: true
   changed_when: "'peer probe: success.' in glusterpeerprobe.stdout_lines"
 
-- name: Create gluster volume directory on each node
+- name: Linux GlusterFS - Create gluster volume directory on each node
   file:
     path: /{{ gluster_volume_name }}
     state: directory
@@ -18,7 +18,7 @@
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
 
-- name: Configure and mount gluster volume
+- name: Linux GlusterFS - Configure and mount gluster volume
   gluster.gluster.gluster_volume:
     state: present
     name: "{{ gluster_volume_name }}"
@@ -37,7 +37,7 @@
       }
   run_once: true
 
-- name: Ensure Gluster volume is mounted.
+- name: Linux GlusterFS - Ensure Gluster volume is mounted.
   mount:
     name: "{{ gluster_volume_name }}"
     src: "{{ inventory_hostname }}:/{{ gluster_volume_name }}"
@@ -45,13 +45,13 @@
     opts: "defaults,_netdev"
     state: mounted
 
-- name: Stop gluster volume
+- name: Linux GlusterFS - Stop gluster volume
   gluster.gluster.gluster_volume:
     state: stopped
     name: "{{ gluster_volume_name }}"
   run_once: true
 
-- name: Start gluster volume
+- name: Linux GlusterFS - Start gluster volume
   gluster.gluster.gluster_volume:
     state: started
     name: "{{ gluster_volume_name }}"
