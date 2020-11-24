@@ -1,4 +1,4 @@
-- name: SWAP file and it's permission
+- name: Oracle 11XE - SWAP file and it's permission
   file:
     path: /swapfile
     state: touch
@@ -6,22 +6,22 @@
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
 
-- name: SWAP mount location
+- name: Oracle 11XE - SWAP mount location
   command: dd if=/dev/zero of=/swapfile bs=2048k count=1536
 
-- name: SWAP create
+- name: Oracle 11XE - SWAP create
   command: mkswap /swapfile
 
-- name: SWAP on
+- name: Oracle 11XE - SWAP on
   command: swapon /swapfile
 
-- name: SWAP verify show
+- name: Oracle 11XE - SWAP verify show
   command: swapon --show
   register: swaponresponse
 
 - debug: msg="{{ swaponresponse.stdout_lines }}"
 
-- name: SWAP free
+- name: Oracle 11XE - SWAP free
   command: free -h
   register: freeresponse
 

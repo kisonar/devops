@@ -1,4 +1,4 @@
-- name: LB GoBetween - create /root/gobetween
+- name: LB GoBetween - Create /root/gobetween
   file:
     path: /root/gobetween
     state: directory
@@ -6,7 +6,7 @@
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
 
-- name: LB GoBetween copy docker-compose.yml
+- name: LB GoBetween - Copy docker-compose.yml
   template:
     src: ./stuff/load-balancers/GoBetween/docker/docker-compose.yml
     dest: /root/gobetween/docker-compose.yml
@@ -14,7 +14,7 @@
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
 
-- name: LB GoBetween copy configuration file
+- name: LB GoBetween - Copy configuration file
   template:
     src: ./stuff/load-balancers/GoBetween/config/gobetween.toml
     dest: /root/gobetween/gobetween.toml
@@ -22,7 +22,7 @@
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
 
-- name: LB GoBetween - enable and restart services
+- name: LB GoBetween - Enable and restart services
   community.general.docker_compose:
     project_src: /root/gobetween
     build: no

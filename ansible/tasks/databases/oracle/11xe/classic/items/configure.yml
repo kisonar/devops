@@ -1,14 +1,14 @@
-- name: Host from hosts.ini
+- name: Oracle 11XE - Host from hosts.ini
   debug: msg={{inventory_hostname}}
 
-- name: Host local fetch
+- name: Oracle 11XE - Host local fetch
   command: hostname
   register: localhostname
 
-- name: Host local print
+- name: Oracle 11XE - Host local print
   debug: msg={{localhostname.stdout}}
 
-- name: Copy init.ora
+- name: Oracle 11XE - Copy init.ora
   copy:
     src: ./stuff/databases/oracle/11xe/classic/config/init.ora
     dest: /u01/app/oracle/product/11.2.0/xe/config/scripts/init.ora
@@ -16,7 +16,7 @@
     owner: oracle
     group: dba
 
-- name: Copy initXETemp.ora
+- name: Oracle 11XE - Copy initXETemp.ora
   copy:
     src: ./stuff/databases/oracle/11xe/classic/config/initXETemp.ora
     dest: /u01/app/oracle/product/11.2.0/xe/config/scripts/initXETemp.ora
@@ -24,7 +24,7 @@
     owner: oracle
     group: dba
 
-- name: Copy sql-setup.sh
+- name: Oracle 11XE - Copy sql-setup.sh
   copy:
     src: ./stuff/databases/oracle/11xe/classic/config/sql-setup.sh
     dest: /root/sql-setup.sh

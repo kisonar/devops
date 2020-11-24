@@ -1,4 +1,4 @@
-- name: Copy RPM
+- name: Oracle 11XE - Copy RPM
   copy:
     src: "{{ oracle_11xe_rpm_location }}/{{ oracle_11xe_rpm_name }}"
     dest: "/root/oracle-xe-11.2.0-1.0.x86_64.rpm"
@@ -6,5 +6,5 @@
     owner: root
     group: root
 
-- name: Install
+- name: Oracle 11XE - Install
   command: rpm -i oracle-xe-11.2.0-1.0.x86_64.rpm

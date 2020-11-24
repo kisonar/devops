@@ -1,4 +1,4 @@
-- name: LB Haproxy - create /var/lib/haproxy
+- name: LB Haproxy - Create /var/lib/haproxy
   file:
     path: /var/lib/haproxy
     state: directory
@@ -6,7 +6,7 @@
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
 
-- name: LB Haproxy - create /etc/haproxy
+- name: LB Haproxy - Create /etc/haproxy
   file:
     path: /etc/haproxy/
     state: directory
@@ -14,7 +14,7 @@
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
 
-- name: LB Haproxy - create /root/haproxy
+- name: LB Haproxy - Create /root/haproxy
   file:
     path: /root/haproxy
     state: directory
@@ -22,7 +22,7 @@
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
 
-- name: LB Haproxy - copy haproxy.cfg
+- name: LB Haproxy - Copy haproxy.cfg
   template:
     src: ./stuff/load-balancers/Haproxy/etc/haproxy/haproxy.cfg
     dest: /etc/haproxy/haproxy.cfg
@@ -30,7 +30,7 @@
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
 
-- name: LB Haproxy - create docker-compose.yml in /root/haproxy
+- name: LB Haproxy - Create docker-compose.yml in /root/haproxy
   template:
     src: ./stuff/load-balancers/Haproxy/docker/docker-compose.yml
     dest: /root/haproxy/docker-compose.yml
@@ -38,7 +38,7 @@
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
 
-- name: LB Haproxy - enable and restart services
+- name: LB Haproxy - Enable and restart services
   community.general.docker_compose:
     project_src: /root/haproxy
     build: no

@@ -1,10 +1,10 @@
-- name: Rabbit-MQ - create  directory
+- name: Rabbit-MQ - Create  directory
   file:
     path: /root/rabbit-mq/
     state: directory
     mode: '0755'
 
-- name: Rabbit-MQ - copy docker-compose
+- name: Rabbit-MQ - Copy docker-compose
   template:
     src: ./stuff/rabbit-mq/docker-compose.yml
     dest: /root/rabbit-mq/docker-compose.yml
@@ -12,7 +12,7 @@
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
 
-- name: Rabbit-MQ  - enable and restart services
+- name: Rabbit-MQ  - Enable and restart services
   community.general.docker_compose:
     project_src: /root/rabbit-mq
     build: no
