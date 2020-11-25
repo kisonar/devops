@@ -1,4 +1,4 @@
-resource "openstack_blockstorage_volume_v2" "volume" {
+resource "openstack_blockstorage_volume_v3" "volume" {
   name = "Volume-single"
   description = "First test volume"
   size        = 1
@@ -16,10 +16,10 @@ resource "openstack_compute_instance_v2" "instance" {
 # attach single disk to single VM
 resource "openstack_compute_volume_attach_v2" "attachment" {
   instance_id = "${openstack_compute_instance_v2.instance.id}"
-  volume_id   = "${openstack_blockstorage_volume_v2.volume.id}"
+  volume_id   = "${openstack_blockstorage_volume_v3.volume.id}"
 }
 #==================================================================================================================
-resource "openstack_blockstorage_volume_v2" "volumes" {
+resource "openstack_blockstorage_volume_v3" "volumes" {
   count = 3
   name  = "Volume-${count.index}"
   size  = 1
@@ -39,5 +39,5 @@ resource "openstack_compute_instance_v2" "instances" {
 resource "openstack_compute_volume_attach_v2" "attachments" {
   count       = 3
   instance_id = "${openstack_compute_instance_v2.instances.*.id[count.index]}"
-  volume_id   = "${openstack_blockstorage_volume_v2.volumes.*.id[count.index]}"
+  volume_id   = "${openstack_blockstorage_volume_v3.volumes.*.id[count.index]}"
 }
