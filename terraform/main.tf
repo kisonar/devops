@@ -4,13 +4,13 @@ resource "openstack_blockstorage_volume_v3" "volume" {
   size        = 1
 }
 resource "openstack_compute_instance_v2" "instance" {
-  name            = "Instance-single"
-  image_name      = "nesc-baseimages-fedora-32-2020-07-28"
-  flavor_name     = "dz.002-0004"
-  key_pair        = "svc-testing"
+  name            = "VM-single"
+  image_name      = ""
+  flavor_name     = ""
+  key_pair        = ""
   security_groups = ["default","all-allowed"]
   network {
-    name = "mmigdal"
+    name = ""
   }
 }
 # attach single disk to single VM
@@ -18,7 +18,7 @@ resource "openstack_compute_volume_attach_v2" "attachment" {
   instance_id = "${openstack_compute_instance_v2.instance.id}"
   volume_id   = "${openstack_blockstorage_volume_v3.volume.id}"
 }
-#==================================================================================================================
+
 resource "openstack_blockstorage_volume_v3" "volumes" {
   count = 3
   name  = "Volume-${count.index}"
@@ -26,13 +26,13 @@ resource "openstack_blockstorage_volume_v3" "volumes" {
 }
 resource "openstack_compute_instance_v2" "instances" {
   name            = "VM-${count.index}"
-  image_name      = "nesc-baseimages-fedora-32-2020-07-28"
-  flavor_name     = "dz.002-0004"
-  key_pair        = "svc-testing"
+  image_name      = ""
+  flavor_name     = ""
+  key_pair        = ""
   security_groups = ["default","all-allowed"]
   count           = 3
   network {
-    name = "mmigdal"
+    name = ""
   }
 }
 
