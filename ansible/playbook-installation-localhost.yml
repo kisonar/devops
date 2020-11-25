@@ -4,9 +4,16 @@
   vars_files:
     - ./variables/variables-common.yml
     - ./variables/variables-installation.yml
+    - ./variables/variables-installation-localhost.yml
   tasks:
     - import_tasks: ./tasks/localhost/linux/rdp.yml
       tags: "{{ tag_rdp }}"
+    - import_tasks: ./tasks/localhost/linux/snap.yml
+      tags: "{{ tag_snap }}"
+    - import_tasks: ./tasks/localhost/linux/signal.yml
+      tags: "{{ tag_signal }}"
+    - import_tasks: ./tasks/localhost/linux/netbeans.yml
+      tags: "{{ tag_netbeans }}"
     - import_tasks: ./tasks/localhost/extensions/extensions.yml
       tags: "{{ tag_extensions }}"
     - import_tasks: ./tasks/localhost/terraform/terraform.yml

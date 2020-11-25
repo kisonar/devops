@@ -28,6 +28,7 @@ tag_iperf_client: iperf-client
 tag_iperf_server: iperf-server
 tag_lb_gobetween: gobetween
 tag_lb_haproxy: haproxy
+tag_netbeans: netbeans
 tag_nload: nload
 tag_open_ldap: open-ldap
 tag_oracle_11xe_classic: oracle11xe-classic
@@ -39,5 +40,7 @@ tag_rabbit_mq: rabbit-mq
 tag_rdp: rdp
 tag_routing: routing
 tag_sdkman: sdkman
+tag_signal: signal
+tag_snap: snap
 tag_terraform: terraform
 tag_users: users
