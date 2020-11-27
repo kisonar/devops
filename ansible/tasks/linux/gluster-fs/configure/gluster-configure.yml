@@ -24,12 +24,12 @@
     name: "{{ gluster_volume_name }}"
     bricks: /{{ gluster_volume_name }}
     rebalance: yes
-    redundancies: 1
+    #redundancies: 2
     replicas: 2
     cluster: "{{ hostvars | join(',') }}"
     force: true # has to be forced when you mount at root partition brick
     transport: tcp
-    stripes: 2
+    #stripes: 2
     options:
       { performance.cache-size: 128MB,
         write-behind: 'on',

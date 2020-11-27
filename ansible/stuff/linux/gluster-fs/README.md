@@ -12,8 +12,9 @@ It is also beign done during ansible-playbook run with tag extensions.
 ```
 Before starting installation fill in /etc/hosts entries related to all cluster nodes
 
-/var/log/gluster/*
+/var/log/glusterfs/*
 
 gluster volume info
+gluster volume status
 gluster peer probe <HOST-NAME>
 ```

@@ -13,6 +13,8 @@
       tags: "{{ tag_iftop }}"
     - import_tasks: ./tasks/linux/network/nload.yml
       tags: "{{ tag_nload }}"
+    - import_tasks: ./tasks/linux/gluster-fs/gluster-fs.yml
+      tags: "{{ tag_gluster_fs }}"
     - import_tasks: ./tasks/ci-cd.yml
       tags: "{{ tag_ci_cd }}"
     - import_tasks: ./tasks/rabbit-mq.yml
