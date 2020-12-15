@@ -1,6 +1,5 @@
 version: '3.6'
 
-
 services:
   #http://localhost:8080
   jenkins:

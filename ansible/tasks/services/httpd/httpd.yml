@@ -1,0 +1,22 @@
+- name: Httpd - Create /root/httpd directory
+  file:
+    path: /root/httpd
+    state: directory
+    mode: u=rwx,g=rwx,o=rwx #776
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"
+
+- name: Httpd - Create docker-compose.yml in /root/httpd
+  template:
+    src: ./stuff/services/httpd/httpd.yml
+    dest: /root/httpd/docker-compose.yml
+    mode: u=rw,g=rw,o=r #664
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"
+
+- name: Httpd - Enable and restart services
+  community.general.docker_compose:
+    project_src: /root/httpd
+    build: no
+    restarted: yes
+    state: present
