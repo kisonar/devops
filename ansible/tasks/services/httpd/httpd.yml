@@ -8,7 +8,7 @@
 
 - name: Httpd - Create docker-compose.yml in /root/httpd
   template:
-    src: ./stuff/services/httpd/httpd.yml
+    src: ./stuff/services/httpd/docker-compose.yml
     dest: /root/httpd/docker-compose.yml
     mode: u=rw,g=rw,o=r #664
     owner: "{{ user_root }}"

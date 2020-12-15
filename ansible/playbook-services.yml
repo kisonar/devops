@@ -21,11 +21,13 @@
       tags: "{{ tag_lb_haproxy }}"
     - import_tasks: ./tasks/services/load-balancers/gobetween/gobetween.yml
       tags: "{{ tag_lb_gobetween }}"
-    - import_tasks: ./tasks/services/ci-cd.yml
+    - import_tasks: ./tasks/services/ci-cd/ci-cd.yml
       tags: "{{ tag_ci_cd }}"
-    - import_tasks: ./tasks/services/rabbit-mq.yml
+    - import_tasks: ./tasks/services/rabbit-mq/rabbit-mq.yml
       tags: "{{ tag_rabbit_mq }}"
     - import_tasks: ./tasks/services/ldap/ldap.yml
       tags: "{{ tag_open_ldap }}"
     - import_tasks: ./tasks/services/random-logger/random-logger.yml
       tags: "{{ tag_random_logger }}"
+    - import_tasks: ./tasks/services/httpd/httpd.yml
+      tags: "{{ tag_httpd }}"

@@ -23,6 +23,7 @@ tag_docker: docker
 tag_extensions: extensions
 tag_fedora31: fedora31
 tag_gluster_fs: gluster-fs
+tag_httpd: httpd
 tag_iftop: iftop
 tag_iperf_client: iperf-client
 tag_iperf_server: iperf-server
