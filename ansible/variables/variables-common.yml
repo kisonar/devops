@@ -37,6 +37,7 @@ tag_proxy: proxy
 tag_python: python
 tag_python_alternatives: python-alternatives
 tag_rabbit_mq: rabbit-mq
+tag_random_logger: random-logger
 tag_rdp: rdp
 tag_routing: routing
 tag_sdkman: sdkman

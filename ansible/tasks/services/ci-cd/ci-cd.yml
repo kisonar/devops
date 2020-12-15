@@ -6,7 +6,7 @@
 
 - name: CI/CD - Copy docker-compose file
   copy:
-    src: ./stuff/ci-cd/docker-compose.yml
+    src: ./stuff/services/ci-cd/docker-compose.yml
     dest: /root/ci-cd/docker-compose.yml
     mode: u=rw,g=rw,o=r #664
     owner: "{{ user_root }}"
