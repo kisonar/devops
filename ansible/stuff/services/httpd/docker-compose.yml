@@ -1,0 +1,8 @@
+version: '3.6'
+
+services:
+  httpd:
+    container_name: httpd
+    image: httpd:2.4.46-alpine
+    ports:
+      - "80:80"

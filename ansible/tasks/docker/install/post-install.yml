@@ -1,8 +1,8 @@
-- name: Docker post install - chkconfig for docker
+- name: Docker post install - chkconfig for docker - may be required especially on RedHat/Centos
   command: chkconfig docker on
   ignore_errors: yes
 
-- name: Docker post install - create docker group
+- name: Docker post install - create docker group - may be required especially on RedHat/Centos
   command: groupadd docker
   ignore_errors: yes
 

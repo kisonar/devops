@@ -16,7 +16,7 @@
 
 - name: LDAP - Create docker-compose.yml in /root/ldap
   template:
-    src: ./stuff/ldap/openldap/docker-compose.yml
+    src: ./stuff/services/ldap/openldap/docker-compose.yml
     dest: /root/ldap/docker-compose.yml
     mode: u=rw,g=rw,o=r #664
     owner: "{{ user_root }}"

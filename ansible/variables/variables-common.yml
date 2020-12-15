@@ -23,6 +23,7 @@ tag_docker: docker
 tag_extensions: extensions
 tag_fedora31: fedora31
 tag_gluster_fs: gluster-fs
+tag_httpd: httpd
 tag_iftop: iftop
 tag_iperf_client: iperf-client
 tag_iperf_server: iperf-server
@@ -37,6 +38,7 @@ tag_proxy: proxy
 tag_python: python
 tag_python_alternatives: python-alternatives
 tag_rabbit_mq: rabbit-mq
+tag_random_logger: random-logger
 tag_rdp: rdp
 tag_routing: routing
 tag_sdkman: sdkman
