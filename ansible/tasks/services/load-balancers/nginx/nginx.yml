@@ -1,0 +1,46 @@
+#- name: LB Haproxy - Create /var/lib/haproxy
+#  file:
+#    path: /var/lib/haproxy
+#    state: directory
+#    mode: u=rwx,g=rwx,o=rx #775
+#    owner: "{{ user_root }}"
+#    group: "{{ user_root }}"
+
+#- name: LB Haproxy - Create /etc/haproxy
+#  file:
+#    path: /etc/haproxy/
+ #   state: directory
+ #   mode: u=rwx,g=rwx,o=rx #775
+ #   owner: "{{ user_root }}"
+ #   group: "{{ user_root }}"
+
+- name: NGINX - Create /root/nginx
+  file:
+    path: /root/nginx
+    state: directory
+    mode: u=rwx,g=rwx,o=rx #775
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"
+
+#- name: LB Haproxy - Copy haproxy.cfg
+#  template:
+#    src: ./stuff/services/load-balancers/Haproxy/etc/haproxy/haproxy.cfg
+#    dest: /etc/haproxy/haproxy.cfg
+#    mode: u=rw,g=rw,o=r #664
+#    owner: "{{ user_root }}"
+#    group: "{{ user_root }}"
+
+- name: NGINX - Create docker-compose.yml in /root/nginx
+  template:
+    src: ./stuff/services/load-balancers/nginx/docker/docker-compose.yml
+    dest: /root/nginx/docker-compose.yml
+    mode: u=rw,g=rw,o=r #664
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"
+
+- name: NGINX - Enable and restart services
+  community.general.docker_compose:
+    project_src: /root/nginx
+    build: no
+    restarted: yes
+    state: present

@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  haproxy:
+    image: nginx
+    container_name: nginx
+    ports:
+      - "8080:80"
+    #volumes:
+    #  - /etc/haproxy:/usr/local/etc/haproxy
+    #  - /var/lib/haproxy:/var/lib/haproxy
+    restart: always

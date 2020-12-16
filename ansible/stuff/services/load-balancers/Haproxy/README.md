@@ -21,7 +21,7 @@ Check and change entries in hosts
 If required you may also change haproxy.cfg file.
 
 2 Then run directly from directory:
-ansible-playbook -i hosts.ini playbook-installation.yml --tags="haproxy"
+ansible-playbook -i hosts.ini playbook-services.yml --tags="haproxy"
 ```
 
 #### Ansible playbook execution verification

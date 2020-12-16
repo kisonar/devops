@@ -16,7 +16,7 @@
 
 - name: LB GoBetween - Copy configuration file
   template:
-    src: ./stuff/services/load-balancers/GoBetween/config/gobetween.toml
+    src: ./stuff/services/load-balancers/GoBetween/etc/gobetween/conf/gobetween.toml
     dest: /root/gobetween/gobetween.toml
     mode: u=rw,g=rw,o=r #664
     owner: "{{ user_root }}"
