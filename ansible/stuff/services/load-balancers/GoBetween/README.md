@@ -1,21 +1,11 @@
 # GoBetween
-## Installation and upgrade of GoBetween with usage of Ansible 
-
-### VM Infrastructure
-```
-It is suggested to create VM with:  
-- CPU: 2
-- RAM: 8GB
-```
 
 ### Ansible playbook execution
 ```
-How to run Ansible in order to install & configure GoBetween?
-
 Just clone repository, go to installation directory and follow below steps.
 
 1 Changes required in directory
-Check and change or leave entries in hosts
+Check and change or leave entries in hosts.ini
 Check and change or leave entries in variables.yml
 
 2 Then run :

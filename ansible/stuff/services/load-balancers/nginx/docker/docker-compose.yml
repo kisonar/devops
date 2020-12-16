@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   haproxy:
-    image: nginx
+    image: nginx:1.19.6-alpine
     container_name: nginx
     ports:
       - "8080:80"
