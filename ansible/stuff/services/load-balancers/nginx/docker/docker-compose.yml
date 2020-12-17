@@ -5,7 +5,6 @@ services:
     container_name: nginx
     ports:
       - "8080:80"
-    #volumes:
-    #  - /etc/haproxy:/usr/local/etc/haproxy
-    #  - /var/lib/haproxy:/var/lib/haproxy
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
     restart: always
