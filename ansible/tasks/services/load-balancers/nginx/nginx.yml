@@ -6,7 +6,7 @@
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
 
-- name: NGINX - Copy haproxy.cfg
+- name: NGINX - Copy nginx.conf
   template:
     src: ./stuff/services/load-balancers/nginx/etc/nginx/nginx.conf
     dest: /root/nginx/nginx.conf
