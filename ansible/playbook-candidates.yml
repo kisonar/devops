@@ -1,0 +1,13 @@
+- hosts: "{{ target_server_group }}"
+  remote_user: "{{ user_root }}"
+  gather_facts: True
+  vars_files:
+    - ./variables/variables-common.yml
+    - ./variables/variables-installation.yml
+  tasks:
+    - import_tasks: ./tasks/linux/nano.yml
+      ##tags: "{{ tag_dnf }},{{ tag_docker }}, {{tag_terraform}}"
+    - import_tasks: ./tasks/linux/net-tools.yml
+      ##tags: "{{ tag_sdkman }}"
+    - import_tasks: ./tasks/linux/open-vm-tools.yml
+      ##tags: "{{ tag_users}}"

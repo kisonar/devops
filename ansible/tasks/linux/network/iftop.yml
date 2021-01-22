@@ -1,4 +1,4 @@
 - name: Linux Network - Install iftop
   dnf:
-    name: "iftop"
+    name: iftop
     state: latest
