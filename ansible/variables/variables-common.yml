@@ -29,6 +29,7 @@ tag_iperf_client: iperf-client
 tag_iperf_server: iperf-server
 tag_lb_gobetween: gobetween
 tag_lb_haproxy: haproxy
+tag_lb_nginx: nginx
 tag_netbeans: netbeans
 tag_nload: nload
 tag_open_ldap: open-ldap

@@ -1,0 +1,4 @@
+- name: Nano
+  dnf:
+    name: nano
+    state: latest

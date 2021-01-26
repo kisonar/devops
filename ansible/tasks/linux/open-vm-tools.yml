@@ -1,0 +1,4 @@
+- name: Open VM Tools
+  dnf:
+    name: open-vm-tools
+    state: latest

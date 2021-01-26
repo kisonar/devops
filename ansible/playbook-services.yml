@@ -21,6 +21,8 @@
       tags: "{{ tag_lb_haproxy }}"
     - import_tasks: ./tasks/services/load-balancers/gobetween/gobetween.yml
       tags: "{{ tag_lb_gobetween }}"
+    - import_tasks: ./tasks/services/load-balancers/nginx/nginx.yml
+      tags: "{{ tag_lb_nginx }}"
     - import_tasks: ./tasks/services/ci-cd/ci-cd.yml
       tags: "{{ tag_ci_cd }}"
     - import_tasks: ./tasks/services/rabbit-mq/rabbit-mq.yml

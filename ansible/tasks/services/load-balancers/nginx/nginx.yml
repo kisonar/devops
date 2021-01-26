@@ -1,0 +1,30 @@
+- name: NGINX - Create /root/nginx
+  file:
+    path: /root/nginx
+    state: directory
+    mode: u=rwx,g=rwx,o=rx #775
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"
+
+- name: NGINX - Copy nginx.conf
+  template:
+    src: ./stuff/services/load-balancers/nginx/etc/nginx/nginx.conf
+    dest: /root/nginx/nginx.conf
+    mode: u=rw,g=rw,o=r #664
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"
+
+- name: NGINX - Create docker-compose.yml in /root/nginx
+  template:
+    src: ./stuff/services/load-balancers/nginx/docker/docker-compose.yml
+    dest: /root/nginx/docker-compose.yml
+    mode: u=rw,g=rw,o=r #664
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"
+
+- name: NGINX - Enable and restart services
+  community.general.docker_compose:
+    project_src: /root/nginx
+    build: no
+    restarted: yes
+    state: present

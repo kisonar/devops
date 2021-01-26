@@ -1,11 +1,11 @@
 - name: SDKMAN - Install zip
   dnf:
-    name: "zip"
+    name: zip
     state: latest
 
 - name: SDKMAN - Install unzip
   dnf:
-    name: "unzip"
+    name: unzip
     state: latest
 
 - name: SDKMAN - Download SDKMAN script

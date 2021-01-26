@@ -1,0 +1,4 @@
+- name: Net tools
+  dnf:
+    name: net-tools
+    state: latest
