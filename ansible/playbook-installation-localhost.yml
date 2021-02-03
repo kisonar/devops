@@ -13,6 +13,8 @@
       tags: "{{ tag_signal }}"
     - import_tasks: ./tasks/localhost/linux/netbeans.yml
       tags: "{{ tag_netbeans }}"
+    - import_tasks: ./tasks/localhost/linux/git.yml
+      tags: "{{ tag_git }}"
     - import_tasks: ./tasks/localhost/extensions/extensions.yml
       tags: "{{ tag_extensions }}"
     - import_tasks: ./tasks/localhost/terraform/terraform.yml
