@@ -2,7 +2,6 @@
   dnf:
     name: "remmina"
     state: installed
-  delegate_to: 127.0.0.1
   become: true
   become_user: "{{ user_root }}"
   ignore_errors: yes

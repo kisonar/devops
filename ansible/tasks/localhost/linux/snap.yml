@@ -1,23 +1,21 @@
 - name: Linux snapd - installation
   dnf:
-    name: "snapd"
+    name: snapd
     state: installed
-  delegate_to: 127.0.0.1
   become: true
   become_user: "{{ user_root }}"
   ignore_errors: yes
 
 - name: Linux snapd - linking
-  coomand: ln -s /var/lib/snapd/snap /snap
-  delegate_to: 127.0.0.1
+  command: ln -s /var/lib/snapd/snap /snap
   become: true
   become_user: "{{ user_root }}"
   ignore_errors: yes
 
--name: Linyx snapd - Copy config file
+- name: Linux snapd - Copy config file
   template:
     src: ./stuff/localhost/linux/snapd
-    dest: /etc/sysconfig/snapf
-    mode: u=rwx,g=rwx,o=rwx 777
+    dest: /etc/sysconfig/snapd
+    mode: u=rwx,g=rwx,o=rwx #777
     owner: "{{ user_root }}"
-    group: "{{ user_root }}
+    group: "{{ user_root }}"

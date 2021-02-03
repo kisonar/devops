@@ -1,4 +1,4 @@
-- hosts: "{{ target_server_group }}"
+- hosts: localhost
   remote_user: "{{ user_root }}"
   gather_facts: True
   vars_files:
