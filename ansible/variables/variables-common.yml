@@ -22,6 +22,7 @@ tag_dnf: dnf
 tag_docker: docker
 tag_extensions: extensions
 tag_fedora31: fedora31
+tag_git: git
 tag_gluster_fs: gluster-fs
 tag_httpd: httpd
 tag_iftop: iftop
