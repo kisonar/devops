@@ -240,12 +240,12 @@ pip3 install xml2dict
 ##### Gradle 6.x (current 6.8)
 ```
 gradle clean build 
+gradle clean build -x test => skip tests
 gradle clean build -X test (exclude) 
 gradle clean build test --continue
 gradle clean build --build-cache
-gradle -q dependencies
+gradle dependencies
 gradle dependencyUpdates => requires plugin id 'com.github.ben-manes.versions' version '0.20.0'
-
 
 scopes
 http://andresalmiray.com/maven-scopes-vs-gradle-configurations/
