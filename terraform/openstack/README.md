@@ -17,5 +17,5 @@ terraform --version  ==> Terraform v0.13.5
 #### Usage execution
 ```
 terraform plan
-terraform apply
+terraform apply -auto-approve
 ```
