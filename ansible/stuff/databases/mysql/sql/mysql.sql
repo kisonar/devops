@@ -14,12 +14,8 @@ commit;
 
 insert into marcin.users(userId,userName,userPassword,userEmail)
 values (null,'qcsAdmin','qcsAdmin','qcsAdmin@mail.com');
-commit;
-
 insert into marcin.users(userId,userName,userPassword,userEmail)
 values (null,'qcsEngineer','qcsEngineer','qcsEngineer@mail.com');
-commit;
-
 insert into marcin.users(userId,userName,userPassword,userEmail)
 values (null,'qcsClient','qcsClient','qcsClient@mail.com');
 commit;
@@ -37,7 +33,6 @@ insert into marcin.roles(roleId,roleName) values (null,'Engineer');
 insert into marcin.roles(roleId,roleName) values (null,'QCS Client');
 commit;
 
-
 CREATE TABLE marcin.user_roles (
 	userId integer NOT NULL,
 	roleId integer NOT NULL,
@@ -52,5 +47,3 @@ insert into marcin.user_roles(userId,roleId) values (1,1);
 insert into marcin.user_roles(userId,roleId) values (2,2);
 insert into marcin.user_roles(userId,roleId) values (3,3);
 commit;
-
-
