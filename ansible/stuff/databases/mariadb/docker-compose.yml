@@ -11,8 +11,9 @@ services:
       MARIADB_USER: default_user
       MARIADB_PASSWORD: default_password
       MYSQL_ROOT_PASSWORD: root
-    #volumes:
-    #  - ./:/var/lib/mysql
+    volumes:
+      - ./storage/:/var/lib/mysql
+      - ./sql:/docker-entrypoint-initdb.d/
 
   adminer:
     image: adminer
