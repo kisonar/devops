@@ -1,4 +1,21 @@
 version: '3.7'
 
 services:
+  db:
+    image: mariadb/server:10.4
+    ports:
+      - 3306:3306
+    environment:
+      #MARIADB_RANDOM_ROOT_PASSWORD: "true"
+      MARIADB_DATABASE: default_database
+      MARIADB_USER: default_user
+      MARIADB_PASSWORD: default_password
+      MYSQL_ROOT_PASSWORD: root
+    #volumes:
+    #  - ./:/var/lib/mysql
 
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
