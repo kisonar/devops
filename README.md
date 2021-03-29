@@ -1,6 +1,14 @@
 # Source code, build & devops tools tips & tricks 
 
 ## Linux
+
+##### Connectivity
+```  
+ping <host-fqdn> -c10
+nslookup <host-fqdn>
+cat /etc/resolv.conf
+```
+
 ##### Various
 ```
 grep -rnw '/path/to/somewhere/' -e 'pattern' 
@@ -153,11 +161,11 @@ remmina
 
 ##### Ansible
 ```
-Use version 2.9
-ansible-playbook -i hosts.ini playbook-name.yml --skip-tags="proxy" -t="t1,t2"
+Use version 2.10
+ansible-playbook -i hosts.ini playbook-name.yml --skip-tags="proxy" -t="t1,t2" --tags="tag3,tag4"
 ```
 
-## Docker for Fedora 32
+## Docker for Fedora 32/33
 
 ##### Works with
 ```
