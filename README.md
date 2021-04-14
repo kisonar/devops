@@ -23,12 +23,56 @@ MBR/GPT clenup
 dd if=/dev/zero of=/dev/sdc bs=512 count=1
 ```
 ##### Security
+
+##### Keys
+###### Generation
+```
+Generate key pairs
+ssh-keygen -t rsa -b 4096 -f ssh_host_rsa_key
+
+Remove passphrase 	
+ssh-keygen -p -P $passwd -N "" -f id_rsa
+-------------------------------------------
+ssh-keygen -t rsa -C <user>@<host>   -P '' -f <key-file-name>  -m PEM
+e.g
+ssh-keygen -t rsa -C marcin@kisonar-host   -P '' -f kisonar-host-key  -m PEM
+
+output:
+kisonar-host-key
+kisonar-host-key.pub
+```
+###### Remote access
+```
+Copying your Public Key Using ssh-copy-id
+ssh-copy-id username@remote_host
+
+If ssh-copy-id not available:
+cat ~/.ssh/id_rsa.pub | ssh username@remote_host "mkdir -p ~/.ssh && touch ~/.ssh/authorized_keys && chmod -R go= ~/.ssh && cat >> ~/.ssh/authorized_keys"
+
+Or manually
+Edit /home/<user/.ssh/authorized_keys. If not found create such file.
+Add here content of generated kisonar-host-key.pub
+
+From other machine execute: ssh -i <key-file-name> <user>@<host>
+```
+###### Disable login via password
+``` 
+sudo vi /etc/ssh/sshd_config
+PasswordAuthentication no
+
+and then
+sudo systemctl restart sshd.service
+```
+###### Transformation
 ```
 private/public keys
 - transformation
 1) set permission to 400
 2) puttygen <file-name>.ppk -o <file-name>.pem -O private-openssh
+```
 
+###### Others
+```
 sudo cp -rf /root/.ssh/* /home/username/.ssh/
 chown -R username:username /home/username/.ssh
 
@@ -36,15 +80,6 @@ ssh-add keyfile.pem
 ssh-keygen -y -f ./svc-testing.pem 
 
 ```
-##### Keys
-```
-Generate key pairs
-ssh-keygen -t rsa -b 4096 -f ssh_host_rsa_key
-
-Remove passphrase 	
-ssh-keygen -p -P $passwd -N "" -f id_rsa
-```
-
 ##### Users
 ```
 cat /etc/sudoers
