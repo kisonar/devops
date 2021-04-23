@@ -27,7 +27,7 @@ dd if=/dev/zero of=/dev/sdc bs=512 count=1
 ##### Keys
 ###### Generation
 ```
-Generate key pairs
+Generate key pairs at users's home directory
 ssh-keygen -t rsa -b 4096 -f ssh_host_rsa_key
 
 Remove passphrase 	
@@ -40,6 +40,9 @@ ssh-keygen -t rsa -C marcin@kisonar-host   -P '' -f kisonar-host-key  -m PEM
 output:
 kisonar-host-key
 kisonar-host-key.pub
+
+Create if not available .ssh in /home/<user-name> or /root
+Create authorized_keys file. Add to it content of geenrated public key.
 ```
 ###### Remote access
 ```
