@@ -17,3 +17,8 @@ sudo ansible-playbook playbook-installation-localhost.yml
 ```
 sudo ansible-playbook -i hosts.ini playbook-services-tools-additions.yml
 ``` 
+
+### Filtering
+```
+ansible-playbook -i hosts.ini playbook-services.yml --tags="docker"
+``` 
