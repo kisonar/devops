@@ -1,0 +1,35 @@
+- name: MariaDB - Create  directory
+  file:
+    path: /root/mariadb
+    state: directory
+    mode: '0755'
+
+- name: MariaDB - Create  directory for sql vplume
+  file:
+    path: /root/mariadb/sql
+    state: directory
+    mode: '0755'
+
+- name: MariaDB - Copy docker-compose.yml
+  template:
+    src: ./stuff/databases/mariadb/docker-compose.yml
+    dest: /root/mariadb/docker-compose.yml
+    mode: u=rw,g=rw,o=r #664
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"
+
+- name: MariaDB - Copy init SQL
+  template:
+    src: ./stuff/databases/mariadb/sql/mariadb.qsl
+    dest: /root/mariadb/sql/mariadb.qsl
+    mode: u=rw,g=rw,o=r #664
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"
+
+
+- name: MariaDB - Enable and restart services
+  community.general.docker_compose:
+    project_src: /root/oracle-11xe
+    build: no
+    restarted: yes
+    state: present
