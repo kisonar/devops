@@ -1,0 +1,7 @@
+- name: Linux RDP Reminna
+  dnf:
+    name: "tigervnc-server"
+    state: installed
+  become: true
+  become_user: "{{ user_root }}"
+  ignore_errors: yes
