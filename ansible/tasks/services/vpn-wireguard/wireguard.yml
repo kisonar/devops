@@ -3,7 +3,14 @@
     name: iptables
     state: installed
 
-- name: VPN WireGuard
+- name: VPN WireGuard - install
   dnf:
     name: wireguard-tools
     state: installed
+
+- name: VPN WireGuard - generate key pair
+  shell: wg genkey | tee keyPrivate | wg pubkey > keyPublic
+
+- name: VPN WireGuard - link wg0 with ip
+  shell: ip link add dev wg0 type wireguard
+  ignore_erros: true
