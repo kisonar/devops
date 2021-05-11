@@ -48,3 +48,4 @@ tag_signal: signal
 tag_snap: snap
 tag_terraform: terraform
 tag_users: users
+tag_wireguard: wireguard

@@ -1,0 +1,9 @@
+- name: VPN WireGuard - dependency iptables
+  dnf:
+    name: iptables
+    state: installed
+
+- name: VPN WireGuard
+  dnf:
+    name: wireguard-tools
+    state: installed
