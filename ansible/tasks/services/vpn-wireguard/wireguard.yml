@@ -1,19 +1,39 @@
+- name: VPN WireGuard - copy sysctl.conf with IP V4 setup
+  copy:
+    src: ./stuff/services/vpn-wireguard/sysctl.conf
+    dest: /etc/sysctl.conf
+    mode: u=rw,g=r,o=r #644
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"
+
+- name: VPN Wireguard - reload sysctl
+  command: sysctl -p
+
 - name: VPN WireGuard - dependency iptables
   dnf:
     name: iptables
     state: installed
 
-- name: VPN WireGuard - install
+- name: VPN WireGuard - install service
   dnf:
     name: wireguard-tools
     state: installed
 
-- name: VPN WireGuard - generate key pair
-  shell: wg genkey | tee keyPrivate | wg pubkey > keyPublic
+# this locally generates keys/ they are saved in ./stuff/services/vpn-wireguard/keys
+#- name: VPN WireGuard - generate key pair
+#  shell: wg genkey | tee keyPrivate | wg pubkey > keyPublic
+#  delegate_to: localhost
 
-- name: VPN WireGuard - link wg0 with ip
-  shell: ip link add dev wg0 type wireguard
-  ignore_errors: true
+- name: VPN WireGuard - start service
+  command: wg-quick up wg0
 
-- name: VPN WireGuard - add private key to WireGuard interface
-  shell: wg set wg0 private-key ./keyPrivate listen-port 51820
+- name: VPN WireGuard - display config
+  command: wg show
+
+
+#- name: VPN WireGuard - link wg0 with ip
+#  shell: ip link add dev wg0 type wireguard
+#  ignore_errors: true
+
+#- name: VPN WireGuard - add private key to WireGuard interface
+#  shell: wg set wg0 private-key ./keyPrivate listen-port 51820
