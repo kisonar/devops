@@ -48,6 +48,7 @@
 
 - name: VPN WireGuard - stop service
   command: wg-quick down wg0
+  ignore_errors: true
 
 - name: VPN WireGuard - start service
   command: wg-quick up wg0
