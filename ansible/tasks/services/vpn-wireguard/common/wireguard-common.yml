@@ -5,10 +5,5 @@
   tags: "{{ tag_wireguard_install }}"
 
 - name: VPN WireGuard - generate key pair for Server
-  shell: wg genkey | tee keyPrivateServer | wg pubkey > keyPublicServer
-  delegate_to: VM-1
-  tags: "{{ tag_wireguard_keys }}"
-- name: VPN WireGuard - generate key pair for Client
-  shell: wg genkey | tee keyPrivateClient | wg pubkey > keyPublicClient
-  delegate_to: VM-0
+  shell: wg genkey | tee keyPrivate | wg pubkey > keyPublic
   tags: "{{ tag_wireguard_keys }}"
