@@ -1,3 +1,8 @@
+# this locally generates keys/ they are saved in ./stuff/services/vpn-wireguard/keys
+- name: VPN WireGuard - generate key pair
+  shell: wg genkey | tee keyPrivate | wg pubkey > keyPublic
+  delegate_to: localhost
+
 - name: VPN WireGuard - copy sysctl.conf with IP V4 setup
   copy:
     src: ./stuff/services/vpn-wireguard/sysctl.conf
@@ -19,17 +24,29 @@
     name: wireguard-tools
     state: installed
 
-# this locally generates keys/ they are saved in ./stuff/services/vpn-wireguard/keys
-#- name: VPN WireGuard - generate key pair
-#  shell: wg genkey | tee keyPrivate | wg pubkey > keyPublic
-#  delegate_to: localhost
+- name: VPN WireGuard - copy server configuration
+  copy:
+    src: ./stuff/services/vpn-wireguard/server/wg0.conf
+    dest: /etc/wireguard/wg0.conf
+    mode: u=rw,g=r,o=r #644
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"
+  delegate: VM-1
+
+- name: VPN WireGuard - copy client configuration
+  copy:
+    src: ./stuff/services/vpn-wireguard/client/wg0.conf
+    dest: /etc/wireguard/wg0.conf
+    mode: u=rw,g=r,o=r #644
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"
+  delegate: VM-0
 
 - name: VPN WireGuard - start service
   command: wg-quick up wg0
 
 - name: VPN WireGuard - display config
   command: wg show
-
 
 #- name: VPN WireGuard - link wg0 with ip
 #  shell: ip link add dev wg0 type wireguard
