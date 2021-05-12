@@ -46,6 +46,9 @@
     group: "{{ user_root }}"
   delegate: VM-0
 
+- name: VPN WireGuard - stop service
+  command: wg-quick down wg0
+
 - name: VPN WireGuard - start service
   command: wg-quick up wg0
 
