@@ -1,0 +1,25 @@
+- name: VPN WireGuard - ip link delete wg0 type wireguard
+  command: ip link delete wg0 type wireguard
+  ignore_errors: true
+
+- name: VPN WireGuard - ip link add wg0 type wireguard
+  command: ip link add wg0 type wireguard
+
+- name: VPN WireGuard - add private IP to Server VM-1
+  command: ip addr add 10.0.0.2/24 dev wg0
+  delegate_to: VM-1
+
+- name: VPN WireGuard - add private IP to Client VM-0
+  command: ip addr add 10.0.0.1/24 dev wg0
+  delegate_to: VM-0
+
+- name: VPN WireGuard - assign key private to Server VM-1
+  command: wg set wg0 listen-port 51820 private-key ./keyPrivateServer
+  delegate_to: VM-1
+
+- name: VPN WireGuard - assign key private to Server VM-0
+  command: wg set wg0 listen-port private-key ./keyPrivateClient
+  delegate_to: VM-0
+
+- name: VPN WireGuard - activate Wireguard UP
+  command: ip link set wg0 up
