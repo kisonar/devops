@@ -1,3 +1,12 @@
+# this locally generates keys/ they are saved in ./stuff/services/vpn-wireguard/keys
+- name: VPN WireGuard - generate key pair for Server
+  shell: wg genkey | tee keyPrivateServer | wg pubkey > keyPublicServer
+  delegate_to: VM-1
+
+- name: VPN WireGuard - generate key pair for Client
+  shell: wg genkey | tee keyPrivateClient | wg pubkey > keyPublicClient
+  delegate_to: VM-0
+
 - name: VPN WireGuard - copy sysctl.conf with IP V4 setup
   copy:
     src: ./stuff/services/vpn-wireguard/sysctl.conf
