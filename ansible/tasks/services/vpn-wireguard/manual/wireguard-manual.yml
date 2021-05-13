@@ -53,9 +53,9 @@
     seconds: 3
 
 - name: VPN WireGuard - configure wg0 at VM-1
-  shell: wg set wg0 listen-port 51820 peer Mp+A0NpzbncuDTuB3V6BE/FY9AtJnaZTXHdIk9ofywM= allowed-ips 10.0.0.1/32 endpoint 192.168.0.25:51820
+  shell: "wg set wg0 listen-port {{ port_wireguard }} peer {{ WIREGUARD_PUBLIC_KEY_VM0 }} allowed-ips 10.0.0.1/32 endpoint {{ WIREGUARD_IP_VM_0 }}:{{ port_wireguard }}"
   delegate_to: VM-1
 
 - name: VPN WireGuard - configure wg0 at VM-0
-  shell: wg set wg0 listen-port 51820 peer lt5rWLmPxwsOmhONl/MWaTGBxNBabY38KHnA7N6sKQ0= allowed-ips 10.0.0.2/32 endpoint 192.168.0.26:51820
+  shell: "wg set wg0 listen-port {{ port_wireguard }} peer {{ WIREGUARD_PUBLIC_KEY_VM1 }} allowed-ips 10.0.0.2/32 endpoint {{ WIREGUARD_IP_VM_1 }}:{{ port_wireguard }}"
   delegate_to: VM-0
