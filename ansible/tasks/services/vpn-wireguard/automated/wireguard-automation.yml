@@ -1,36 +1,10 @@
-- name: VPN WireGuard - install service
-  dnf:
-    name: wireguard-tools
-    state: installed
-  tags: "{{ tag_wireguard_install }}"
+- name: VPN WireGuard - stop service
+  command: wg-quick down wg0
+  ignore_errors: true
 
-- name: VPN WireGuard - generate key pair for Server
-  shell: wg genkey | tee keyPrivateServer | wg pubkey > keyPublicServer
-  delegate_to: VM-1
-  tags: "{{ tag_wireguard_keys }}"
-- name: VPN WireGuard - generate key pair for Client
-  shell: wg genkey | tee keyPrivateClient | wg pubkey > keyPublicClient
-  delegate_to: VM-0
-  tags: "{{ tag_wireguard_keys }}"
-
-- name: VPN WireGuard - copy sysctl.conf with IP V4 setup
-  copy:
-    src: ./stuff/services/vpn-wireguard/sysctl.conf
-    dest: /etc/sysctl.conf
-    mode: u=rw,g=r,o=r #644
-    owner: "{{ user_root }}"
-    group: "{{ user_root }}"
-  tags: "{{ tag_wireguard_sysctl }}"
-- name: VPN Wireguard - reload sysctl
-  command: sysctl -p
-  tags: "{{ tag_wireguard_sysctl }}"
-- name: VPN WireGuard - dependency iptables
-  dnf:
-    name: iptables
-    state: installed
-  tags: "{{ tag_wireguard_sysctl }}"
-
-
+- name: VPN WireGuard - sleep 3
+  pause:
+    seconds: 3
 
 - name: VPN WireGuard - copy server configuration
   copy:
@@ -40,7 +14,7 @@
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
   delegate_to: VM-1
-  tags: "{{ tag_wireguard_configure }}"
+
 - name: VPN WireGuard - copy client configuration
   copy:
     src: ./stuff/services/vpn-wireguard/client/wg0.conf
@@ -49,14 +23,16 @@
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
   delegate_to: VM-0
-  tags: "{{ tag_wireguard_configure }}"
 
-#- name: VPN WireGuard - stop service
-#  command: wg-quick down wg0
-#  ignore_errors: true
 
-#- name: VPN WireGuard - start service
-#  command: wg-quick up wg0
+
+- name: VPN WireGuard - start service
+  command: wg-quick up wg0
+
+- name: VPN WireGuard - sleep 3
+  pause:
+    seconds: 3
+
 
 #- name: VPN WireGuard - display config
 #  command: wg show

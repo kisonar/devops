@@ -1,40 +1,58 @@
 # WireGuard
 
-## Manual config:
+## Common config
+```
 ansible-playbook playbook-services.yml -i hosts.ini --tags="wireguard-keys-generate"
+```
+### Manual Config
+```
 ansible-playbook playbook-services.yml -i hosts.ini --tags="wireguard-install,wireguard-keys-distribute,wireguard-install-manual"
+```
 
-wg -> weryfikacja
+### Automatic config
+```  
+ansible-playbook playbook-services.yml -i hosts.ini --tags="wireguard-install,wireguard-keys-distribute,wireguard-install-automation"
+```
+
+#### Config verification
+```
+Verfication
 ping 10.0.0.1 -> VM1
 ping 10.0.0.2 -> VM2
-
-## Automatic config
-
-### Utils
-wg-quick up wg0
-wg-quick down wg0
+```
+#### Common utils
+```
+wg
 wg show
-wg showconf <name>
+wg showconf wg0
+```
 
-##### Example configs
+##### Automatic utils
+```
+wg-quick up <name> e.g.  wg-quick up wg0
+wg-quick down wg0
+```
+
+###### Example configs
+```
+[root@vm-0 ~]# wg showconf wg0
+[Interface]
+ListenPort = 51820
+PrivateKey = uPOaMjfsy+0NklP/9rUxtqHBxEvpBJljKREkJp4o4Vo=
+
+[Peer]
+PublicKey = lt5rWLmPxwsOmhONl/MWaTGBxNBabY38KHnA7N6sKQ0=
+AllowedIPs = 10.0.0.2/32
+Endpoint = 10.157.52.175:51820
+
+--------------------------------------------------------
 [root@vm-1 ~]# wg showconf wg0
 [Interface]
 ListenPort = 51820
-PrivateKey = qGMQwihgbuuwDSJn3NDPbw4EDc1RLqAS1MTUUxsAPE8=
+PrivateKey = iBsYwAikv5wISfkIzY+JbL//ycGs+LnU0zvCxAK9nG4=
 
 [Peer]
-PublicKey = tMxK6e36+u1aXB+hlGZvIZ3CMoY2F6UXcC3h57/AYxU=
+PublicKey = Mp+A0NpzbncuDTuB3V6BE/FY9AtJnaZTXHdIk9ofywM=
 AllowedIPs = 10.0.0.1/32
-Endpoint = 192.168.0.25:51820
-
-------------------------------------------------------------------------------
-[Interface]
-ListenPort = 51820
-PrivateKey = kHQgpRjRZx6VzuSPqm82Wrp1U7bzdIpTIqNDBQpPImY=
-
-[Peer]
-PublicKey = Hg2b7nxQkgDuxnyHroJNzhZPuODrbmOioddceT7VTTw=
-AllowedIPs = 10.0.0.2/32
-Endpoint = 192.168.0.26:51820
-
-
+Endpoint = 10.157.52.108:51820
+```

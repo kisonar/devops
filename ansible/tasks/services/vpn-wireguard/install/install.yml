@@ -2,3 +2,20 @@
   dnf:
     name: wireguard-tools
     state: installed
+
+#- name: VPN WireGuard - copy sysctl.conf with IP V4 setup
+#  copy:
+#    src: ./stuff/services/vpn-wireguard/sysctl.conf
+#    dest: /etc/sysctl.conf
+#    mode: u=rw,g=r,o=r #644
+#    owner: "{{ user_root }}"
+#    group: "{{ user_root }}"
+#  tags: "{{ tag_wireguard_sysctl }}"
+#- name: VPN Wireguard - reload sysctl
+#  command: sysctl -p
+#  tags: "{{ tag_wireguard_sysctl }}"
+#- name: VPN WireGuard - dependency iptables
+#  dnf:
+#    name: iptables
+#    state: installed
+#  tags: "{{ tag_wireguard_sysctl }}"

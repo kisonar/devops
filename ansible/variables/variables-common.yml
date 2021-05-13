@@ -50,7 +50,6 @@ tag_snap: snap
 tag_terraform: terraform
 tag_users: users
 tag_wireguard: wireguard
-tag_wireguard_configure: wireguard-configure
 tag_wireguard_install: wireguard-install
 tag_wireguard_install_automation: wireguard-install-automation
 tag_wireguard_install_manual: wireguard-install-manual
