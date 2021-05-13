@@ -6,5 +6,5 @@
   tags: "{{ tag_wireguard_keys_distribute }}"
 - import_tasks: ./manual/wireguard-manual.yml
   tags: "{{ tag_wireguard_install_manual }}"
-- import_tasks: ./manual/wireguard-automation.yml
+- import_tasks: ./automated/wireguard-automation.yml
   tags: "{{ tag_wireguard_install_automation }}"
