@@ -53,5 +53,6 @@ tag_wireguard_configure: wireguard-configure
 tag_wireguard_install: wireguard-install
 tag_wireguard_install_automation: wireguard-install-automation
 tag_wireguard_install_manual: wireguard-install-manual
-tag_wireguard_keys: wireguard-keys
+tag_wireguard_keys_distribute: wireguard-keys-distribute
+tag_wireguard_keys_generate: wireguard-keys-generate
 tag_wireguard_sysctl: wireguard-sysctl

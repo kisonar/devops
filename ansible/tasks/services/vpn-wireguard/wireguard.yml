@@ -1,5 +1,8 @@
-- import_tasks: ./common/wireguard-common.yml
+- import_tasks: ./install/install.yml
+  tags: "{{ tag_wireguard_install }}"
+- import_tasks: ./keys/generate.yml
+  tags: "{{ tag_wireguard_keys_generate }}"
+- import_tasks: ./keys/distribute.yml
+  tags: "{{ tag_wireguard_keys_distribute }}"
 - import_tasks: ./manual/wireguard-manual.yml
   tags: "{{ tag_wireguard_install_manual }}"
-#- import_tasks: ./automated/wireguard-automated.yml
-#  tags: "{{ tag_wireguard_install_automation }}"

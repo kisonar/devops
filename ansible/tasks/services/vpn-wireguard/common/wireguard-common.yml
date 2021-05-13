@@ -1,9 +1,0 @@
-- name: VPN WireGuard - install service
-  dnf:
-    name: wireguard-tools
-    state: installed
-  tags: "{{ tag_wireguard_install }}"
-
-- name: VPN WireGuard - generate key pair for Server
-  shell: wg genkey | tee keyPrivate | wg pubkey > keyPublic
-  tags: "{{ tag_wireguard_keys }}"

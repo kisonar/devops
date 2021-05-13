@@ -12,8 +12,14 @@
   shell: ip link delete wg0 type wireguard
   ignore_errors: true
 
+- name: VPN WireGuard - sleep 3
+  shell: sleep 3
+
 - name: VPN WireGuard - ip link add wg0 type wireguard
   shell: ip link add wg0 type wireguard
+
+- name: VPN WireGuard - sleep 3
+  shell: sleep 3
 
 - name: VPN WireGuard - add private IP to Server VM-1
   shell: ip addr add 10.0.0.2/24 dev wg0
@@ -25,8 +31,26 @@
   delegate_to: VM-0
   ignore_errors: true
 
-- name: VPN WireGuard - assign key private to Server VM-1
-  shell: wg set wg0 listen-port 51820 private-key ./keyPrivate
+- name: VPN WireGuard - sleep 3
+  shell: sleep 3
+
+- name: VPN WireGuard - set private key
+  shell: wg set wg0 private-key /root/keyPrivate
+  ignore_errors: true
+
+- name: VPN WireGuard - sleep 3
+  shell: sleep 3
 
 - name: VPN WireGuard - activate Wireguard UP
   shell: ip link set wg0 up
+
+- name: VPN WireGuard - sleep 3
+  shell: sleep 3
+
+- name: VPN WireGuard - configure wg0 at VM-1
+  shell: wg set wg0 listen-port 51820 peer Mp+A0NpzbncuDTuB3V6BE/FY9AtJnaZTXHdIk9ofywM= allowed-ips 10.0.0.1/32 endpoint 192.168.0.25:51820
+  delegate_to: VM-1
+
+- name: VPN WireGuard - configure wg0 at VM-0
+  shell: wg set wg0 listen-port 51820 peer lt5rWLmPxwsOmhONl/MWaTGBxNBabY38KHnA7N6sKQ0= allowed-ips 10.0.0.2/32 endpoint 192.168.0.26:51820
+  delegate_to: VM-0
