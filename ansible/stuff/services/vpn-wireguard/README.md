@@ -6,12 +6,12 @@ ansible-playbook playbook-services.yml -i hosts.ini --tags="wireguard-keys-gener
 ```
 ### Manual Config
 ```
-ansible-playbook playbook-services.yml -i hosts.ini --tags="wireguard-install,wireguard-keys-distribute,wireguard-install-manual"
+ansible-playbook playbook-services.yml -i hosts.ini --tags="wireguard-install,wireguard-keys-distribute,wireguard-configure-manual"
 ```
 
 ### Automatic config
 ```  
-ansible-playbook playbook-services.yml -i hosts.ini --tags="wireguard-install,wireguard-keys-distribute,wireguard-install-automation"
+ansible-playbook playbook-services.yml -i hosts.ini --tags="wireguard-install,wireguard-keys-distribute,wireguard-configure-automate"
 ```
 
 #### Config verification
