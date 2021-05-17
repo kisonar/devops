@@ -22,23 +22,32 @@
   pause:
     seconds: 3
 
-- name: VPN WireGuard - copy server configuration
+- name: VPN WireGuard - copy server configuration to VM-0 server
   template:
     src: ./stuff/services/vpn-wireguard/server/wg0.conf
     dest: /etc/wireguard/wg0.conf
     mode: u=rw,g=r,o=r #644
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
-  delegate_to: VM-1
+  delegate_to: VM-0
 
-- name: VPN WireGuard - copy client configuration
+- name: VPN WireGuard - copy client configuration to VM-1 client
   template:
     src: ./stuff/services/vpn-wireguard/client/wg0.conf
     dest: /etc/wireguard/wg0.conf
     mode: u=rw,g=r,o=r #644
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
-  delegate_to: VM-0
+  delegate_to: VM-1
+
+- name: VPN WireGuard - copy client configuration to VM-2 client
+  template:
+    src: ./stuff/services/vpn-wireguard/client-another/wg0.conf
+    dest: /etc/wireguard/wg0.conf
+    mode: u=rw,g=r,o=r #644
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"
+  delegate_to: VM-2
 
 - name: VPN WireGuard - start service
   command: wg-quick up wg0

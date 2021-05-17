@@ -5,7 +5,7 @@
     mode: u=rw,g=r,o=r #644
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
-  delegate_to: VM-1
+  delegate_to: VM-0
   tags: "{{ tag_wireguard_keys_distribute }}"
 - name: VPN WireGuard - copy Server public key
   copy:
@@ -14,7 +14,7 @@
     mode: u=rw,g=r,o=r #644
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
-  delegate_to: VM-1
+  delegate_to: VM-0
   tags: "{{ tag_wireguard_keys_distribute }}"
 
 - name: VPN WireGuard - copy Client private key
@@ -24,7 +24,7 @@
     mode: u=rw,g=r,o=r #644
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
-  delegate_to: VM-0
+  delegate_to: VM-1
   tags: "{{ tag_wireguard_keys_distribute }}"
 - name: VPN WireGuard - copy Client public key
   copy:
@@ -33,5 +33,24 @@
     mode: u=rw,g=r,o=r #644
     owner: "{{ user_root }}"
     group: "{{ user_root }}"
-  delegate_to: VM-0
+  delegate_to: VM-1
+  tags: "{{ tag_wireguard_keys_distribute }}"
+
+- name: VPN WireGuard - copy Client private key
+  copy:
+    src: ./stuff/services/vpn-wireguard/keys/keyClientPrivateAnother
+    dest: /root/keyPrivate
+    mode: u=rw,g=r,o=r #644
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"
+  delegate_to: VM-2
+  tags: "{{ tag_wireguard_keys_distribute }}"
+- name: VPN WireGuard - copy Client public key
+  copy:
+    src: ./stuff/services/vpn-wireguard/keys/keyClientPublicAnother
+    dest: /root/keyPublic
+    mode: u=rw,g=r,o=r #644
+    owner: "{{ user_root }}"
+    group: "{{ user_root }}"
+  delegate_to: VM-2
   tags: "{{ tag_wireguard_keys_distribute }}"
