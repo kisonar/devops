@@ -1,0 +1,7 @@
+- name: VPN WireGuard - generate key pair for Server
+  shell: wg genkey | tee keyServerPrivate | wg pubkey > keyServerPublic
+  delegate_to: localhost
+
+- name: VPN WireGuard - generate key pair for Client
+  shell: wg genkey | tee keylClientPrivate | wg pubkey > keyClientPublic
+  delegate_to: localhost

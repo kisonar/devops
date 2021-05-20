@@ -1,0 +1,61 @@
+- name: VPN WireGuard - delete private IP from Server VM-1 if assigned
+  shell: ip addr delete 10.0.0.2/24 dev wg0
+  delegate_to: VM-1
+  ignore_errors: true
+
+- name: VPN WireGuard - delete private IP from Client VM-0 if assigned
+  shell: ip addr delete 10.0.0.1/24 dev wg0
+  delegate_to: VM-0
+  ignore_errors: true
+
+- name: VPN WireGuard - ip link delete wg0 type wireguard
+  shell: ip link delete wg0 type wireguard
+  ignore_errors: true
+
+- name: VPN WireGuard - sleep 3
+  pause:
+    seconds: 3
+
+- name: VPN WireGuard - ip link add wg0 type wireguard
+  shell: ip link add wg0 type wireguard
+
+- name: VPN WireGuard - sleep 3
+  pause:
+    seconds: 3
+
+- name: VPN WireGuard - add private IP to Server VM-1
+  shell: ip addr add 10.0.0.2/24 dev wg0
+  delegate_to: VM-1
+  ignore_errors: true
+
+- name: VPN WireGuard - add private IP to Client VM-0
+  shell: ip addr add 10.0.0.1/24 dev wg0
+  delegate_to: VM-0
+  ignore_errors: true
+
+- name: VPN WireGuard - sleep 3
+  pause:
+    seconds: 3
+
+- name: VPN WireGuard - set private key
+  shell: wg set wg0 private-key /root/keyPrivate
+  ignore_errors: true
+
+- name: VPN WireGuard - sleep 3
+  pause:
+    seconds: 3
+
+- name: VPN WireGuard - activate Wireguard UP
+  shell: ip link set wg0 up
+
+- name: VPN WireGuard - sleep 3
+  pause:
+    seconds: 3
+
+- name: VPN WireGuard - configure wg0 at VM-1
+  shell: "wg set wg0 listen-port {{ port_wireguard }} peer {{ WIREGUARD_PUBLIC_KEY_VM0 }} allowed-ips 10.0.0.1/32 endpoint {{ WIREGUARD_IP_VM_0 }}:{{ port_wireguard }}"
+  delegate_to: VM-1
+
+- name: VPN WireGuard - configure wg0 at VM-0
+  shell: "wg set wg0 listen-port {{ port_wireguard }} peer {{ WIREGUARD_PUBLIC_KEY_VM1 }} allowed-ips 10.0.0.2/32 endpoint {{ WIREGUARD_IP_VM_1 }}:{{ port_wireguard }}"
+  delegate_to: VM-0

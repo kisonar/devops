@@ -1,0 +1,4 @@
+- name: VPN WireGuard - install service
+  dnf:
+    name: wireguard-tools
+    state: installed
