@@ -42,7 +42,7 @@ kisonar-host-key
 kisonar-host-key.pub
 
 Create if not available .ssh in /home/<user-name> or /root
-Create authorized_keys file. Add to it content of geenrated public key.
+Create authorized_keys file. Add to it content of generated public key.
 ```
 ###### Remote access
 ```
