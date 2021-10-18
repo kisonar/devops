@@ -1,5 +1,23 @@
 # Source code, build & devops tools tips & tricks 
 
+## Infrastructure as a code
+##### Ansible
+```
+Use version 2.10
+ansible-playbook -i hosts.ini playbook-name.yml --skip-tags="proxy" -t="t1,t2" --tags="tag3,tag4"
+```
+
+##### Terraform
+```
+TODO 
+```
+
+##### VirtualBox
+```
+During VM creation at Storage level Controller: IDE choose ISO as source.
+Controller: SATA leave as VDI disk
+```
+
 ## Linux
 
 ##### Connectivity
@@ -197,19 +215,8 @@ C (ang. Country) – państwo
 remmina
 ```
 
-##### Ansible
-```
-Use version 2.10
-ansible-playbook -i hosts.ini playbook-name.yml --skip-tags="proxy" -t="t1,t2" --tags="tag3,tag4"
-```
 
-## Docker for Fedora 32/33
-
-##### Works with
-```
-fedora-31-2020-04-01
-fedora-32-2020-07-28     
-```
+## Docker
 
 ##### Usage
 ```
@@ -283,7 +290,7 @@ pip3 install xml2dict
 ```
 
 ## Build tools
-##### Gradle 6.x (current 6.8)
+##### Gradle 7.x
 ```
 gradle clean build 
 gradle clean build -x test => skip tests
