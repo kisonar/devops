@@ -1,17 +1,15 @@
 resource "virtualbox_vm" "node" {
-  count = 2
+  count = 1
   name = "${format("node-%02d", count.index+1)}"
-  url = "https://vagrantcloud.com/ubuntu/boxes/xenial64/versions/20180420.0.0/providers/virtualbox.box"
-  image = "./virtualbox.box"
-  cpus = 2
-  memory = "512 mib",
+  image = "https://app.vagrantup.com/ubuntu/boxes/bionic64/versions/20180903.0.0/providers/virtualbox.box"
+  cpus = 4
+  memory = "4000 mb"
   // user_data = "${file("user_data")}"
 
 
   network_adapter {
-    type = "bridged",
+    type = "bridged"
     host_interface="en0"
   }
-
 
 }

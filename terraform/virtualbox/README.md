@@ -1,10 +1,4 @@
-## Terraform to be used with Openstack
-
-### Prerequisite
-```
-source openstack file from OPENRC
-command: source file.openrc
-```
+## Terraform to be used with VirtualBox
 
 #### Usage preparation
 ```
@@ -17,7 +11,6 @@ terraform --version  ==> Terraform v0.13.5
 
 #### Usage execution
 ```
-terraform init
 terraform plan
 terraform apply -auto-approve
 ```
