@@ -15,3 +15,8 @@ terraform init
 terraform plan
 terraform apply -auto-approve
 ```
+
+##### Extensions
+``` 
+.box to rozszerzenie vagrant
+```
