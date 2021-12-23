@@ -1,4 +1,4 @@
-- name: Oracle 11XE - Host from hosts.ini
+- name: Oracle 11XE - Host from hosts-cloud.ini
   debug: msg={{inventory_hostname}}
 
 - name: Oracle 11XE - Host local fetch
