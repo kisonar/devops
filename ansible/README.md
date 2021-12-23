@@ -4,8 +4,8 @@
 
 ### Often used
 ```
-ansible-playbook -i hosts.ini playbook-installation.yml
-ansible-playbook -i hosts.ini playbook-services.yml
+ansible-playbook -i hosts-cloud.ini playbook-installation.yml
+ansible-playbook -i hosts-cloud.ini playbook-services.yml
 ```
 
 ### Arm local computer
