@@ -8,8 +8,8 @@ services:
     environment:
       #MARIADB_RANDOM_ROOT_PASSWORD: "true"
       MARIADB_DATABASE: default_database
-      MARIADB_USER: default_user
-      MARIADB_PASSWORD: default_password
+      MARIADB_USER: user
+      MARIADB_PASSWORD: pass
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - ./storage:/var/lib/mysql

@@ -1,6 +1,6 @@
 CREATE DATABASE marcin;
 USE marcin;
-commit;
+COMMIT;
 
 CREATE TABLE marcin.users (
     userId integer NOT NULL AUTO_INCREMENT,
@@ -10,15 +10,12 @@ CREATE TABLE marcin.users (
     PRIMARY KEY (userId)
 )
 ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
-commit;
+COMMIT;
 
-insert into marcin.users(userId,userName,userPassword,userEmail)
-values (null,'qcsAdmin','qcsAdmin','qcsAdmin@mail.com');
-insert into marcin.users(userId,userName,userPassword,userEmail)
-values (null,'qcsEngineer','qcsEngineer','qcsEngineer@mail.com');
-insert into marcin.users(userId,userName,userPassword,userEmail)
-values (null,'qcsClient','qcsClient','qcsClient@mail.com');
-commit;
+INSERT INTO marcin.users(userId,userName,userPassword,userEmail) VALUES (null,'qcsAdmin','qcsAdmin','qcsAdmin@mail.com');
+INSERT INTO marcin.users(userId,userName,userPassword,userEmail)VALUES (null,'qcsEngineer','qcsEngineer','qcsEngineer@mail.com');
+INSERT INTO marcin.users(userId,userName,userPassword,userEmail)VALUES (null,'qcsClient','qcsClient','qcsClient@mail.com');
+COMMIT;
 
 CREATE TABLE marcin.roles (
     roleId integer NOT NULL AUTO_INCREMENT,
@@ -26,12 +23,12 @@ CREATE TABLE marcin.roles (
     PRIMARY KEY (roleId)
 )
 ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
-commit;
+COMMIT;
 
-insert into marcin.roles(roleId,roleName) values (null,'Administrator');
-insert into marcin.roles(roleId,roleName) values (null,'Engineer');
-insert into marcin.roles(roleId,roleName) values (null,'QCS Client');
-commit;
+INSERT INTO marcin.roles(roleId,roleName) VALUES (null,'Administrator');
+INSERT INTO marcin.roles(roleId,roleName) VALUES (null,'Engineer');
+INSERT INTO marcin.roles(roleId,roleName) VALUES (null,'QCS Client');
+COMMIT;
 
 CREATE TABLE marcin.user_roles (
 	userId integer NOT NULL,
@@ -41,9 +38,9 @@ CREATE TABLE marcin.user_roles (
 	PRIMARY KEY (userId, roleId)
 )
 ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
-commit;
+COMMIT;
 
-insert into marcin.user_roles(userId,roleId) values (1,1);
-insert into marcin.user_roles(userId,roleId) values (2,2);
-insert into marcin.user_roles(userId,roleId) values (3,3);
-commit;
+INSERT INTO marcin.user_roles(userId,roleId) VALUES (1,1);
+INSERT INTO marcin.user_roles(userId,roleId) VALUES (2,2);
+INSERT INTO marcin.user_roles(userId,roleId) VALUES (3,3);
+COMMIT;
