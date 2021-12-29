@@ -13,8 +13,8 @@ ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 COMMIT;
 
 INSERT INTO marcin.users(userId,userName,userPassword,userEmail) VALUES (null,'qcsAdmin','qcsAdmin','qcsAdmin@mail.com');
-INSERT INTO marcin.users(userId,userName,userPassword,userEmail)VALUES (null,'qcsEngineer','qcsEngineer','qcsEngineer@mail.com');
-INSERT INTO marcin.users(userId,userName,userPassword,userEmail)VALUES (null,'qcsClient','qcsClient','qcsClient@mail.com');
+INSERT INTO marcin.users(userId,userName,userPassword,userEmail) VALUES (null,'qcsEngineer','qcsEngineer','qcsEngineer@mail.com');
+INSERT INTO marcin.users(userId,userName,userPassword,userEmail) VALUES (null,'qcsClient','qcsClient','qcsClient@mail.com');
 COMMIT;
 
 CREATE TABLE marcin.roles (
