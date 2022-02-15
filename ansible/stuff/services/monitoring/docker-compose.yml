@@ -1,0 +1,59 @@
+version: '3.6'
+services:
+  nxlog:
+    image: nxlog/nxlog-ce:2.10.2150
+    container_name: nxlog
+    #ports:
+    #  - "12201:12201"
+    volumes:
+      - ./nxlog/config/nxlog.conf:/etc/nxlog.conf
+      - ./nxlog/files/input:/var/log
+      - ./nxlog/files/output:/lib
+    restart: on-failure
+
+  graylog:
+    image: graylog/graylog:4.2.6-1-jre11
+    container_name: graylog
+    ports:
+      - "1514:1514"
+      - "9000:9000"
+      - "12201:12201"
+    restart: on-failure
+    environment:
+      - GRAYLOG_HTTP_EXTERNAL_URI=http://127.0.0.1:9000/
+      - GRAYLOG_PASSWORD_SECRET=jakiesTamHasloPowinnoByc
+      - GRAYLOG_ROOT_PASSWORD_SHA2=8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918 #admin/admin
+    depends_on:
+      - mongo
+      - elasticsearch
+    entrypoint: /usr/bin/tini -- wait-for-it elasticsearch:9200 --  /docker-entrypoint.sh
+    volumes:
+      - ./graylog/config/server.conf:/etc/graylog/server/server.conf
+      #- ./graylog/journal:/var/lib/graylog-server/journal
+
+    links:
+      - mongo
+      - elasticsearch
+
+  mongo:
+    image: mongo:4.4
+    restart: on-failure
+    container_name: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+      - MONGO_INITDB_DATABASE=graylog
+    ports:
+      - "27017:27017"
+    #volumes:
+    #  - ./mongo/config:/etc/mongo
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.10.2
+    container_name: elasticsearch
+    environment:
+      - http.host=0.0.0.0
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    depends_on:
+      - mongo
