@@ -7,6 +7,9 @@ db.createUser({
                 },
                 { role: "readWrite",
                     db: "graylog"
+                },
+                { role: "dbAdmin",
+                    db: "graylog"
                 }
             ]
 });
