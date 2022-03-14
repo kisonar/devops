@@ -51,3 +51,15 @@ docker-compose down
 
 Before deployment fill ./ansible/stuff/docker/daemon.json for enabling download of docker image from Nexus
 ```
+
+## Swarm
+```  
+docker swarm init
+docker system info | grep -i Swarm
+
+docker stack deploy -c <file>.yml <swarm-name>
+docker service ls
+docker stack rm <swarm name>
+
+
+```
