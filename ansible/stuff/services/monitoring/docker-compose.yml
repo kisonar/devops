@@ -11,7 +11,7 @@ services:
       - ./nxlog/files/output:/lib
     restart: on-failure
     depends_on:
-      - mongo
+      - graylog
 
   graylog:
     image: graylog/graylog:3.3.8
@@ -34,11 +34,11 @@ services:
       #- ./graylog/journal:/var/lib/graylog-server/journal
 
     links:
-      - mongo
+      - mongo-admin
       - elasticsearch
 
   mongo:
-    image: mongo:4.2
+    image: mongo:4.4
     restart: on-failure
     container_name: mongo
     environment:
@@ -48,8 +48,8 @@ services:
       - "27017:27017"
     volumes:
       - ./mongo/config/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
-      - ./mongo/config/mongod.conf:/etc/mongo/mongod.conf
-      - ./mongo/data/db:/data/db
+      #- ./mongo/config/mongod.conf:/etc/mongo/mongod.conf
+      #- ./mongo/data/db:/data/db
 
   mongo-admin:
     image: mongo-express
@@ -62,7 +62,7 @@ services:
     ports:
       - "8950:8081"
     depends_on:
-      - nxlog
+      - mongo
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.10.2
@@ -71,5 +71,3 @@ services:
       - http.host=0.0.0.0
       - discovery.type=single-node
       - ES_JAVA_OPTS=-Xms512m -Xmx512m
-    depends_on:
-      - mongo
