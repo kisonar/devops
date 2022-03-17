@@ -9,9 +9,11 @@ port_ha_proxy_web_console: 3001
 port_grafana: 3000
 port_rabbit_mq_tcp: 5672
 port_rabbit_mq_web_ui: 7000
-port_jenkins: 8081
+port_jenkins: 8082
+port_nexus: 8083
 port_gobetween: 8888
 port_graylog_http: 9000
+port_sonar_qube: 9123
 port_elasticsearch_http: 9200
 port_graylog_gelf_tcp: 12201
 port_gluster_fs: 24009
