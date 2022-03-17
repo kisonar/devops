@@ -1,11 +1,11 @@
 version: '3.6'
 
 services:
-  #http://localhost:9000 admin/admin
+  #http://localhost:9123 admin/admin
   sonarqube:
     image: sonarqube:lts
     ports:
-      - "9000:9000"
+      - "9123:9000"
     volumes:
       - ./data:/opt/sonarqube/data
       - ./logs:/opt/sonarqube/logs
