@@ -19,6 +19,7 @@ services:
     image: mongo-express
     restart: always
     container_name: mongo-admin
+    # below entries activate --auth in MongoDB
     environment:
       - ME_CONFIG_MONGODB_ADMINUSERNAME=root
       - ME_CONFIG_MONGODB_ADMINPASSWORD=example
@@ -27,11 +28,3 @@ services:
       - "8950:8081"
     depends_on:
       - mongo
-
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.10.2
-    container_name: elasticsearch
-    environment:
-      - http.host=0.0.0.0
-      - discovery.type=single-node
-      - ES_JAVA_OPTS=-Xms512m -Xmx512m
