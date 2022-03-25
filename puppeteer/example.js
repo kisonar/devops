@@ -17,9 +17,14 @@ function delay(time) {
     console.log('Page loaded.. ')
     await delay(2000);
     console.log('Delay completed - page showed.')
-    await page.click('#nx-header-signin-1145-btnInnerEl')
+    const popup =  await page.click('#nx-header-signin-1145-btnInnerEl')
+    console.log('Clicked log in ')
     //await page.screenshot({ path: '2-after-login-click.png' });
-    await delay(2000);
+    //await delay(2000);
+
+    console.log("Popup: " + popup)
+
+
     console.log('Attempt to close browser...')
     await browser.close();
 })();
