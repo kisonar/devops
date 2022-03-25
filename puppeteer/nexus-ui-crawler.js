@@ -1,10 +1,6 @@
 const puppeteer = require('puppeteer');
 
-function delay(time) {
-    return new Promise(function(resolve) {
-        setTimeout(resolve, time)
-    });
-}
+const delay = require('./delay');
 
 (async () => {
     const browser = await puppeteer.launch({
@@ -27,6 +23,7 @@ function delay(time) {
 
     await page.type('#textfield-1171-inputEl', 'admin', { delay: 200});
     await page.type('#textfield-1172-inputEl', 'Mandingo82',{ delay: 200});
+    await delay(3000)
     await page.click('#button-1174-btnInnerEl');
 
     await delay(10000)
