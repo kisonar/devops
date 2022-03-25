@@ -11,20 +11,21 @@ function delay(time) {
         headless: false
     });
     const page = await browser.newPage();
-    //await page.setViewport({width: 6000, height: 2000});
+    await page.setViewport({width: 1024, height: 1000});
+
     await page.goto('http://localhost:8083',{ waitUntil: 'networkidle2' });
-    //await page.screenshot({ path: '1-start.png' });
-    console.log('Page loaded.. ')
-    await delay(2000);
-    console.log('Delay completed - page showed.')
-    const popup =  await page.click('#nx-header-signin-1145-btnInnerEl')
-    console.log('Clicked log in ')
-    //await page.screenshot({ path: '2-after-login-click.png' });
-    //await delay(2000);
+    console.log('Page http://localhost:8083 loading... ')
+    await page.screenshot({ path: '1-nexus-start-page.png' });
+    console.log('Page http://localhost:8083 loaded')
+    await delay(2000)
 
-    console.log("Popup: " + popup)
-
+    console.log('Clicking link sign in')
+    await page.click('#nx-header-signin-1145-btnInnerEl')
+    await page.screenshot({ path: '2-after-login-click.png' });
+    console.log('Clicking link sign in done')
+    await delay(3000)
 
     console.log('Attempt to close browser...')
     await browser.close();
+    console.log('Browser closed')
 })();
