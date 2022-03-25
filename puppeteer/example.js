@@ -21,9 +21,16 @@ function delay(time) {
 
     console.log('Clicking link sign in')
     await page.click('#nx-header-signin-1145-btnInnerEl')
-    await page.screenshot({ path: '2-after-login-click.png' });
+    await page.screenshot({ path: '2-after-sing-in-click.png' });
     console.log('Clicking link sign in done')
     await delay(3000)
+
+    await page.type('#textfield-1171-inputEl', 'admin', { delay: 200});
+    await page.type('#textfield-1172-inputEl', 'Mandingo82',{ delay: 200});
+    await page.click('#button-1174-btnInnerEl');
+
+    await delay(10000)
+    await page.screenshot({ path: '3-after-attempt-to-log-in.png' });
 
     console.log('Attempt to close browser...')
     await browser.close();
