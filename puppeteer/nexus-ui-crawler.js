@@ -22,7 +22,7 @@ const delay = require('./delay');
     await delay(3000)
 
     await page.type('#textfield-1171-inputEl', 'admin', { delay: 200});
-    await page.type('#textfield-1172-inputEl', 'Mandingo82',{ delay: 200});
+    await page.type('#textfield-1172-inputEl', 'Nexus2022',{ delay: 200});
     await delay(3000)
     await page.click('#button-1174-btnInnerEl');
 
