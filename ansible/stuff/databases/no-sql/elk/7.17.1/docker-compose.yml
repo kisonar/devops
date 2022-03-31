@@ -12,8 +12,7 @@ services:
       - ES_JAVA_OPTS=-Xms512m -Xmx512m
       #- xpack.security.enabled=false
     volumes:
-      - ./certs:/usr/share/elasticsearch/config/certs
-      - ./data:/usr/share/elasticsearch/data
+      - ./elasticsearch/data:/usr/share/elasticsearch/data
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:9200" ]
       interval: 10s
