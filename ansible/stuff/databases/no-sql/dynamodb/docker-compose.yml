@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+
+  dynamodb:
+    image: amazon/dynamodb-local
+    ports:
+      - "8000:8000"
+    hostname: dynamodb
+    command: [ "-jar", "DynamoDBLocal.jar", "-sharedDb", "-inMemory" ]
+
+  dynamodb-web-client:
+    image: sstruss/dynamodb-client-web-gui
+    ports:
+      - "9101:9100"
+    depends_on:
+      - dynamodb
+    environment:
+      - AWS_DYNAMODB_ENDPOINT=http://dynamodb:8000
