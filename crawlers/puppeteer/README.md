@@ -9,7 +9,6 @@ Node JS - newset
 ``` 
 npm install puppeteer-core 
 npm install puppeteer 
-
 docker based: buildkite/puppeteer:8.0.0
 ```
 
