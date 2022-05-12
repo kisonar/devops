@@ -6,8 +6,9 @@ user: root
 password: root
 ```
 
-# PHPMyAdmin
-```
-localhost:8080
-user/password: root/root
+# Bash access
+``` 
+docker exec -it my-own-mysql bash
+
+mysql --user=root --password=root
 ```
