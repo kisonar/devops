@@ -8,7 +8,6 @@ services:
       - "8089:8080" # guacadmin/guacadmin
     depends_on:
       - guacd
-      - mysql-admin
       - mysql
     environment:
       MYSQL_HOSTNAME: mysql
@@ -31,16 +30,6 @@ services:
     environment:
       ENABLE_WEBSOCKET: "true"
       GUACD_LOG_LEVEL: "debug" # debug
-
-  mysql-admin:
-    image: phpmyadmin/phpmyadmin
-    restart: always
-    ports:
-      - "8085:80"
-    depends_on:
-      - mysql
-    environment:
-      - PMA_HOST=mysql
 
   mysql:
     image: mysql:8.0.16
