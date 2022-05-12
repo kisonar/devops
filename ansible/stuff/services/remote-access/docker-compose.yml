@@ -30,7 +30,7 @@ services:
       - "3389:3389" # RDP port
     environment:
       ENABLE_WEBSOCKET: "true"
-      GUACD_LOG_LEVEL: "info" # debug
+      GUACD_LOG_LEVEL: "debug" # debug
 
   mysql-admin:
     image: phpmyadmin/phpmyadmin
