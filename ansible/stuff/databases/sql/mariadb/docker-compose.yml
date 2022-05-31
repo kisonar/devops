@@ -4,7 +4,7 @@ services:
   db:
     image: mariadb/server:10.4
     ports:
-      - 3306:3306
+      - "3306:3306"
     environment:
       #MARIADB_RANDOM_ROOT_PASSWORD: "true"
       MARIADB_DATABASE: default_database
@@ -19,4 +19,4 @@ services:
     image: adminer
     restart: always
     ports:
-      - 8085:8080
+      - "8085:8080"
