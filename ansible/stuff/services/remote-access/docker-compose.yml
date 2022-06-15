@@ -2,6 +2,7 @@ version: "3.7"
 
 services:
 
+  # http://localhost:8089/guacamole
   guacamole:
     image: guacamole/guacamole:1.4.0
     ports:
