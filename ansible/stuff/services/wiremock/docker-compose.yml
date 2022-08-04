@@ -9,7 +9,3 @@ services:
       - "8443:8443"
     volumes:
       - ./data:/home/wiremock
-    #environment:
-    #  - https-port=8443
-    #  - verbose=true
-    #  - uid=$(id -u)
