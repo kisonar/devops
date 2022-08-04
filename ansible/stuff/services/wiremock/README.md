@@ -1,5 +1,11 @@
 # Wiremock
 
+## APIS
+```
+http://localhost:8080/hello
+http://localhost:8080/__admin/mappings
+```
+
 
 
 https://www.geeksforgeeks.org/wiremock-stubbing-with-json-mappings/

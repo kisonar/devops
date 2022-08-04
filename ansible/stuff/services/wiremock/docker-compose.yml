@@ -2,9 +2,6 @@ version: '3.6'
 
 services:
 
-  # http://localhost:8080/hello
-  # http://localhost:8080/__admin/mappings
-
   wiremock:
     image: wiremock/wiremock:2.33.2
     ports:
