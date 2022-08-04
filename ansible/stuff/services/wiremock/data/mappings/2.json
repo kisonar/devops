@@ -24,9 +24,11 @@
         "url": "/three",
         "method": "GET"
       },
-      "bodyFilePath": "2-three-get-response.json",
-      "headers": {
-        "Content-Type": "application/json"
+      "response": {
+        "bodyFileName": "2-three-get-response.json",
+        "headers": {
+          "Content-Type": "application/json"
+        }
       }
     },
     {
