@@ -1,0 +1,48 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "method": "GET",
+        "url": "/one"
+      },
+      "response": {
+        "status": 200
+      }
+    },
+    {
+      "id": "8c5db8b0-2db4-4ad7-a99f-38c9b00da3f7",
+      "request": {
+        "url": "/two"
+      },
+      "response": {
+        "body": "Updated"
+      }
+    },
+    {
+      "id": "8c5db8b0-2db4-4ad7-a99f-38c9b00da3f8",
+      "request": {
+        "url": "/three",
+        "method": "GET"
+      },
+      "bodyFilePath": "2-three-get-response.json",
+      "headers": {
+        "Content-Type": "application/json"
+      }
+    },
+    {
+      "id": "8c5db8b0-2db4-4ad7-a99f-38c9b00da3f9",
+      "request": {
+        "url": "/four",
+        "method": "GET"
+      },
+      "response": {
+        "status": 200,
+        "jsonBody": {"id": "1", "type": "something"},
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    }
+
+  ]
+}
