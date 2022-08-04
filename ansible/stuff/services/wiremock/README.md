@@ -6,10 +6,20 @@ http://localhost:8080/hello
 http://localhost:8080/__admin/mappings
 ```
 
+### Editing Stubs
 
-
-https://www.geeksforgeeks.org/wiremock-stubbing-with-json-mappings/
-
-https://towardsdev.com/wiremock-how-to-easily-mock-rest-soap-or-any-other-api-5ad276f66145
-
-
+```  
+Example:
+PUT
+http://localhost:8080/__admin/mappings/8c5db8b0-2db4-4ad7-a99f-38c9b00da3f7
+{
+    "request": {
+        "method": "GET",
+        "url": "/two"
+    },
+    "response": {
+        "status": 200,
+        "body": "Here you have two but modified"
+    }
+}
+```
