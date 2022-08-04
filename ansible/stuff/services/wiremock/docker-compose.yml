@@ -6,6 +6,5 @@ services:
     image: wiremock/wiremock:2.33.2
     ports:
       - "8080:8080"
-      - "8443:8443"
     volumes:
       - ./data:/home/wiremock
