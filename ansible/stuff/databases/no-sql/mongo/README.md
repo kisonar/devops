@@ -2,6 +2,7 @@
 
 ##### Urls
 ``` 
+Mongo express
 localhost:9000
 ```
 
@@ -9,4 +10,14 @@ localhost:9000
 ```
 For created user check mongo-init.js
 Collextion is being created when first document is written to collection
+
+At startup there is created user:
+l: my-user
+p: my-password
+
+database: my-database
+
+admin credential:
+l: admin
+p: password
 ```
