@@ -1,0 +1,26 @@
+version: "3.7"
+services:
+
+  redis:
+    image: redis:7.0.7
+    ports:
+      - "6379:6379"
+    command: redis-server --save 60 1
+    environment:
+      - REDIS_PASSWORD=mandingo23cm
+      - loglevel=warning
+      - REDIS_REPLICATION_MODE=master
+    volumes:
+      - ./cache:/data
+    container_name: redis
+    hostname: redis
+
+  redis-commander:
+    container_name: redis-commander
+    hostname: redis-commander
+    image: rediscommander/redis-commander:latest
+    restart: always
+    environment:
+      - REDIS_HOSTS=local:redis:6379
+    ports:
+      - "8543:8081" #ext/int
