@@ -11,14 +11,11 @@ services:
       - loglevel=warning
       - REDIS_REPLICATION_MODE=master
     volumes:
-      - ./cache:/data
-    container_name: redis
-    hostname: redis
+      - ./cache-redis:/data
 
-  redis-commander:
-    image: rediscommander/redis-commander:latest
-    restart: always
-    environment:
-      - REDIS_HOSTS=local:redis:6379 #label:hostname:port # 10.10.20.30
+  redisinsight:
+    image: redislabs/redisinsight:1.13.1
     ports:
-      - "8543:8081" #ext/int
+      - "8001:8001"
+    volumes:
+      - ./cache-redisinsight:/db
