@@ -52,7 +52,7 @@ services:
     volumes:
       - ./elasticsearch/data:/usr/share/elasticsearch/data
 
-  grafana: # default admin/admin -> chnage password to admin1
+  grafana:
     image: grafana/grafana-enterprise
     ports:
       - "3000:3000"
@@ -60,3 +60,6 @@ services:
       - ./grafana-storage:/var/lib/grafana
     environment:
       - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource
+
+# default admin/admin -> chnage password to admin1
+# Marcin/Marcin1
