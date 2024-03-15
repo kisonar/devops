@@ -45,6 +45,7 @@ services:
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.10.2
     container_name: elasticsearch
+    restart: on-failure
     environment:
       - http.host=0.0.0.0
       - discovery.type=single-node
@@ -54,6 +55,7 @@ services:
 
   grafana:
     image: grafana/grafana-enterprise
+    restart: on-failure
     ports:
       - "3000:3000"
     volumes:
@@ -63,3 +65,14 @@ services:
 
 # default admin/admin -> change password to admin1
 # Marcin/Marcin1
+
+  prometheus:
+    image: prom/prometheus:v2.50.1
+    restart: on-failure
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/config/prometheus.yaml:/etc/prometheus/prometheus.yaml:ro
+      - ./prometheus/data:/prometheus
+
+# https://dev.to/chafroudtarek/part-1-how-to-set-up-grafana-and-prometheus-using-docker-i47
