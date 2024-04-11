@@ -39,6 +39,10 @@ services:
     container_name: mongo
     ports:
       - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: example-database
+      MONGO_INITDB_ROOT_PASSWORD: mongo-user
+      MONGO_INITDB_DATABASE: mongo-pass
     volumes:
       - ./mongo/data/db:/data/db
 
@@ -54,7 +58,7 @@ services:
       - ./elasticsearch/data:/usr/share/elasticsearch/data
 
   grafana:
-    image: grafana/grafana-enterprise
+    image: grafana/grafana-oss # grafana/grafana-oss grafana/grafana-enterprise
     restart: on-failure
     ports:
       - "3000:3000"
