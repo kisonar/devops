@@ -39,12 +39,17 @@ services:
     container_name: mongo
     ports:
       - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: example-database
+      MONGO_INITDB_ROOT_PASSWORD: mongo-user
+      MONGO_INITDB_DATABASE: mongo-pass
     volumes:
       - ./mongo/data/db:/data/db
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.10.2
     container_name: elasticsearch
+    restart: on-failure
     environment:
       - http.host=0.0.0.0
       - discovery.type=single-node
@@ -53,7 +58,8 @@ services:
       - ./elasticsearch/data:/usr/share/elasticsearch/data
 
   grafana:
-    image: grafana/grafana-enterprise
+    image: grafana/grafana-oss # grafana/grafana-oss grafana/grafana-enterprise
+    restart: on-failure
     ports:
       - "3000:3000"
     volumes:
@@ -63,3 +69,14 @@ services:
 
 # default admin/admin -> change password to admin1
 # Marcin/Marcin1
+
+  prometheus:
+    image: prom/prometheus:v2.50.1
+    restart: on-failure
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/config/prometheus.yaml:/etc/prometheus/prometheus.yaml:ro
+      - ./prometheus/data:/prometheus
+
+# https://dev.to/chafroudtarek/part-1-how-to-set-up-grafana-and-prometheus-using-docker-i47
