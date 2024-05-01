@@ -34,7 +34,7 @@ services:
       - elasticsearch
     volumes:
       - ./graylog/config/server.conf:/etc/graylog/server/server.conf # /etc/graylog/server/server.conf
-      - ./graylog/journal:/var/lib/graylog-server/journal # /var/lib/graylog-server/journal
+      #- ./graylog/journal:/var/lib/graylog-server/journal # /var/lib/graylog-server/journal
     links:
       - mongo
       - elasticsearch
