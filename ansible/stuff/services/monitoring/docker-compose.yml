@@ -14,7 +14,7 @@ services:
       - graylog
 
   graylog:
-    image: graylog/graylog:5.2
+    image: graylog/graylog:5.2.7
     container_name: graylog
     ports:
       - "1514:1514"
@@ -35,6 +35,7 @@ services:
     volumes:
       - ./graylog/config/server.conf:/etc/graylog/server/server.conf # /etc/graylog/server/server.conf
       #- ./graylog/journal:/var/lib/graylog-server/journal # /var/lib/graylog-server/journal
+       # /usr/share/graylog/data/journal/
     links:
       - mongo
       - elasticsearch
