@@ -14,7 +14,7 @@ services:
       - graylog
 
   graylog:
-    image: graylog/graylog:5.2.7
+    image: graylog/graylog:6.0.0
     container_name: graylog
     ports:
       - "1514:1514"
