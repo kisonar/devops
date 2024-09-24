@@ -15,10 +15,10 @@ services:
       - ./pulsarconf://pulsar/conf
 
   pulsar-mamanger:
-    image: apachepulsar/pulsar-manager:latest
+    image: apachepulsar/pulsar-manager:v0.4.0
     #command: [start-kafka.sh]
     ports:
-      - "9527:9527" # frontend
+      - "9527:9527" # frontend admin/apachepulsar
       - "7750:7750" # backend
     container_name: pulsar-manager
     environment:
