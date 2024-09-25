@@ -8,21 +8,19 @@ services:
       - "8080:8080"
     #hostname: 127.0.0.1
     container_name: pulsar
-    environment:
-      PULSAR_STANDALONE_USE_ZOOKEEPER: 1
+    #environment:
+    #  PULSAR_STANDALONE_USE_ZOOKEEPER: 1
     volumes:
       - ./pulsardata:/pulsar/data
-      - ./pulsarconf://pulsar/conf
+      - ./pulsarconf:/pulsar/conf
 
   pulsar-mamanger:
     image: apachepulsar/pulsar-manager:v0.4.0
-    #command: [start-kafka.sh]
     ports:
       - "9527:9527" # frontend admin/apachepulsar
       - "7750:7750" # backend
     container_name: pulsar-manager
     environment:
       SPRING_CONFIGURATION_FILE: /pulsar-manager/pulsar-manager/application.properties
-
     depends_on:
       - pulsar
