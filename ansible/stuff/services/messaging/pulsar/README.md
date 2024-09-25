@@ -22,3 +22,6 @@ If you run Pulsar manager in the standalone mode, it should be set to "http://12
 In our setup use:
 service url: http://broker:8080
 bookie url: http://bookie:6650
+
+## Development
+https://pulsar.apache.org/docs/3.3.x/client-libraries-java/
