@@ -1,0 +1,7 @@
+Area|Date|Status|Count
+Sign-SE|20230520|SUCCESS|41
+Sign-SE|20230521|Sabaton|15
+Sign-SE|20181023|Therion|3
+Sign-SE|20171023|Draconian|4
+Sign-SE|20171023|Reminna|5
+Sign-SE|20191023|ISON|15

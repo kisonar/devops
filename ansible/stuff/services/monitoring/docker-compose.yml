@@ -10,9 +10,11 @@ services:
     restart: on-failure
     depends_on:
       - graylog
+    networks:
+      - graylog
 
   graylog:
-    image: graylog/graylog:4.2
+    image: graylog/graylog:6.0.0
     container_name: graylog
     ports:
       - "1514:1514"
@@ -23,28 +25,33 @@ services:
       - GRAYLOG_HTTP_EXTERNAL_URI=http://127.0.0.1:9000/
       - GRAYLOG_PASSWORD_SECRET=jakiesTamHasloPowinnoByc
       - GRAYLOG_ROOT_PASSWORD_SHA2=8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918 #admin/admin
+      - GRAYLOG_NODE_ID_FILE=/usr/share/graylog/data/config/node-id
+      - GRAYLOG_HTTP_BIND_ADDRESS=0.0.0.0:9000
+      - GRAYLOG_ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+      - GRAYLOG_MONGODB_URI=mongodb://mongo:27017/graylog
     depends_on:
       - mongo
       - elasticsearch
     volumes:
-      - ./graylog/config/server.conf:/etc/graylog/server/server.conf
-      - ./graylog/journal:/var/lib/graylog-server/journal
+      - ./graylog/config/server.conf:/etc/graylog/server/server.conf # /etc/graylog/server/server.conf
+      #- ./graylog/journal:/var/lib/graylog-server/journal # /var/lib/graylog-server/journal
+       # /usr/share/graylog/data/journal/
     links:
       - mongo
       - elasticsearch
+    networks:
+      - graylog
 
   mongo:
-    image: mongo:4.4
+    image: mongo:6.0.14
     restart: on-failure
     container_name: mongo
     ports:
       - "27017:27017"
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: example-database
-      MONGO_INITDB_ROOT_PASSWORD: mongo-user
-      MONGO_INITDB_DATABASE: mongo-pass
     volumes:
       - ./mongo/data/db:/data/db
+    networks:
+      - graylog
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.10.2
@@ -56,6 +63,33 @@ services:
       - ES_JAVA_OPTS=-Xms512m -Xmx512m
     volumes:
       - ./elasticsearch/data:/usr/share/elasticsearch/data
+    networks:
+      - graylog
+    ports:
+      - "9200:9200"
+
+  opensearch:
+    image: opensearchproject/opensearch:2.12.0
+    environment:
+      - "OPENSEARCH_JAVA_OPTS=-Xms1g -Xmx1g"
+      - "bootstrap.memory_lock=true"
+      - "discovery.type=single-node"
+      - "action.auto_create_index=false"
+      - "plugins.security.ssl.http.enabled=false"
+      - "plugins.security.disabled=true"
+      # Can generate a password for `OPENSEARCH_INITIAL_ADMIN_PASSWORD` using a linux device via:
+      # tr -dc A-Z-a-z-0-9_@#%^-_=+ < /dev/urandom  | head -c${1:-32}
+      - OPENSEARCH_INITIAL_ADMIN_PASSWORD=+_8r#wliY3Pv5-HMIf4qzXImYzZf-M=M
+    ulimits:
+      memlock:
+        hard: -1
+        soft: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    restart: "on-failure"
+    networks:
+      - graylog
 
   grafana:
     image: grafana/grafana-oss # grafana/grafana-oss grafana/grafana-enterprise
@@ -63,9 +97,11 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./grafana-storage:/var/lib/grafana
+      - ./grafana/data:/var/lib/grafana
     environment:
       - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource
+    networks:
+      - graylog
 
 # default admin/admin -> change password to admin1
 # Marcin/Marcin1
@@ -78,5 +114,11 @@ services:
     volumes:
       - ./prometheus/config/prometheus.yaml:/etc/prometheus/prometheus.yaml:ro
       - ./prometheus/data:/prometheus
+    networks:
+      - graylog
 
 # https://dev.to/chafroudtarek/part-1-how-to-set-up-grafana-and-prometheus-using-docker-i47
+
+networks:
+  graylog:
+    driver: bridge
