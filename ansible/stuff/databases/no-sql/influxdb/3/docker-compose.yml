@@ -19,3 +19,5 @@ services:
     image: timeseriesadmin/timeseriesadmin:latest
     ports:
       - "8085:8085"
+    depends_on:
+      - influxdb3-core
