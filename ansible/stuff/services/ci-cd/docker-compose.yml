@@ -13,7 +13,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     user: root
       
-  #default http://localhost:8081
+  # default http://localhost:8081
   # mapped http://localhost:8083
   nexus:
     image: sonatype/nexus3:3.80.0
@@ -21,6 +21,6 @@ services:
     ports:
       - "8083:8081"
       - "443:443"
-    user: root # default user is a bit different one
+    #user: root # default user is a bit different one
     volumes:
      - ./nexus:/nexus-data
