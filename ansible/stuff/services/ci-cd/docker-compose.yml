@@ -14,11 +14,11 @@ services:
       
   #http://localhost:8081
   nexus:
-    image: sonatype/nexus3
+    image: sonatype/nexus3:3.80.0
     container_name: nexus
     ports:
       - "8083:8081"
       - "443:443"
-    user: root
+    user: root # default user is a bit different one
     volumes:
      - ./nexus:/nexus-data
