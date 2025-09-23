@@ -2,7 +2,7 @@ version: "3.7"
 services:
 
   redis:
-    image: redis:7.0.7
+    image: redis:8.2.1
     ports:
       - "6379:6379"
     command: redis-server --save 60 1
@@ -10,12 +10,13 @@ services:
       - REDIS_PASSWORD=mandingo23cm
       - loglevel=warning
       - REDIS_REPLICATION_MODE=master
+      - name=redis
     volumes:
-      - ./cache-redis:/data
+      - ./redis-data:/data
 
   redisinsight:
     image: redislabs/redisinsight:1.13.1
     ports:
       - "8001:8001"
     volumes:
-      - ./cache-redisinsight:/db
+      - ./redis-client:/db
