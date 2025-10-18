@@ -16,6 +16,7 @@ Manually setup proxy 10.144.1.10:8080
 docker-compose up -d nexus
 Your admin user password is located in /nexus-data/admin.password on the server.
 You must set it up for first run: e.g Nexus2022
+After password setup file /nexus-data/admin.password is being removed. 
 ```
 #### Notes
 ```

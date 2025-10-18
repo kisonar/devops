@@ -1,0 +1,10 @@
+version: '3.7'
+services:
+  nodered:
+    image: nodered/node-red
+    container_name: nodered
+    ports:
+      - "1880:1880"
+    volumes:
+      - ./local-data/node_red_data:/data
+    restart: always
