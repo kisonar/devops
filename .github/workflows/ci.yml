@@ -1,0 +1,13 @@
+name: 'Kisonar devops'
+
+on: [ push ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: GitHub checkout action
+        uses: actions/checkout@v6
