@@ -1,0 +1,204 @@
+[
+    {
+        "id": "0a86f8abf0549012",
+        "type": "tab",
+        "label": "Marcin Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "fb2330da2352865e",
+        "type": "tab",
+        "label": "Marcin Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c53076d2c79a819c",
+        "type": "inject",
+        "z": "0a86f8abf0549012",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 220,
+        "wires": [
+            [
+                "8c987970d4c6ce72"
+            ]
+        ]
+    },
+    {
+        "id": "8c987970d4c6ce72",
+        "type": "http request",
+        "z": "0a86f8abf0549012",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.csv",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 410,
+        "y": 220,
+        "wires": [
+            [
+                "844a5fcbc6fd953b"
+            ]
+        ]
+    },
+    {
+        "id": "844a5fcbc6fd953b",
+        "type": "csv",
+        "z": "0a86f8abf0549012",
+        "name": "",
+        "spec": "rfc",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": true,
+        "include_null_values": true,
+        "x": 610,
+        "y": 200,
+        "wires": [
+            [
+                "4c89324ca3d21b72"
+            ]
+        ]
+    },
+    {
+        "id": "4c89324ca3d21b72",
+        "type": "debug",
+        "z": "0a86f8abf0549012",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "4205dc733844f3ec",
+        "type": "inject",
+        "z": "fb2330da2352865e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 300,
+        "wires": [
+            [
+                "0b58dfcf902fe56c"
+            ]
+        ]
+    },
+    {
+        "id": "0b58dfcf902fe56c",
+        "type": "http request",
+        "z": "fb2330da2352865e",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.csv",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 390,
+        "y": 300,
+        "wires": [
+            [
+                "361a6ca4102b0b63"
+            ]
+        ]
+    },
+    {
+        "id": "361a6ca4102b0b63",
+        "type": "csv",
+        "z": "fb2330da2352865e",
+        "name": "",
+        "spec": "rfc",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": true,
+        "include_null_values": true,
+        "x": 590,
+        "y": 280,
+        "wires": [
+            [
+                "7d862e1a398381da"
+            ]
+        ]
+    },
+    {
+        "id": "7d862e1a398381da",
+        "type": "debug",
+        "z": "fb2330da2352865e",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 280,
+        "wires": []
+    }
+]
