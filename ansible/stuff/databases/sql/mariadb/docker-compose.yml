@@ -1,8 +1,8 @@
 version: '3.7'
 
 services:
-  db:
-    image: mariadb/server:10.4
+  mariadb:
+    image: mariadb:12.2.2-noble
     ports:
       - "3306:3306"
     environment:
@@ -15,6 +15,7 @@ services:
       - ./storage:/var/lib/mysql
       - ./sql:/docker-entrypoint-initdb.d/
 
+  # connect to database mariadb with proper user/pass and default_database
   adminer:
     image: adminer
     restart: always
