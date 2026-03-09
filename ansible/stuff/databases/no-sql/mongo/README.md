@@ -20,8 +20,8 @@ p: my-password
 database: my-database
 
 admin credential:
-l: admin
-p: password
+l: adminUser
+p: passwordUser
 ```
 
 #### Searches
