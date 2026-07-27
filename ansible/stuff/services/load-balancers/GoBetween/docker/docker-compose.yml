@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   gobetween:
-    image: yyyar/gobetween:0.7.0
+    image: yyyar/gobetween:0.8.1
     container_name: gobetween
     ports:
       #Grafana
