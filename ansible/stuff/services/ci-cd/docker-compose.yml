@@ -16,7 +16,7 @@ services:
   # default http://localhost:8081
   # mapped http://localhost:8083
   nexus:
-    image: sonatype/nexus3:3.80.0
+    image: sonatype/nexus3:3.94.1
     container_name: nexus
     ports:
       - "8083:8081"
