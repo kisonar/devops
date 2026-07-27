@@ -6,10 +6,10 @@ updates:
       interval: "weekly"
   - package-ecosystem: "docker-compose"
     directories:
-      - "/ansible/stuff/services/*"
-      - "/ansible/stuff/databases/*"
+      #- "/ansible/stuff/services/*"
+      #- "/ansible/stuff/databases/*"
       - "/ansible/stuff/databases/sql/mariadb"
-      - "**/*"
+      #- "**/*"
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 5
