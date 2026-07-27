@@ -6,12 +6,13 @@ updates:
       interval: "weekly"
   - package-ecosystem: "docker-compose"
     directories:
-      #- "/ansible/stuff/services/*"
-      #- "/ansible/stuff/databases/*"
+      - "/ansible/stuff/databases/no-sql/dynamodb"
+      - "/ansible/stuff/databases/no-sql/elk"
       - "/ansible/stuff/databases/sql/mariadb"
       - "/ansible/stuff/databases/sql/mysql"
-      - "/ansible/stuff/databases/sql/oracle/**/*"
-      #- "**/*"
+      - "/ansible/stuff/databases/sql/oracle/11xe/docker"
+      - "/ansible/stuff/databases/sql/oracle/12cR2"
+
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 5
