@@ -14,6 +14,12 @@ updates:
       - "/ansible/stuff/databases/sql/mariadb"
       - "/ansible/stuff/databases/sql/mysql"
       - "/ansible/stuff/databases/sql/oracle"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+
+  - package-ecosystem: "docker-compose"
+    directories:
       - "/ansible/stuff/services/ci-cd"
       - "/ansible/stuff/services/httpd"
       - "/ansible/stuff/services/ldap/openldap"
@@ -29,7 +35,6 @@ updates:
       - "/ansible/stuff/services/remote-access"
       - "/ansible/stuff/services/sonarqube"
       - "/ansible/stuff/services/wiremock"
-
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 5
