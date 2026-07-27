@@ -16,7 +16,7 @@ services:
       - ./mondo-data:/data/db
 
   mongo-express:
-    image: mongo-express:1.0.2-20
+    image: mongo-express:1-18
     restart: always
     ports:
       - "9000:8081"
