@@ -9,6 +9,7 @@ updates:
       #- "/ansible/stuff/services/*"
       #- "/ansible/stuff/databases/*"
       - "/ansible/stuff/databases/sql/mariadb"
+      - "/ansible/stuff/databases/sql/mysql"
       - "/ansible/stuff/databases/sql/oracle/**/*"
       #- "**/*"
     schedule:
