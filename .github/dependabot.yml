@@ -9,6 +9,6 @@ updates:
     schedule:
       interval: "weekly"
   - package-ecosystem: "docker-compose"
-    directory: "/"
+    directory: "/ansible/stuff/services/ci-cd"
     schedule:
       interval: "weekly"
