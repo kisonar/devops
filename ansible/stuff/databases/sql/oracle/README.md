@@ -1,4 +1,23 @@
-# Client
+# Oracle 12.2 Standard Edition
+
+## Runtime
 ```
-Use sqlcl-19.2.1.246.1707.zip which can be downloaded from Oracle official web site.
+Check if oracle directory has 666 permissions
+```
+
+## Connections
+``` 
+Database name: XE
+Instance name: xe
+
+port: 1521
+sid: xe
+service name: xe
+username: system/sys
+password: oracle
+
+http://localhost:8080/em
+user: sys
+password: oracle
+connect as sysdba: true
 ```
