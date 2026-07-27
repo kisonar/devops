@@ -5,7 +5,9 @@ updates:
     schedule:
       interval: "weekly"
   - package-ecosystem: "docker-compose"
-    directory: "/ansible/stuff/services/*"
+    directories:
+      - "/ansible/stuff/services/*"
+      - "/ansible/stuff/databases/*"
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 5
