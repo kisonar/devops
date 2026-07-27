@@ -8,6 +8,9 @@ updates:
     directories:
       - "/ansible/stuff/databases/no-sql/dynamodb"
       - "/ansible/stuff/databases/no-sql/elk"
+      - "/ansible/stuff/databases/no-sql/influxdb"
+      - "/ansible/stuff/databases/no-sql/mongo"
+      - "/ansible/stuff/databases/no-sql/redis"
       - "/ansible/stuff/databases/sql/mariadb"
       - "/ansible/stuff/databases/sql/mysql"
       - "/ansible/stuff/databases/sql/oracle/11xe/docker"
