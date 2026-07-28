@@ -5,7 +5,7 @@ services:
   # mapped http://localhost:8082
   jenkins:
     container_name: jenkins
-    image: jenkins/jenkins:lts
+    image: jenkins/jenkins:2.575
     ports:
       - "8082:8080"
     volumes:
@@ -21,6 +21,7 @@ services:
     ports:
       - "8083:8081"
       - "443:443"
-    #user: root # default user is a bit different one
+    #u ser: root # default user is a bit different one
+    # below requires proper permissions on the host machine for the nexus-data folder
     volumes:
      - ./nexus:/nexus-data
