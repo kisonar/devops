@@ -1,8 +1,10 @@
 services:
   rabbit-mq:
     container_name: rabbit-mq
-    image: rabbitmq:4.3.4
+    image: rabbitmq:4.3.4-management
     ports:
       - "7000:15672" # web UI port
       - "5672:5672" # TCP port
-    user: root
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=admin
