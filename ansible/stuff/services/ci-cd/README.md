@@ -7,6 +7,9 @@
 docker-compose up -d jenkins
 cat buildTools/ci-cd/jenkins/secrets/initialAdminPassword
 Manually setup proxy 10.144.1.10:8080
+
+default http://localhost:8080
+mapped http://localhost:8082
 ```
 
 ## Nexus
@@ -17,6 +20,9 @@ docker-compose up -d nexus
 Your admin user password is located in /nexus-data/admin.password on the server.
 You must set it up for first run: e.g Nexus2022
 After password setup file /nexus-data/admin.password is being removed. 
+
+default http://localhost:8081
+mapped http://localhost:8083
 ```
 #### Notes
 ```

@@ -1,5 +1,3 @@
-version: '3.7'
-
 services:
   mariadb:
     image: mariadb:12.3.2-noble
@@ -14,8 +12,6 @@ services:
     volumes:
       - ./storage:/var/lib/mysql
       - ./sql:/docker-entrypoint-initdb.d/
-
-  # connect to database mariadb with proper user/pass and default_database
   adminer:
     image: adminer
     restart: always

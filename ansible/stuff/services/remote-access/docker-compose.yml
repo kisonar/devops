@@ -1,8 +1,4 @@
-version: "3.7"
-
 services:
-
-  # http://localhost:8089/guacamole
   guacamole:
     image: guacamole/guacamole:1.4.0
     ports:
@@ -21,7 +17,6 @@ services:
     links:
       - mysql:mysql
       - guacd:guacd
-
   guacd:
     image: guacamole/guacd:1.4.0
     ports:
@@ -31,7 +26,6 @@ services:
     environment:
       ENABLE_WEBSOCKET: "true"
       GUACD_LOG_LEVEL: "debug" # debug
-
   mysql:
     image: mysql:8.0.16
     restart: always
