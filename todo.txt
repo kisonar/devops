@@ -1,4 +1,3 @@
-elk
 mongo
 redis
 gobetween

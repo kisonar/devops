@@ -1,6 +1,4 @@
-version: '3.6'
 services:
-
   elasticsearch:
     image: elasticsearch:9.4.4
     container_name: elasticsearch
@@ -8,11 +6,10 @@ services:
       - "9200:9200"
     environment:
       - http.host=elasticsearch
-      - xpack.security.enabled=false
-      - discovery.seed_hosts=localhost
-    volumes:
-      - ./elasticsearch/data:/usr/share/elasticsearch/data
-
+      - discovery.type=single-node
+    # must be locally writable by the Elasticsearch process (UID 1000)
+    #volumes:
+    #  - ./elasticsearch/data:/usr/share/elasticsearch/data
   kibana:
     image: kibana:9.4.4
     container_name: kibana
