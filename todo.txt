@@ -1,6 +1,5 @@
 gobetween
 haproxy
 nginx
-httpd
 
 oracle - big image
