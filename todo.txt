@@ -1,7 +1,5 @@
-elk
-mongo
-redis
 gobetween
 haproxy
 nginx
-httpd
+
+oracle - big image

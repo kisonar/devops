@@ -1,7 +1,4 @@
-version: '3.8'
-
 services:
-
   influxdb3-core:
     container_name: influxdb3-core
     image: influxdb:3-core
@@ -13,7 +10,6 @@ services:
       - --node-id=node0
       - --object-store=file
       - --data-dir=/var/lib/influxdb3
-
   influx-client:
     container_name: influxdb3-core-client
     image: timeseriesadmin/timeseriesadmin:latest

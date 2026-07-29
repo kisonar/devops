@@ -1,5 +1,3 @@
-version: '3.7'
-
 services:
   oracle-db-12c-se:
     image: quay.io/maksymbilenko/oracle-12c

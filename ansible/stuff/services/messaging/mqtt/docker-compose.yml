@@ -1,8 +1,7 @@
 services:
-
   mqtt:
     container_name: mqtt_hivemq
-    image: hivemq/hivemq4:latest
+    image: hivemq/hivemq4:4.53.0
     ports:
       - "1883:1883"
-      - "8081:8081"
+      - "8080:8080"

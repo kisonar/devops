@@ -1,6 +1,4 @@
-version: '3'
 services:
-
   # Kafka
   zookeeper:
     image: wurstmeister/zookeeper
@@ -10,7 +8,6 @@ services:
     hostname: zookeeper
     depends_on:
       - adminer
-
   kafka:
     image: wurstmeister/kafka
     command: [start-kafka.sh]

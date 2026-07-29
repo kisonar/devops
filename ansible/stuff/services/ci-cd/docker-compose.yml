@@ -1,8 +1,4 @@
-version: '3.6'
-
 services:
-  # default http://localhost:8080
-  # mapped http://localhost:8082
   jenkins:
     container_name: jenkins
     image: jenkins/jenkins:2.575
@@ -12,9 +8,6 @@ services:
       - ./jenkins:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
     user: root
-      
-  # default http://localhost:8081
-  # mapped http://localhost:8083
   nexus:
     image: sonatype/nexus3:3.94.1
     container_name: nexus
@@ -23,5 +16,5 @@ services:
       - "443:443"
     #u ser: root # default user is a bit different one
     # below requires proper permissions on the host machine for the nexus-data folder
-    volumes:
-     - ./nexus:/nexus-data
+    #volumes:
+    # - ./nexus:/nexus-data
