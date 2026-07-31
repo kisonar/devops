@@ -1,4 +1,3 @@
-version: '3.6'
 services:
   nxlog:
     image: nxlog/nxlog-ce:2.10.2150
