@@ -9,7 +9,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     user: root
   nexus:
-    image: sonatype/nexus3:3.94.1
+    image: sonatype/nexus3:3.95.0
     container_name: nexus
     ports:
       - "8083:8081"
