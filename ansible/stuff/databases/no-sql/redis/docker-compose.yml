@@ -1,6 +1,6 @@
 services:
   redis:
-    image: redis:8.10.0
+    image: redis:8.10.1
     ports:
       - "6379:6379"
     command: redis-server --save 60 1
