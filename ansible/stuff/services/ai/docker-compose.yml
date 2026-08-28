@@ -1,0 +1,11 @@
+services:
+  local-ai:
+    container_name: local-ai
+    image: localai/localai:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./models:/models:cached
+      - ./backends:/backends
+      - ./configuration:/configuration
+      - ./data:/data
