@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   haproxy:
-    image: haproxy:3.4.3
+    image: haproxy:3.4.4
     container_name: haproxy
     ports:
       - "{{ port_rsyslog_514 }}:{{ port_rsyslog_514 }}"
