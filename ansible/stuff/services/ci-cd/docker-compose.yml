@@ -1,7 +1,7 @@
 services:
   jenkins:
     container_name: jenkins
-    image: jenkins/jenkins:2.578
+    image: jenkins/jenkins:2.579
     ports:
       - "8082:8080"
     volumes:
