@@ -11,7 +11,7 @@ services:
     #volumes:
     #  - ./elasticsearch/data:/usr/share/elasticsearch/data
   kibana:
-    image: kibana:9.5.2
+    image: kibana:9.5.3
     container_name: kibana
     ports:
       - "5601:5601"
