@@ -1,6 +1,6 @@
 services:
   mongo:
-    image: mongo:9.0.4
+    image: mongo:9.0.8
     restart: always
     ports:
       - "27017:27017"
@@ -9,9 +9,11 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: passwordUser
       MONGO_INITDB_DATABASE: admin
     volumes:
-      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
       - ./mondo-data:/data/db
   mongo-express:
+    depends_on:
+      - mongo
     image: mongo-express:1-18
     restart: always
     ports:

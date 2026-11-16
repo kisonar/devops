@@ -1,5 +1,14 @@
 # MongodDB
 
+## 9.0.8 does not work on MacOs 27.2 and Podman 5.8.3
+```
+MongoDB cannot start: 
+Linux kernel versions 6.19.0 through 7.0.13 have a known incompatibility with this version of MongoDB. 
+See https://jira.mongodb.org/browse/SERVER-121912 for more information.
+
+# Last working version is 8.3.11
+```
+
 ### Urls
 
 ``` 
