@@ -3,7 +3,7 @@ services:
     container_name: rabbit-mq
     image: rabbitmq:4.3.4-management
     ports:
-      - "7000:15672" # web UI port
+      - "15672:15672" # web UI port
       - "5672:5672" # TCP port
     environment:
       - RABBITMQ_DEFAULT_USER=admin

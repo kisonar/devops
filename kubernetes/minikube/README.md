@@ -21,3 +21,9 @@ minikube stop
 minikube config set memory 9001
 minikube addons list
 minikube delete --all
+
+kubectl apply -f depl.yaml
+kubectl delete -f depl.yaml
+
+kubectl get deployments
+kubectl get pods

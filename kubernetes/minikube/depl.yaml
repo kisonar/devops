@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: rabbit
+  name: rabbit
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rabbit
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: rabbit
+    spec:
+      containers:
+        - image: rabbitmq:4.3.4-management
+          name: rabbit
+          imagePullPolicy: Always  # this is additionon
+          resources: {}
+
