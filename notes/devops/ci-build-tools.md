@@ -1,6 +1,6 @@
 # Build tools
 
-## Gradle 7.4.x
+## Gradle
 ```
 gradle clean build 
 gradle clean build -x test => skip tests
@@ -14,7 +14,7 @@ gradle dependencyUpdates => requires plugin id 'com.github.ben-manes.versions' v
 scopes
 http://andresalmiray.com/maven-scopes-vs-gradle-configurations/
 ```
-## Maven 3.8.x
+## Maven 3.x
 ```
 set MAVEN_OPTS=-Xmx2000m -XX:MaxPermSize=2000m
 
