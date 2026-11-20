@@ -23,8 +23,8 @@ minikube addons list
 minikube delete --all
 minikube ip
 
-kubectl apply -f depl.yaml
-kubectl delete -f depl.yaml
+kubectl apply -f <file>.yaml
+kubectl delete -f <file>.yaml
 
 kubectl get deployments
 kubectl get pods
