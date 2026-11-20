@@ -27,3 +27,8 @@ kubectl delete -f depl.yaml
 
 kubectl get deployments
 kubectl get pods
+
+kubectl get services
+kubectl expose deployment/rabbit --type="NodePort" --port 15672 service/rabbit
+
+minikube ip

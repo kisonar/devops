@@ -19,5 +19,11 @@ spec:
         - image: rabbitmq:4.3.4-management
           name: rabbit
           imagePullPolicy: Always  # this is additionon
+          env:
+            - name: RABBITMQ_DEFAULT_USER
+              value: admin
+            - name: RABBITMQ_DEFAULT_PASS
+              value: admin
           resources: {}
+
 
