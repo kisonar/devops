@@ -16,8 +16,8 @@ https://minikube.sigs.k8s.io/docs/
 
 ## Commands
 minicube start
+minikube dashboard => WEB UI
 minikube stop
 minikube config set memory 9001
 minikube addons list
 minikube delete --all
-minikube dashboard
