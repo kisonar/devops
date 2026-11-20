@@ -21,14 +21,11 @@ minikube stop
 minikube config set memory 9001
 minikube addons list
 minikube delete --all
+minikube ip
 
 kubectl apply -f depl.yaml
 kubectl delete -f depl.yaml
 
 kubectl get deployments
 kubectl get pods
-
 kubectl get services
-kubectl expose deployment/rabbit --type="NodePort" --port 15672 service/rabbit
-
-minikube ip
