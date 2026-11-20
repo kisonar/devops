@@ -14,8 +14,10 @@ sudo install minikube-linux-amd64 /usr/local/bin/minikube
 ## Documentation
 https://minikube.sigs.k8s.io/docs/
 
+Kubernetes only exposes NodePorts in the range 30000–32767
+
 ## Commands
-minicube start
+minikube start
 minikube dashboard => WEB UI
 minikube stop
 minikube config set memory 9001
